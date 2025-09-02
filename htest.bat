@@ -55,4 +55,5 @@ for %%F in (%*) do (
 
 ghci < "%TEMP_SCRIPT%"
 
+
 endlocal
