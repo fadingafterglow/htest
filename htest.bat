@@ -19,9 +19,7 @@ set "IS_FIRST=1"
 
 for %%F in (%*) do (
 	if exist %%F (
-		set "FILE=%%F"
 		set "FUNC=%%~nF"
-
 		set "LINE_COUNT=0"
 		set "FUNC_CALL="
 		set "EXPECTED="
@@ -32,8 +30,7 @@ for %%F in (%*) do (
 			
 			if !IS_EVEN_LINE! equ 1 (
 				set "FUNC_CALL=!FUNC! %%A"
-			)
-			if !IS_EVEN_LINE! equ 0 (
+			) else (
 				set "EXPECTED=%%A"
 
 				if !IS_FIRST! equ 0 (
@@ -49,7 +46,7 @@ for %%F in (%*) do (
 )
 
 >> "%TEMP_SCRIPT%" echo ]
->> "%TEMP_SCRIPT%" echo mapM_ ^(\ t -^> putStrLn ^(if fst t then snd t ++ "\nPASS\n" else snd t ++ "\nFAIL\n"^)^) tests
+>> "%TEMP_SCRIPT%" echo mapM_ ^(\ t -^> putStrLn ^(snd t ++ ^(if fst t then "\nPASS\n" else "\nFAIL\n"^)^)^) tests
 >> "%TEMP_SCRIPT%" echo putStrLn ^("Total: " ++ show ^(length tests^)^)
 >> "%TEMP_SCRIPT%" echo putStrLn ^("Failed: " ++ show ^(length ^(filter ^(\ t -^> fst t == False^) tests^)^)^)
 
