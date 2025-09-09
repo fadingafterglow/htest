@@ -39,7 +39,7 @@ for %%F in (%*) do (
 					set "IS_FIRST=0"
 				)
 				
-				<NUL set /p "=let actual = (%MODULE%.!FUNC_CALL!); expected = (!EXPECTED!) in (expected == actual, "!FUNC_CALL!" ++ "\nExpected: " ++ show expected ++ "\nActual: " ++ show actual)" >> "%TEMP_SCRIPT%"
+				<NUL set /p "=let actual = (%MODULE%.!FUNC_CALL!); expected = (!EXPECTED!) in (expected == actual, "!FUNC_CALL:"=\"!" ++ "\nExpected: " ++ show expected ++ "\nActual: " ++ show actual)" >> "%TEMP_SCRIPT%"
 			)
 		)
 	)
