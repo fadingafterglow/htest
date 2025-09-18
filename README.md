@@ -9,10 +9,12 @@
   <li>Filename - name of the function</li>
   <li>Every test case consists of 2 lines: first line - arguments, second line - result</li>
   <li>Lines are passed directly to GHCi without additional processing</li>
+  <li>Use #/ at the beginning of a line to create a comment</li>
+  <li>Use #import at the beginning of a line to load an additional module</li>
 </ul>
 
 <h1>Usage</h1>
 <p>
-  Run <code>htest ModuleName file1 [file2 ...]</code> in folder with your haskell module. <br>
+  Run <code>htest ModuleName file1 [file2 ...]</code> in the folder with your Haskell module. <br>
   Example: <code>htest Task01 .\01\*.txt</code>
 </p>
