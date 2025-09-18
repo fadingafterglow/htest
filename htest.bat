@@ -25,7 +25,6 @@ for %%F in (%*) do (
 	
 		for /f "usebackq tokens=* delims=" %%A in ("%%F") do (
 			set "LINE=%%A"
-			echo "!LINE!"
 	
 			if "!LINE:~0,2!" == "#/" (
 				REM skip comment
