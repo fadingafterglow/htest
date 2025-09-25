@@ -1,0 +1,53 @@
+("", "", True) 0 ""
+""
+
+("", "", True) 0 "abc"
+"abc"
+
+("", "", True) 1 "abc"
+"abc"
+
+("", "", True) 2 "abc"
+"abc"
+
+("", "", True) 3 "abc"
+"abc"
+
+("", "abc", True) 0 ""
+"abc"
+
+("", "qq", True) 0 "abc"
+"qqabc"
+
+("", "qq", True) 1 "abc"
+"aqqbc"
+
+("", "qq", True) 2 "abc"
+"abqqc"
+
+("", "qq", True) 3 "abc"
+"abcqq"
+
+("a", "qq", True) 0 "aaa"
+"qqaa"
+
+("a", "qq", True) 1 "aaa"
+"aqqa"
+
+("a", "qq", True) 2 "aaa"
+"aaqq"
+
+("aa", "qq", True) 0 "aaa"
+"qqa"
+
+("aa", "qq", True) 1 "aaa"
+"aqq"
+
+("aaa", "qq", True) 0 "aaa"
+"qq"
+
+("ab", "c", False) 2 "ioab"
+"ioc"
+
+("", "ac", True) 0 "ioab"
+"acioab"
