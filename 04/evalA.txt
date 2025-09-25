@@ -1,0 +1,53 @@
+[] 0 ""
+Just ""
+
+[] 100 "abc"
+Just "abc"
+
+[("", "", False)] 0 ""
+Nothing
+
+[("", "", False)] 100 ""
+Nothing
+
+[("", "", True)] 0 ""
+Nothing
+
+[("", "", True)] 1 ""
+Just ""
+
+[("", "qwe", True)] 100 ""
+Just "qwe"
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 0 "q"
+Just "q"
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 0 "a"
+Nothing
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 1 "a"
+Nothing
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 2 "a"
+Nothing
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 3 "a"
+Just "d"
+
+[("c", "d", True), ("b", "c", False), ("a", "b", False)] 4 "a"
+Just "d"
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] 10 "abb"
+Nothing
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] 14 "abb"
+Just "bba"
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] 100 "abb"
+Just "bba"
+
+addEnd 5 "ab"
+Just "ababb"
+
+addEnd 5 "ababa"
+Nothing

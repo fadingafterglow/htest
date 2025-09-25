@@ -1,0 +1,17 @@
+[] "abc"
+[]
+
+[("abccba", "b", False)] "abc"
+[]
+
+[("a", "b", False), ("a", "c", False), ("a", "d", True)] "aaa"
+[(("a", "b", False), 0), (("a", "b", False), 1), (("a", "b", False), 2), (("a", "c", False), 0), (("a", "c", False), 1), (("a", "c", False), 2), (("a", "d", True), 0), (("a", "d", True), 1), (("a", "d", True), 2)]
+
+[("ad", "qwe", False), ("da", "zxc", True)] "adad"
+[(("ad", "qwe", False), 0), (("ad", "qwe", False), 2), (("da", "zxc", True), 1)]
+
+clearBeginOne "cab"
+[(("ca", "", True), 0), (("", "c", False), 0), (("", "c", False), 1), (("", "c", False), 2), (("", "c", False), 3)]
+
+clearBeginOne ""
+[(("", "c", False), 0)]

@@ -1,0 +1,32 @@
+"" ("", "abc", True)
+[(("", "abc", True), 0)]
+
+"" ("abc", "", True)
+[]
+
+"aaa" ("", "qwe", True)
+[(("", "qwe", True), 0), (("", "qwe", True), 1), (("", "qwe", True), 2), (("", "qwe", True), 3)]
+
+"aaa" ("a", "qwe", True)
+[(("a", "qwe", True), 0), (("a", "qwe", True), 1), (("a", "qwe", True), 2)]
+
+"aaa" ("aa", "qwe", True)
+[(("aa", "qwe", True), 0), (("aa", "qwe", True), 1)]
+
+"aaa" ("aaa", "qwe", True)
+[(("aaa", "qwe", True), 0)]
+
+"aaa" ("aaaa", "qwe", True)
+[]
+
+"abcdcabaccbc" ("bc", "", True)
+[(("bc", "", True), 1), (("bc", "", True), 10)]
+
+"abcdcabaccbc" ("da", "", True)
+[]
+
+"aaabaac" ("aa","b",False)
+[(("aa","b",False), 0), (("aa","b",False), 1), (("aa","b",False),4)]
+
+"aaabaac" ("ca","b",False)
+[]

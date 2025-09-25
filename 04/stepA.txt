@@ -1,0 +1,59 @@
+[] (True, 0, "abc")
+(False, 0, "abc")
+
+[("a", "b", False)] (True, 5, "qwe")
+(False, 5, "qwe")
+
+[("a", "b", False)] (True, 0, "abc")
+(True, 1, "bbc")
+
+[("a", "b", True)] (True, 0, "abc")
+(False, 1, "bbc")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 0, "abb")
+(True, 1, "cabb")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 1, "cabb")
+(True, 2, "bcab")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 2, "bcab")
+(True, 3, "bbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 3, "bbca")
+(True, 4, "cbbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 4, "cbbca")
+(True, 5, "bcbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 5, "bcbca")
+(True, 6, "cbcbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 6, "cbcbca")
+(True, 7, "ccbcbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 7, "ccbcbca")
+(True, 8, "dbcbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 8, "dbcbca")
+(True, 9, "bdcbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 9, "bdcbca")
+(True, 10, "bdbca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 10, "bdbca")
+(True, 11, "bbdca")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 11, "bbdca")
+(True, 12, "bbda")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 12, "bbda")
+(True, 13, "bbad")
+
+[("cc", "d", False), ("dc", "d", False), ("da", "ad", False), ("db", "bd", False), ("d", "", True), ("caa", "aca", False), ("cab", "bca", False), ("cba", "acb", False), ("cbb", "bcb", False), ("", "c", False)] (True, 13, "bbad")
+(False, 14, "bba")
+
+addEnd (True, 0, "")
+(True, 1, "c")
+
+addEnd (True, 1, "c")
+(False, 2, "abb")

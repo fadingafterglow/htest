@@ -1,0 +1,35 @@
+"" ""
+True
+
+"" "a"
+True
+
+"" "abc"
+True
+
+"a" ""
+False
+
+"abc" ""
+False
+
+"abc" "qwe"
+False
+
+"abe" "baec"
+False
+
+"ab" "abbb"
+True
+
+"ab" "aabbb"
+False
+
+"ab" "babbb"
+False
+
+"qweasdzxc" "qweasdzxcrtyfghcvb"
+True
+
+"qweasdzxcrtyfghcvb" "qweasdzxc"
+False
