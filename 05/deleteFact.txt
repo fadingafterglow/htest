@@ -1,0 +1,29 @@
+#import Data.Function
+#import Data.List
+
+'S' "ab" [('S', "abc"), ('S', "abd"), ('S', "qwe"), ('S', "rty"), ('S', "")] & sort
+[('S', "abA"), ('A', "c"), ('A', "d"), ('S', "qwe"), ('S', "rty"), ('S', "")] & sort
+
+'S' "ab" [('S', "abc"), ('S', "abd"), ('S', "ab"), ('S', "qwe"), ('S', "rty")] & sort
+[('S', "abA"), ('A', "c"), ('A', "d"), ('A', ""), ('S', "qwe"), ('S', "rty")] & sort
+
+'S' "ab" [('S', "abc"), ('S', "abd"), ('S', "ab"), ('S', "qwe"), ('S', "rty"), ('A', "ab"), ('A', "a")] & sort
+[('S', "abB"), ('B', "c"), ('B', "d"), ('B', ""), ('S', "qwe"), ('S', "rty"), ('A', "ab"), ('A', "a")] & sort
+
+'A' "a" [('S', "abc"), ('S', "abd"), ('S', "ab"), ('S', "qwe"), ('S', "rty"), ('A', "ab"), ('A', "a")] & sort
+[('S', "abc"), ('S', "abd"), ('S', "ab"), ('S', "qwe"), ('S', "rty"), ('A', "aB"), ('B', "b"), ('B', "")] & sort
+
+'S' "ab" [('S', "abc"), ('S', "abd"), ('B', "qwe"), ('B', "qwv"), ('C', "zxw"), ('C', "zxf")] & (fst . head)
+'S'
+
+'B' "qw" [('S', "abc"), ('S', "abd"), ('B', "qwe"), ('B', "qwv"), ('C', "zxw"), ('C', "zxf")] & (fst . head)
+'S'
+
+'C' "zx" [('S', "abc"), ('S', "abd"), ('B', "qwe"), ('B', "qwv"), ('C', "zxw"), ('C', "zxf")] & (fst . head)
+'S'
+
+'S' "ab" [('S', "abrQ"), ('S', "abWd"), ('S', "qwe"), ('S', "rty"), ('S', "")] & sort
+[('S', "abA"), ('A', "rQ"), ('A', "Wd"), ('S', "qwe"), ('S', "rty"), ('S', "")] & sort
+
+'S' "a" gr0 & sort
+[('S',"aB"), ('B',"AS"), ('B',""), ('A',"SbA"), ('A',"ba")] & sort

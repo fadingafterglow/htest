@@ -1,0 +1,32 @@
+#import Data.Function
+#import Data.List
+
+[('S', "S")]
+""
+
+[('S', "S"), ('S', "Sa"), ('S', "Sq")]
+""
+
+[('S', "q")]
+""
+
+[('S', "q"), ('S', "a"), ('S', "v")]
+""
+
+[('S', "Sq"), ('S', "q")]
+"S"
+
+[('S', "Sq"), ('S', "q"), ('A', "Aq"), ('A', "A")]
+"S"
+
+[('S', "Sq"), ('S', "S"), ('A', "Aq"), ('A', "a")]
+"A"
+
+[('S', "Sq"), ('S', "q"), ('A', "Aq"), ('A', "a")] & sort
+"SA" & sort
+
+[('S', "Sq"), ('S', "q"), ('A', "Aq"), ('A', "a"), ('B', "asd"), ('B', "qwe"), ('B', "Ba")] & sort
+"SAB" & sort
+
+gr2 & sort
+"TE" & sort

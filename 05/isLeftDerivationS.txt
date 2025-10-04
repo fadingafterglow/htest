@@ -1,0 +1,56 @@
+[] []
+False
+
+[('S', "a")] []
+False
+
+[] ["S"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "qwe"]
+True
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["A", "a"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["qwe"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["aAb", "a"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "qwe", "asd"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "qwe", "Aqwe"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adABb", "adaBb", "adaqb"]
+True
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adABb", "adaBb", "adab"]
+True
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adABb", "adaBb"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adABb"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aaAb", "aadABb", "aadaBb", "aadaqb"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "ab"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adAB", "adaB", "adaq"]
+False
+
+[('S', "aAb"), ('S', "qwe"), ('A', "dAB"), ('A', "a"), ('B', "q"), ('B', "")] ["S", "aAb", "adABb", "adAqb", "adaqb"]
+False
+
+gr0 gr0S
+True
+
+gr0 gr0Se
+False

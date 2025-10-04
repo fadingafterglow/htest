@@ -1,0 +1,14 @@
+#import Data.Function
+#import Data.List
+
+[]
+""
+
+[('S', "aaa"), ('Q', "ab"), ('Q', "ba"), ('W', "zxab")] & sort
+"abzx" & sort
+
+[('S', "a"), ('S', "B"), ('A', "q"), ('S', "C"), ('C', "B"), ('S', "aQ"), ('Q', "B"), ('Q', "aS"), ('Q', "aWz"), ('W', "aaa"), ('W', "")] & sort
+"aqz" & sort
+
+gr0 & sort
+"ba" & sort

@@ -1,0 +1,26 @@
+#import Data.Function
+#import Data.List
+
+[('S', "Sq"), ('S', "q")] 'S' & sort
+[('S', "qA"), ('A', "qA"), ('A', "")] & sort
+
+[('S', "Sqw"), ('S', "Szx"), ('S', "ab"), ('S', "ed"), ('S', "")] 'S' & sort
+[('S', "abA"), ('S', "edA"), ('S', "A"), ('A', "qwA"), ('A', "zxA"), ('A', "")] & sort
+
+[('S', "Sqw"), ('S', "Szx"), ('S', "ab"), ('S', "ed"), ('S', ""), ('A', "Aa"), ('A', "q")] 'S' & sort
+[('S', "abB"), ('S', "edB"), ('S', "B"), ('B', "qwB"), ('B', "zxB"), ('B', ""), ('A', "Aa"), ('A', "q")] & sort
+
+[('S', "Sqw"), ('S', "Szx"), ('S', "ab"), ('S', "ed"), ('S', ""), ('A', "Aa"), ('A', "q")] 'A' & sort
+[('S', "Sqw"), ('S', "Szx"), ('S', "ab"), ('S', "ed"), ('S', ""), ('A', "qB"), ('B', "aB"), ('B', "")] & sort
+
+[('S', "S"), ('S', "a"), ('B', "B"), ('B', "a"), ('C', "C"), ('C', "a")] 'S' & (fst . head)
+'S'
+
+[('S', "S"), ('S', "a"), ('B', "B"), ('B', "a"), ('C', "C"), ('C', "a")] 'B' & (fst . head)
+'S'
+
+[('S', "S"), ('S', "a"), ('B', "B"), ('B', "a"), ('C', "C"), ('C', "a")] 'C' & (fst . head)
+'S'
+
+gr2 'T' & sort
+[('E',"E+T"), ('E',"T"), ('A',"*FA"), ('T',"FA"), ('F',"d"), ('F',"(E)"), ('A',"")] & sort

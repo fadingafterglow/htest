@@ -1,0 +1,41 @@
+[('S', "aas")] 'S'
+False
+
+[('S', "")] 'S'
+False
+
+[('S', "asd"), ('S', "asb")] 'S'
+True
+
+[('S', "asd"), ('S', "bsb")] 'S'
+False
+
+[('S', "aas"), ('S', "sas")] 'S'
+False
+
+[('S', "aas"), ('S', "")] 'S'
+False
+
+[('S', "aas"), ('S', ""), ('S', "aq")] 'S'
+True
+
+[('S', "aas"), ('S', ""), ('S', "bq")] 'S'
+False
+
+[('S', "aas"), ('S', ""), ('S', "bq"), ('A', "qw"), ('A', "q")] 'A'
+True
+
+[('S', "aas"), ('S', ""), ('S', "aq"), ('A', "w"), ('A', "q")] 'A'
+False
+
+[('S', "aas"), ('S', ""), ('S', "bq"), ('A', "qw"), ('A', "q")] 'S'
+False
+
+[('S', "aas"), ('S', ""), ('S', "aq"), ('A', "w"), ('A', "q")] 'S'
+True
+
+gr0 'A'
+False
+
+gr0 'S'
+True
