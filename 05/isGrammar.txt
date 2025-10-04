@@ -1,0 +1,38 @@
+[]
+True
+
+[('2', "qwe")]
+False
+
+[('A', "wwA"), (']', "qwe")]
+False
+
+[('A', "qw$")]
+False
+
+[('$', "qw")]
+False
+
+[('A', "ab"), ('A', "ab")]
+False
+
+[('A', "ab"), ('A', "qw"), ('A', "ab")]
+False
+
+[('A', "A")]
+False
+
+[('A', "b"), ('S', "S")]
+False
+
+gr0
+True
+
+gr1
+True
+
+gr2
+True
+
+gr1e
+False 
