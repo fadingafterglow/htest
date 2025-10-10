@@ -1,0 +1,14 @@
+#import Data.Function
+#import Data.List
+
+"a$" "$b" & sort
+"ab$" & sort
+
+"a$" "b" & sort
+"ab$" & sort
+
+"" "ab" & sort
+"ab" & sort
+
+"abc" "d$" & sort
+"abcd" & sort

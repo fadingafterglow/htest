@@ -1,0 +1,20 @@
+#import Data.Function
+#import Data.List
+
+gr0 pFst0 pNxt0
+True
+
+gr1 pFst1 pNxt1
+True
+
+gr2 pFst2 pNxt2
+True
+
+gr3 pFst3 pNxt3
+False
+
+gr4 pFst4 pNxt4
+False
+
+gr5 pFst5 pNxt5
+False

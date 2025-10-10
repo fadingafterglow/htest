@@ -1,0 +1,15 @@
+#import Data.Function
+#import Data.List
+
+pFst0 "A" & sort
+"ab" & sort
+
+pFst1 "aS" & sort
+"a" & sort
+
+pFst3 "SS" & sort
+"$a" & sort
+
+
+pFst3 "SSA"
+"ab" & sort

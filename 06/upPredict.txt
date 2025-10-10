@@ -1,0 +1,11 @@
+#import Data.Function
+#import Data.List
+
+pFst0 'A' "xyz" & sort
+[('A',"xyz"),('S',"ab")] & sort
+
+pFst1 'S' "d" & sort
+[('S',"d"),('T',"(d"),('V',"$+-")] & sort
+
+[] 'A' "ab" & sort
+[('A',"ab")] & sort
