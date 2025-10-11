@@ -1,14 +1,11 @@
-#import Data.Function
-#import Data.List
+"a$" "$b"
+"ab$"
 
-"a$" "$b" & sort
-"ab$" & sort
+"a$" "b"
+"ab$"
 
-"a$" "b" & sort
-"ab$" & sort
+"" "ab"
+"ab"
 
-"" "ab" & sort
-"ab" & sort
-
-"abc" "d$" & sort
-"abcd" & sort
+"abc" "d$"
+"abcd"

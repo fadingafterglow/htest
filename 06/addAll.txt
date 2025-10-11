@@ -1,17 +1,14 @@
-#import Data.Function
-#import Data.List
+"abc" "cde"
+"abcde"
 
-"abc" "cde" & sort
-"abcde" & sort
+"a" "a"
+"a"
 
-"a" "a" & sort
-"a" & sort
+"ab" ""
+"ab"
 
-"ab" "" & sort
-"ab" & sort
+"" "xy"
+"xy"
 
-"" "xy" & sort
-"xy" & sort
-
-"a" "b" & sort
-"ab" & sort
+"a" "b"
+"ab"

@@ -1,11 +1,8 @@
-#import Data.Function
-#import Data.List
+pFst0 'A'
+"ab"
 
-pFst0 'A' & sort
-"ab" & sort
+pFst1 'V'
+"$+-"
 
-pFst1 'V' & sort
-"$+-" & sort
-
-pFst2 'E' & sort
-"(d" & sort
+pFst2 'E'
+"(d"

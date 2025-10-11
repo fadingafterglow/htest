@@ -1,11 +1,8 @@
-#import Data.Function
-#import Data.List
+gr0 pFst0 pNxt0
+ctl0
 
-gr0 pFst0 pNxt0 & sort
-ctl0 & sort
+gr1 pFst1 pNxt1
+ctl1
 
-gr1 pFst1 pNxt1 & sort
-ctl1 & sort
-
-gr2 pFst2 pNxt2 & sort
-ctl2 & sort
+gr2 pFst2 pNxt2
+ctl2
