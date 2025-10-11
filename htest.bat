@@ -69,4 +69,10 @@ type "%TESTS%" >> "%SCRIPT%"
 
 ghci < "%SCRIPT%"
 
+if not defined HTEST_KEEP_TEMP_FILES (
+    del "%HEADER%" 2>nul
+    del "%TESTS%" 2>nul
+    del "%SCRIPT%" 2>nul
+)
+
 endlocal
