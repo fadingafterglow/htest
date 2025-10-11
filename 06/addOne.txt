@@ -1,0 +1,14 @@
+#import Data.Function
+#import Data.List
+
+"abc" 'a' & sort
+"abc" & sort
+
+"abc" 'd' & sort
+"abcd" & sort
+
+"" 'x' & sort
+"x" & sort
+
+"x" 'x' & sort
+"x" & sort

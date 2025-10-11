@@ -1,0 +1,11 @@
+#import Data.Function
+#import Data.List
+
+gr0 & sort
+pFst0 & sort
+
+gr1 & sort
+pFst1 & sort
+
+gr2 & sort
+pFst2 & sort

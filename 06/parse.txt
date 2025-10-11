@@ -1,0 +1,20 @@
+#import Data.Function
+#import Data.List
+
+gr0 ctl0 "abbab"
+Just [0,3,1,2,1]
+
+gr0 ctl0 "b"
+Just [1]
+
+gr0 ctl0 "bbb"
+Nothing
+
+gr1 ctl1 "(d)-d"
+Just [0,2,0,1,5,4,1,5]
+
+gr1 ctl1 "d+d"
+Just [0,1,3,1,5]
+
+gr1 ctl1 "dd"
+Nothing
