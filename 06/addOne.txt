@@ -1,11 +1,50 @@
-"abc" 'a'
-"abc"
-
-"abc" 'd'
-"abcd"
-
 "" 'x'
 "x"
 
+"" 'X'
+"X"
+
+"" '$'
+"$"
+
 "x" 'x'
 "x"
+
+"X" 'X'
+"X"
+
+"$" '$'
+"$"
+
+"bd" 'a'
+"abd"
+
+"bd" 'c'
+"bcd"
+
+"bd" 'e'
+"bde"
+
+"bdf" 'b'
+"bdf"
+
+"bdf" 'd'
+"bdf"
+
+"bdf" 'f'
+"bdf"
+
+"adgjx" '$'
+"$adgjx"
+
+"$adgjx" '$'
+"$adgjx"
+
+"$adgjx" 'e'
+"$adegjx"
+
+"(+-" 'd'
+"(+-d"
+
+"(+-" '+'
+"(+-"

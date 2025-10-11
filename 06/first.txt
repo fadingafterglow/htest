@@ -1,11 +1,44 @@
+pFst0 ""
+"$"
+
 pFst0 "A"
 "ab"
 
-pFst1 "aS"
-"a"
+pFst0 "b"
+"b"
+
+pFst3 "S"
+"$a"
 
 pFst3 "SS"
 "$a"
 
+pFst3 "SSb"
+"ab"
+
 pFst3 "SSA"
 "ab"
+
+pFst3 "ASS"
+"ab"
+
+pFst3 "bS"
+"b"
+
+[('A', "$a"), ('B', "$b"), ('C', "cde")] "ABC"
+"abcde"
+
+[('A', "$a"), ('B', "$b"), ('C', "cde")] "AB"
+"$ab"
+
+[('A', "$a"), ('B', "$b"), ('C', "cde")] "ABc"
+"abc"
+
+[('S',"(d"), ('V',"$+-")] "VVS"
+"(+-d"
+
+[('S',"(d"), ('V',"$+-")] "VV"
+"$+-"
+
+[('S',"(d"), ('V',"$+-")] "+V"
+"+"  
