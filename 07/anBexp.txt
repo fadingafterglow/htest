@@ -1,0 +1,100 @@
+#import Text.ParserCombinators.Parsec
+
+"true"
+Just (Bvalue True)
+
+"false"
+Just (Bvalue False)
+
+"!true"
+Just (Not (Bvalue True))
+
+"x"
+Just (Bvar 'x')
+
+"!x"
+Just (Not (Bvar 'x'))
+
+"x&y"
+Just (And (Bvar 'x') (Bvar 'y'))
+
+"x|y"
+Just (Or (Bvar 'x') (Bvar 'y'))
+
+"x&(y|z)"
+Just (And (Bvar 'x') (Or (Bvar 'y') (Bvar 'z')))
+
+"!(x|false)"
+Just (Not (Or (Bvar 'x') (Bvalue False)))
+
+"!!true"
+Just (Not (Not (Bvalue True)))
+
+"(x|y)&z"
+Just (And (Or (Bvar 'x') (Bvar 'y')) (Bvar 'z'))
+
+"!((x|y)&false)"
+Just (Not (And (Or (Bvar 'x') (Bvar 'y')) (Bvalue False)))
+
+"!(x|)"
+Nothing
+
+"&x"
+Nothing
+
+"|x"
+Nothing
+
+"!(true&)"
+Nothing
+
+"!()"
+Nothing
+
+""
+Nothing
+
+"x+y"
+Nothing
+
+"x&&y"
+Nothing
+
+"x||y"
+Nothing
+
+"x1"
+Nothing
+
+"x_"
+Nothing
+
+"truefalse"
+Nothing
+
+" True "
+Nothing
+
+"false "
+Nothing
+
+"! true"
+Nothing
+
+"(x | y)"
+Nothing
+
+"x &y"
+Nothing
+
+"x| y"
+Nothing
+
+"x | y"
+Nothing
+
+"!(x|false)extra"
+Nothing
+
+"!(x|false)!"
+Nothing
