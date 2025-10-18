@@ -1,0 +1,82 @@
+#import Text.ParserCombinators.Parsec
+
+"<a></a>"
+Just (Element "a" [] [])
+
+"<a>text</a>"
+Just (Element "a" [] [Text "text"])
+
+"<tag attr=\"value\"></tag>"
+Just (Element "tag" [("attr","value")] [])
+
+"<tag attr=\"v\">text</tag>"
+Just (Element "tag" [("attr","v")] [Text "text"])
+
+"<outer><inner>data</inner></outer>"
+Just (Element "outer" [] [Element "inner" [] [Text "data"]])
+
+casablanca
+Just casablancaParsed
+
+"<root><child1></child1><child2>abc</child2></root>"
+Just (Element "root" [] [Element "child1" [] [], Element "child2" [] [Text "abc"]])
+
+"<note author=\"John-Doe\" year=\"2024\"><text>Hello!</text></note>"
+Just (Element "note" [("author","John-Doe"),("year","2024")] [Element "text" [] [Text "Hello!"]])
+
+"<film title=Casablanca></film>"
+Nothing
+
+"<film>"
+Nothing
+
+"<tag><nested></tag></nested>"
+Nothing
+
+"<open><close></open>"
+Nothing
+
+"<a attr=\"x\"></b>"
+Nothing
+
+"</broken>"
+Nothing
+
+"<a attr=\"unterminated></a>"
+Nothing
+
+"<1tag></1tag>"
+Nothing
+
+"<a@b></a@b>"
+Nothing
+
+"<tag attr=value></tag>"
+Nothing
+
+"<a><b></a></b>"
+Nothing
+
+"<invalid#></invalid#>"
+Nothing
+
+"<a >text</a>"
+Nothing
+
+"<a> text </a>"
+Just (Element "a" [] [Text " text "])
+
+"<outer><inner>text</inner>extra</outer>"
+Just (Element "outer" [] [Element "inner" [] [Text "text"],Text "extra"])
+
+"<tag attr=\"v\"><inner></inner></tagx>"
+Nothing
+
+"<a section=\"In the beg\"> In the beginning </a>"
+Just (Element "a" [("section","In the beg")] [Text " In the beginning "])
+
+"<library><books><book id=\"1\"><title>The Hobbit</title><author>Tolkien</author><chapters><chapter num=\"1\"><text>In a hole in the ground there lived a hobbit</text></chapter><chapter num=\"2\"><text>The next morning Bilbo woke up</text></chapter></chapters></book><book id=\"2\"><title>Foundation</title><author>Asimov</author><chapters><chapter num=\"1\"><text>Hari Seldon was sitting in his office</text></chapter></chapters></book></books><metadata><created year=\"2024\"><notes><note>Complete catalog</note><note>Add more books</note></notes></created></metadata></library>"
+Just (Element "library" [] [Element "books" [] [Element "book" [("id","1")] [Element "title" [] [Text "The Hobbit"],Element "author" [] [Text "Tolkien"],Element "chapters" [] [Element "chapter" [("num","1")] [Element "text" [] [Text "In a hole in the ground there lived a hobbit"]],Element "chapter" [("num","2")] [Element "text" [] [Text "The next morning Bilbo woke up"]]]],Element "book" [("id","2")] [Element "title" [] [Text "Foundation"],Element "author" [] [Text "Asimov"],Element "chapters" [] [Element "chapter" [("num","1")] [Element "text" [] [Text "Hari Seldon was sitting in his office"]]]]],Element "metadata" [] [Element "created" [("year","2024")] [Element "notes" [] [Element "note" [] [Text "Complete catalog"],Element "note" [] [Text "Add more books"]]]]])
+
+"<a href=\"distedu.ukma.edu.ua/mod/assign/view.php?id=170343\" class=\" aalink stretched-link\" onclick=\"\">    <span class=\"instancename\">Homework 07. Parsers. (Task and template-file) <span class=\"accesshide \"> Task</span></span>    </a>"
+Just (Element "a" [("href","distedu.ukma.edu.ua/mod/assign/view.php?id=170343"),("class"," aalink stretched-link"),("onclick","")] [Text "    ",Element "span" [("class","instancename")] [Text "Homework 07. Parsers. (Task and template-file) ",Element "span" [("class","accesshide ")] [Text " Task"]],Text "    "])
