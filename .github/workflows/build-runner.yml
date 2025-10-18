@@ -22,9 +22,6 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-        
-    - name: Change directory
-      run: cd ./htest-runner
       
     - name: Build
-      run: mvn -B deploy
+      run: mvn -B -f ./htest-runner/pom.xml deploy
