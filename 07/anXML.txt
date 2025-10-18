@@ -1,7 +1,17 @@
-#import Text.ParserCombinators.Parsec
-
 "<a></a>"
 Just (Element "a" [] [])
+
+"     <a></a>    "
+Just (Element "a" [] [])
+
+"<a123-3v.1b></a123-3v.1b>"
+Just (Element "a123-3v.1b" [] [])
+
+"<a> </a>"
+Just (Element "a" [] [Text " "])
+
+"    <a> </a>   "
+Just (Element "a" [] [Text " "])
 
 "<a>text</a>"
 Just (Element "a" [] [Text "text"])
@@ -9,14 +19,26 @@ Just (Element "a" [] [Text "text"])
 "<tag attr=\"value\"></tag>"
 Just (Element "tag" [("attr","value")] [])
 
+"<tag attr-23.1=\"value\"></tag>"
+Just (Element "tag" [("attr-23.1","value")] [])
+
 "<tag attr=\"v\">text</tag>"
 Just (Element "tag" [("attr","v")] [Text "text"])
+
+"<tag atr1=\"val1\" atr2=\"val2\" atr3=\"val3\"></tag>"
+Just (Element "tag" [("atr1", "val1"), ("atr2", "val2"), ("atr3", "val3")] [])
+
+"<tag    atr1=   \"val1\"  atr2  =\"val2\"   atr3    =  \"val3\">txt</tag>"
+Just (Element "tag" [("atr1", "val1"), ("atr2", "val2"), ("atr3", "val3")] [Text "txt"])
+
+"<a><i1><i2><i3></i3></i2></i1></a>"
+Just (Element "a" [] [Element "i1" [] [Element "i2" [] [Element "i3" [] []]]])
 
 "<outer><inner>data</inner></outer>"
 Just (Element "outer" [] [Element "inner" [] [Text "data"]])
 
-casablanca
-Just casablancaParsed
+"<a><i1></i1><i2></i2><i3></i3></a>"
+Just (Element "a" [] [Element "i1" [] [], Element "i2" [] [], Element "i3" [] []])
 
 "<root><child1></child1><child2>abc</child2></root>"
 Just (Element "root" [] [Element "child1" [] [], Element "child2" [] [Text "abc"]])
@@ -24,10 +46,55 @@ Just (Element "root" [] [Element "child1" [] [], Element "child2" [] [Text "abc"
 "<note author=\"John-Doe\" year=\"2024\"><text>Hello!</text></note>"
 Just (Element "note" [("author","John-Doe"),("year","2024")] [Element "text" [] [Text "Hello!"]])
 
-"<film title=Casablanca></film>"
+"<ul class=\"list\" onclick=\"alert('clicked')\" id=\"l1\">Some text<li class=\"item\">item1</li>more text<li class=\"item\">item2</li>even more text<li class=\"item\"><p>item3</p></li>no more text...</ul>"
+Just (Element "ul" [("class", "list"), ("onclick", "alert('clicked')"), ("id", "l1")] [Text "Some text", Element "li" [("class", "item")] [Text "item1"], Text "more text", Element "li" [("class", "item")] [Text "item2"], Text "even more text", Element "li" [("class", "item")] [Element "p" [] [Text "item3"]], Text "no more text..."])
+
+"<broken>"
 Nothing
 
-"<film>"
+"</broken>"
+Nothing
+
+"<broken1></broken2>"
+Nothing
+
+"<a></a><b></b>"
+Nothing
+
+"<a></a>qew"
+Nothing
+
+"asd<a></a>"
+Nothing
+
+"zxc"
+Nothing
+
+"< a></a>"
+Nothing
+
+"<a ></a>"
+Nothing
+
+"<a>< /a>"
+Nothing
+
+"<a></ a>"
+Nothing
+
+"<a></a >"
+Nothing
+
+"<1tag></1tag>"
+Nothing
+
+"<.ab2></.ab2>"
+Nothing
+
+"<a@b></a@b>"
+Nothing
+
+"<invalid#></invalid#>"
 Nothing
 
 "<tag><nested></tag></nested>"
@@ -39,35 +106,122 @@ Nothing
 "<a attr=\"x\"></b>"
 Nothing
 
-"</broken>"
+"<a attr></a>"
+Nothing
+
+"<a attr=></a>"
+Nothing
+
+"<a attr=\"\"></a>"
+Just (Element "a" [("attr", "")] [])
+
+"<a attr\"\"></a>"
+Nothing
+
+"<a =\"\"></a>"
+Nothing
+
+"<a \"\"></a>"
+Nothing
+
+"<a \"></a>"
 Nothing
 
 "<a attr=\"unterminated></a>"
 Nothing
 
-"<1tag></1tag>"
+"<a attr=unterminated\"></a>"
 Nothing
 
-"<a@b></a@b>"
+"<a attr=unterminated></a>"
 Nothing
 
-"<tag attr=value></tag>"
+"<a attr=\"two\"terminated\"></a>"
 Nothing
 
-"<a><b></a></b>"
+"<tagattr=\"value\"></tag>"
 Nothing
 
-"<invalid#></invalid#>"
+"<tag attr1=\"value\"attr2=\"value\"></tag>"
 Nothing
 
-"<a >text</a>"
+"<tag attr1=\"value\" attr2=\"value\"attr3=\"value\"></tag>"
+Nothing
+
+"<a atr=\"value\" ></a>"
+Nothing
+
+"<tag .attr1=\"value\"></tag>"
+Nothing
+
+"<tag a@a=\"value\"></tag>"
+Nothing
+
+"<tag></tag atr=\"val\">"
 Nothing
 
 "<a> text </a>"
 Just (Element "a" [] [Text " text "])
 
+"<a> Text with \t tabs and \n new lines... </a>"
+Just (Element "a" [] [Text " Text with \t tabs and \n new lines... "])
+
 "<outer><inner>text</inner>extra</outer>"
 Just (Element "outer" [] [Element "inner" [] [Text "text"],Text "extra"])
+
+"<a><</a>"
+Nothing
+
+"<a>></a>"
+Nothing
+
+"<a>qwe<</a>"
+Nothing
+
+"<a>>qwe</a>"
+Nothing
+
+"<a>qwe<sad</a>"
+Nothing
+
+"<a>asd>qwe</a>"
+Nothing
+
+"<a></</a>"
+Nothing
+
+"<a>/</a>"
+Just (Element "a" [] [Text "/"])
+
+"<a><b</a>"
+Nothing
+
+"<a><b></a>"
+Nothing
+
+"<a><b><</a>"
+Nothing
+
+"<a><b></</a>"
+Nothing
+
+"<a><b></b</a>"
+Nothing
+
+"<a><b></b></a>"
+Just (Element "a" [] [Element "b" [] []])
+
+"<a>qwe<b></c></a>"
+Nothing
+
+"<a>qwe<b><c>txt</b>qwe</c></a>"
+Nothing
+
+"<a>qwe<b>rw<c @a>txt</c>qwe</b></a>"
+Nothing
+
+"<a>qwe<b>txt</b><c atr=>qwe</c></a>"
+Nothing
 
 "<tag attr=\"v\"><inner></inner></tagx>"
 Nothing
@@ -80,3 +234,6 @@ Just (Element "library" [] [Element "books" [] [Element "book" [("id","1")] [Ele
 
 "<a href=\"distedu.ukma.edu.ua/mod/assign/view.php?id=170343\" class=\" aalink stretched-link\" onclick=\"\">    <span class=\"instancename\">Homework 07. Parsers. (Task and template-file) <span class=\"accesshide \"> Task</span></span>    </a>"
 Just (Element "a" [("href","distedu.ukma.edu.ua/mod/assign/view.php?id=170343"),("class"," aalink stretched-link"),("onclick","")] [Text "    ",Element "span" [("class","instancename")] [Text "Homework 07. Parsers. (Task and template-file) ",Element "span" [("class","accesshide ")] [Text " Task"]],Text "    "])
+
+casablanca
+Just casablancaParsed

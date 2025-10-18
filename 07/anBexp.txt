@@ -1,5 +1,3 @@
-#import Text.ParserCombinators.Parsec
-
 "true"
 Just (Bvalue True)
 
@@ -9,11 +7,20 @@ Just (Bvalue False)
 "!true"
 Just (Not (Bvalue True))
 
+"!false"
+Just (Not (Bvalue False))
+
 "x"
 Just (Bvar 'x')
 
 "!x"
 Just (Not (Bvar 'x'))
+
+"t"
+Just (Bvar 't')
+
+"f"
+Just (Bvar 'f')
 
 "x&y"
 Just (And (Bvar 'x') (Bvar 'y'))
@@ -36,13 +43,31 @@ Just (And (Or (Bvar 'x') (Bvar 'y')) (Bvar 'z'))
 "!((x|y)&false)"
 Just (Not (And (Or (Bvar 'x') (Bvar 'y')) (Bvalue False)))
 
+"!(!(!!(!x)))"
+Just (Not (Not (Not (Not (Not (Bvar 'x'))))))
+
+"!(x|true&Y|!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Just (Or (Not (Or (Or (Bvar 'x') (And (Bvalue True) (Bvar 'Y'))) (Not (Not (Not (And (And (And (Bvalue False) (Bvar 'x')) (Or (Bvar 't') (Not (Bvalue False)))) (Or (Or (Or (Bvar 'f') (Not (Bvalue True))) (Bvar 'q')) (Bvar 'w')))))))) (Not (Bvar 'z')))
+
 "!(x|)"
+Nothing
+
+"!(x|y"
+Nothing
+
+"x|y)"
 Nothing
 
 "&x"
 Nothing
 
 "|x"
+Nothing
+
+"x&"
+Nothing
+
+"x|"
 Nothing
 
 "!(true&)"
@@ -78,6 +103,12 @@ Nothing
 "false "
 Nothing
 
+"tr"
+Nothing
+
+"fa"
+Nothing
+
 "! true"
 Nothing
 
@@ -96,5 +127,53 @@ Nothing
 "!(x|false)extra"
 Nothing
 
+"!(x|false) "
+Nothing
+
+" (x|false)"
+Nothing
+
 "!(x|false)!"
 Nothing
+
+"!(x|true&Y|!!!(false&x&(t|!false)&(f|!true|q|w)))|!()"
+Nothing
+
+"!(x|tue&Y|!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(fals&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x&(t|!false)&(f!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y |!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z) "
+Nothing
+
+" !(x|true&Y|!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x&(tr|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|trueY|!!!(false&x&(t|!false)&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x&(t|!false&(f|!true|q|w)))|!(z)"
+Nothing
+
+"!(x|true&Y|!!!(false&x&(t|!false)&(f|!true|q|w))|!(z)"
+Nothing
+
+"(x|y)&!z"
+Just  (And  (Or  (Bvar 'x') (Bvar 'y')) (Not (Bvar 'z')))
+
+"a|b(true)"
+Nothing  
