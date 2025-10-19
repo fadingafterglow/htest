@@ -1,3 +1,9 @@
+<h1>Requirements</h1>
+<ol>
+  <li>Java 21+</li>
+  <li>ghci</li>
+</ol>
+
 <h1>Installation</h1>
 <ol>
   <li>Download the test runner <code>htest</code></li>
@@ -7,7 +13,7 @@
 <h1>Test cases files</h1>
 <ul>
   <li>Filename - name of the function</li>
-  <li>Every test case consists of 2 lines: first line - arguments, second line - result</li>
+  <li>Every test case consists of 2 lines: first line - arguments, second line - result. These lines are passed directly to GHCi without additional processing</li>
   <li>Empty lines are ignored. If the function takes 0 arguments, use whitespace</li>
   <li>Use <code>#/</code> at the beginning of a line to create a comment</li>
   <li>Use <code>#import </code> at the beginning of a line to load an additional test module</li>
