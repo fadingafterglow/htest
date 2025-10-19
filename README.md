@@ -1,8 +1,8 @@
 <h1>Requirements</h1>
-<ol>
+<ul>
   <li>Java 21+</li>
   <li>ghci</li>
-</ol>
+</ul>
 
 <h1>Installation</h1>
 <ol>
