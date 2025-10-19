@@ -17,6 +17,7 @@
   <li>Empty lines are ignored. If the function takes 0 arguments, use whitespace</li>
   <li>Use <code>#/</code> at the beginning of a line to create a comment</li>
   <li>Use <code>#import </code> at the beginning of a line to load an additional test module</li>
+  <li>Use <code>#package </code> at the beginning of a line to explicitly include a package</li>
 </ul>
 
 <h1>Usage</h1>

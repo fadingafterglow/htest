@@ -13,6 +13,7 @@ public class FileProcessor {
 
     private static final String COMMENT_PREFIX = "#/";
     private static final String IMPORT_PREFIX = "#import ";
+	private static final String PACKAGE_PREFIX = "#package ";
 
     public List<TestContext> process(List<Path> paths) {
         List<TestContext> tests = paths.parallelStream()
@@ -29,12 +30,16 @@ public class FileProcessor {
 
             List<TestCase> testCases = new ArrayList<>();
             List<String> imports = new ArrayList<>();
+            List<String> packages = new ArrayList<>();
 
             while (linesIterator.hasNext()) {
                 String line = linesIterator.next();
                 if (shouldSkip(line)) continue;
                 if (isImport(line))
                     imports.add(line.substring(IMPORT_PREFIX.length()));
+				if(isPackage(line)){
+                    packages.add(line.substring(PACKAGE_PREFIX.length()));
+                }
                 else {
                     String nextLine = linesIterator.next();
                     while (shouldSkip(nextLine))
@@ -43,7 +48,7 @@ public class FileProcessor {
                 }
             }
 
-            return new TestContext(getFunctionName(path), testCases, imports);
+            return new TestContext(getFunctionName(path), testCases, imports, packages);
         }
         catch (IOException e) {
             System.err.println("Cannot read file: " + path);
@@ -61,6 +66,10 @@ public class FileProcessor {
     private boolean isImport(String line) {
         return line.startsWith(IMPORT_PREFIX);
     }
+
+	private boolean isPackage(String line){
+		return line.startsWith(PACKAGE_PREFIX);
+	}
 
     private String getFunctionName(Path filePath) {
         String filename = filePath.getFileName().toString();
