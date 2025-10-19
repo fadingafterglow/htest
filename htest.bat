@@ -12,7 +12,7 @@ set "ARTIFACT_ID=htest-runner"
 set "VERSION=1.0.0"
 set "REPO_OWNER=fadingafterglow"
 set "REPO_NAME=htest"
-set "DOWNLOAD_TOKEN=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"
+set "DOWNLOAD_TOKEN=P75NLIjsbl8emsfYYlB6jIgQzg4aL61p0lEr"
 
 :: === Derive runner path ===
 set "BASE_URL=https://maven.pkg.github.com/%REPO_OWNER%/%REPO_NAME%"
@@ -36,7 +36,7 @@ for %%F in (%~dp0%ARTIFACT_ID%-*.jar) do (
 :: === Download runner ===
 echo Downloading %JAR_FILE% from:
 echo %DOWNLOAD_URL%
-curl -s -L -H "Authorization: Bearer %DOWNLOAD_TOKEN%" -o "%JAR_FILE_PATH%" "%DOWNLOAD_URL%"
+curl -s -L -H "Authorization: Bearer ghp_%DOWNLOAD_TOKEN%" -o "%JAR_FILE_PATH%" "%DOWNLOAD_URL%"
 
 if %ERRORLEVEL% neq 0 (
     echo Failed to download runner.
