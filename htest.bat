@@ -12,7 +12,7 @@ set "ARTIFACT_ID=htest-runner"
 set "VERSION=1.0.0"
 set "REPO_OWNER=fadingafterglow"
 set "REPO_NAME=htest"
-set "DOWNLOAD_TOKEN=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"
+set "DOWNLOAD_TOKEN=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"
 
 :: === Derive runner path ===
 set "BASE_URL=https://maven.pkg.github.com/%REPO_OWNER%/%REPO_NAME%"
