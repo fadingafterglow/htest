@@ -1,0 +1,26 @@
+Null
+(1, [2], [((1, Nothing), [2])])
+
+(Term 'a')
+(1, [2], [((1, Just 'a'), [2])])
+
+reFigure
+ndaFigure
+
+re1
+nda1
+
+re2
+nda2
+
+re3
+nda3
+
+re4
+nda4
+
+re5
+nda5
+
+re6
+nda6

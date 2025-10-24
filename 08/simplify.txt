@@ -1,0 +1,35 @@
+re1
+(Seq (Alt (Term 'x') (Term 'y')) (Alt (Term '1') (Term '2')))
+
+re2
+(Seq (Term 'x') (Rep (Term '\'')))
+
+re3
+(Rep (Alt (Seq (Term 'a') (Term 'b')) (Term 'c')))
+
+re4
+(Seq (Alt (Term 'a') Null) (Term 'a'))
+
+re5
+(Seq (Alt (Seq (Term 'a') (Term 'b')) Null) (Seq (Term 'd') (Rep (Term 'd'))))
+
+Null
+Null
+
+(Seq (Term 'a') (Opt (Term 'b')))
+(Seq (Term 'a') (Alt (Term 'b') Null))
+
+(Opt (Term 'a'))
+(Alt (Term 'a') Null)
+
+(Seq (Opt (Plus (Term 'a'))) (Plus (Term 'b')))
+(Seq (Alt (Seq (Term 'a') (Rep (Term 'a'))) Null) (Seq (Term 'b') (Rep (Term 'b'))))
+
+(Opt (Seq (Plus (Term 'a')) (Rep (Term 'b'))))
+(Alt (Seq (Seq (Term 'a') (Rep (Term 'a'))) (Rep (Term 'b'))) Null)
+
+(Plus (Seq (Plus (Term 'a')) (Plus (Term 'b'))))
+(Seq (Seq (Seq (Term 'a') (Rep (Term 'a'))) (Seq (Term 'b') (Rep (Term 'b')))) (Rep (Seq (Seq (Term 'a') (Rep (Term 'a'))) (Seq (Term 'b') (Rep (Term 'b'))))))
+
+(Plus (Seq (Seq (Seq (Opt (Seq (Seq (Plus (Term 'a')) (Opt (Term 'b'))) (Plus (Term 'c')))) (Plus (Seq (Seq (Term 'd') (Plus (Term 'e'))) (Opt (Term 'f'))))) (Opt (Term 'g'))) (Plus (Term 'h'))))
+(Seq (Seq (Seq (Seq (Alt (Seq (Seq (Seq (Term 'a') (Rep (Term 'a'))) (Alt (Term 'b') Null)) (Seq (Term 'c') (Rep (Term 'c')))) Null) (Seq (Seq (Seq (Term 'd') (Seq (Term 'e') (Rep (Term 'e')))) (Alt (Term 'f') Null)) (Rep (Seq (Seq (Term 'd') (Seq (Term 'e') (Rep (Term 'e')))) (Alt (Term 'f') Null))))) (Alt (Term 'g') Null)) (Seq (Term 'h') (Rep (Term 'h')))) (Rep (Seq (Seq (Seq (Alt (Seq (Seq (Seq (Term 'a') (Rep (Term 'a'))) (Alt (Term 'b') Null)) (Seq (Term 'c') (Rep (Term 'c')))) Null) (Seq (Seq (Seq (Term 'd') (Seq (Term 'e') (Rep (Term 'e')))) (Alt (Term 'f') Null)) (Rep (Seq (Seq (Term 'd') (Seq (Term 'e') (Rep (Term 'e')))) (Alt (Term 'f') Null))))) (Alt (Term 'g') Null)) (Seq (Term 'h') (Rep (Term 'h'))))))
