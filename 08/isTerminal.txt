@@ -1,0 +1,86 @@
+nda1 1
+False
+
+nda1 2
+True
+
+nda1 3
+False
+
+nda1 4
+False
+
+nda1 12
+False
+
+nda2 1
+False
+
+nda2 2
+True
+
+nda2 3
+False
+
+nda2 4
+False
+
+nda2 5
+False
+
+nda2 6
+False
+
+nda3 1
+False
+
+nda3 2
+True
+
+nda3 3
+False
+
+nda3 6
+False
+
+nda3 10
+False
+
+nda4 1
+False
+
+nda4 2
+True
+
+nda4 3
+False
+
+nda4 8
+False
+
+nda5 1
+False
+
+nda5 2
+True
+
+nda5 6
+False
+
+nda5 11
+False
+
+nda5 14
+False
+
+nda6 1
+False
+
+nda6 2
+True
+
+nda6 4
+False
+
+nda6 7
+False
