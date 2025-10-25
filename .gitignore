@@ -1,2 +1,5 @@
 ### Mac OS ###
 .DS_Store
+
+### Runner ###
+*.jar
