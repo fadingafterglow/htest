@@ -9,7 +9,7 @@ if "%~2"=="" (
 :: === Configuration ===
 set "GROUP_ID=com.github.fadingafterglow"
 set "ARTIFACT_ID=htest-runner"
-set "VERSION=1.0.0"
+set "VERSION=1.0.2"
 set "REPO_OWNER=fadingafterglow"
 set "REPO_NAME=htest"
 set "DOWNLOAD_TOKEN=P75NLIjsbl8emsfYYlB6jIgQzg4aL61p0lEr"

@@ -9,7 +9,7 @@ fi
 # === Configuration ===
 GROUP_ID="com.github.fadingafterglow"
 ARTIFACT_ID="htest-runner"
-VERSION="1.0.0"
+VERSION="1.0.2"
 REPO_OWNER="fadingafterglow"
 REPO_NAME="htest"
 DOWNLOAD_TOKEN="P75NLIjsbl8emsfYYlB6jIgQzg4aL61p0lEr"
