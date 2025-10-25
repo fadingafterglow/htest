@@ -1,44 +1,46 @@
-((\(_,_,tr)->tr) nda1)
-"12xy"
+#import Data.Function
 
-((\(_,_,tr)->tr) nda2)
-"\'x"
+((\(_,_,tr)->tr) nda1) & L.sort
+"12xy" & L.sort
 
-((\(_,_,tr)->tr) nda3)
-"abc"
+((\(_,_,tr)->tr) nda2) & L.sort
+"\'x" & L.sort
 
-((\(_,_,tr)->tr) nda4)
-"a"
+((\(_,_,tr)->tr) nda3) & L.sort
+"abc" & L.sort
 
-((\(_,_,tr)->tr) nda5)
-"abd"
+((\(_,_,tr)->tr) nda4) & L.sort
+"a" 
 
-((\(_,_,tr)->tr) nda6)
+((\(_,_,tr)->tr) nda5) & L.sort
+"abd" & L.sort
+
+((\(_,_,tr)->tr) nda6) & L.sort
 "c"
 
-((\(_,_,tr)->tr) ndaTest)
-"ab"
+((\(_,_,tr)->tr) ndaTest) & L.sort
+"ab" & L.sort
 
-((\(_,_,tr)->tr) ndaFigure)
-"abc"
+((\(_,_,tr)->tr) ndaFigure) & L.sort
+"abc" & L.sort
 
 [((1,Nothing),[2])]
 ""
 
-[((1,Just 'a'),[2]), ((2,Just 'b'),[3]), ((3,Just 'c'),[4])]
-"abc"
+[((1,Just 'a'),[2]), ((2,Just 'b'),[3]), ((3,Just 'c'),[4])] & L.sort
+"abc" & L.sort
 
-[((1,Just 'b'),[2]), ((2,Just 'a'),[3]), ((3,Just 'b'),[4])]
-"ab"
+[((1,Just 'b'),[2]), ((2,Just 'a'),[3]), ((3,Just 'b'),[4])] & L.sort
+"ab" & L.sort
 
-[((1,Nothing),[2]), ((2,Just 'a'),[3]), ((3,Nothing),[4])]
+[((1,Nothing),[2]), ((2,Just 'a'),[3]), ((3,Nothing),[4])] & L.sort
 "a"
 
-[((1,Just 'z'),[2]), ((2,Just 'y'),[3]), ((3,Just 'x'),[4])]
-"xyz"
+[((1,Just 'z'),[2]), ((2,Just 'y'),[3]), ((3,Just 'x'),[4])] & L.sort
+"xyz" & L.sort
 
-[((1,Just 'a'),[2]), ((2,Just 'a'),[3]), ((3,Just 'a'),[4])]
+[((1,Just 'a'),[2]), ((2,Just 'a'),[3]), ((3,Just 'a'),[4])] & L.sort
 "a"
 
-[((1,Just 'a'),[2,3]), ((2,Just 'c'),[4,5]), ((3,Just 'b'),[6])]
-"abc"
+[((1,Just 'a'),[2,3]), ((2,Just 'c'),[4,5]), ((3,Just 'b'),[6])] & L.sort
+"abc" & L.sort

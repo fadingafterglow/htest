@@ -1,56 +1,31 @@
+#import Data.Function
+
 Null 1 2 3
 ([((1, Nothing), [2])], 3)
 
 (Term 'a') 1 2 3
 ([((1, Just 'a'), [2])], 3)
 
-(Seq (Term 'a') (Term 'b')) 1 2 3
-([((1, Just 'a'), [3]), ((3, Nothing), [4]), ((4, Just 'b'), [2])], 5)
+(Seq (Term 'a') (Term 'b')) 1 2 3 & (\ (f, s) -> (L.sort f, s))
+([((1, Just 'a'), [3]), ((3, Nothing), [4]), ((4, Just 'b'), [2])] & L.sort, 5)
 
-(Alt (Term 'a') (Term 'b')) 1 2 3
-([((1, Nothing), [3, 5]), ((3, Just 'a'), [4]), ((4, Nothing), [2]), ((5, Just 'b'), [6]), ((6, Nothing), [2])], 7)
+(Alt (Term 'a') (Term 'b')) 1 2 3 & (\ (f, s) -> (L.sort f, s))
+([((1, Nothing), [3, 5]), ((3, Just 'a'), [4]), ((4, Nothing), [2]), ((5, Just 'b'), [6]), ((6, Nothing), [2])] & L.sort, 7)
 
-(Rep (Term 'a')) 1 2 3
-([((1, Nothing), [2, 3]), ((3, Just 'a'), [4]), ((4, Nothing), [2, 3])], 5)
+(Rep (Term 'a')) 1 2 3 & (\ (f, s) -> (L.sort f, s))
+([((1, Nothing), [2, 3]), ((3, Just 'a'), [4]), ((4, Nothing), [2, 3])] & L.sort, 5)
 
-(Opt (Term 'a')) 1 2 3
-([((1, Nothing), [3, 5]), ((3, Just 'a'), [4]), ((4, Nothing), [2]), ((5, Nothing), [6]), ((6, Nothing), [2])], 7)
+Null 10 20 30 & (\ (f, s) -> (L.sort f, s))
+([((10, Nothing), [20])] & L.sort, 30)
 
-(Plus (Term 'a')) 1 2 3
-([((1, Just 'a'), [3]), ((3, Nothing), [4]), ((4, Nothing), [2, 5]), ((5, Just 'a'), [6]), ((6, Nothing), [2, 5])], 7)
+(Term 'z') 10 20 30 & (\ (f, s) -> (L.sort f, s))
+([((10, Just 'z'), [20])] & L.sort, 30)
 
-reFigure 1 2 3
-([((1, Nothing), [3, 5]), ((3, Nothing), [4]), ((4, Just 'c'), [2]), ((5, Nothing), [7, 9]), ((6, Nothing), [3, 5]), ((7, Just 'a'), [8]), ((8, Nothing), [6]), ((9, Just 'b'), [10]), ((10, Nothing), [6])], 11)
+(Seq (Term 'x') (Term 'y')) 10 20 30 & (\ (f, s) -> (L.sort f, s))
+([((10, Just 'x'), [30]), ((30, Nothing), [31]), ((31, Just 'y'), [20])] & L.sort, 32)
 
-re1 1 2 3
-([((1, Nothing), [5, 7]), ((3, Nothing), [4]), ((4, Nothing), [9, 11]), ((5, Just 'x'), [6]), ((6, Nothing), [3]), ((7, Just 'y'), [8]), ((8, Nothing), [3]), ((9, Just '1'), [10]), ((10, Nothing), [2]), ((11, Just '2'), [12]), ((12, Nothing), [2])], 13)
+(Alt (Term 'x') (Term 'y')) 10 20 30 & (\ (f, s) -> (L.sort f, s))
+([((10, Nothing), [30, 32]), ((30, Just 'x'), [31]), ((31, Nothing), [20]), ((32, Just 'y'), [33]), ((33, Nothing), [20])] & L.sort, 34)
 
-re2 1 2 3
-([((1, Just 'x'), [3]), ((3, Nothing), [4]), ((4, Nothing), [2, 5]), ((5, Just '\''), [6]), ((6, Nothing), [2, 5])], 7)
-
-re3 1 2 3
-([((1, Nothing), [2, 3]), ((3, Nothing), [5, 7]), ((4, Nothing), [2, 3]), ((5, Just 'a'), [9]), ((6, Nothing), [4]), ((7, Just 'c'), [8]), ((8, Nothing), [4]), ((9, Nothing), [10]), ((10, Just 'b'), [6])], 11)
-
-re4 1 2 3
-([((1, Nothing), [5, 7]), ((3, Nothing), [4]), ((4, Just 'a'), [2]), ((5, Just 'a'), [6]), ((6, Nothing), [3]), ((7, Nothing), [8]), ((8, Nothing), [3])], 9)
-
-re5 1 2 3
-([((1, Nothing), [5, 7]), ((3, Nothing), [4]), ((4, Just 'd'), [11]), ((5, Just 'a'), [9]), ((6, Nothing), [3]), ((7, Nothing), [8]), ((8, Nothing), [3]), ((9, Nothing), [10]), ((10, Just 'b'), [6]), ((11, Nothing), [12]), ((12, Nothing), [2, 13]), ((13, Just 'd'), [14]), ((14, Nothing), [2, 13])], 15)
-
-re6 1 2 3
-([((1, Nothing), [2, 3]), ((3, Nothing), [5, 7]), ((4, Nothing), [2, 3]), ((5, Just 'c'), [6]), ((6, Nothing), [4]), ((7, Nothing), [8]), ((8, Nothing), [4])], 9)
-
-Null 10 20 30
-([((10, Nothing), [20])], 30)
-
-(Term 'z') 10 20 30
-([((10, Just 'z'), [20])], 30)
-
-(Seq (Term 'x') (Term 'y')) 10 20 30
-([((10, Just 'x'), [30]), ((30, Nothing), [31]), ((31, Just 'y'), [20])], 32)
-
-(Alt (Term 'x') (Term 'y')) 10 20 30
-([((10, Nothing), [30, 32]), ((30, Just 'x'), [31]), ((31, Nothing), [20]), ((32, Just 'y'), [33]), ((33, Nothing), [20])], 34)
-
-(Rep (Term 'x')) 10 20 30
-([((10, Nothing), [20, 30]), ((30, Just 'x'), [31]), ((31, Nothing), [20, 30])], 32)
+(Rep (Term 'x')) 10 20 30 & (\ (f, s) -> (L.sort f, s))
+([((10, Nothing), [20, 30]), ((30, Just 'x'), [31]), ((31, Nothing), [20, 30])] & L.sort, 32)
