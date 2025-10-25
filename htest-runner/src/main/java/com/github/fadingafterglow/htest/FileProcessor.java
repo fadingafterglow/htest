@@ -37,9 +37,8 @@ public class FileProcessor {
                 if (shouldSkip(line)) continue;
                 if (isImport(line))
                     imports.add(line.substring(IMPORT_PREFIX.length()));
-				if(isPackage(line)){
+				else if (isPackage(line))
                     packages.add(line.substring(PACKAGE_PREFIX.length()));
-                }
                 else {
                     String nextLine = linesIterator.next();
                     while (shouldSkip(nextLine))
