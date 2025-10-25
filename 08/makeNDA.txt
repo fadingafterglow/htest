@@ -24,3 +24,6 @@ nda5
 
 re6
 nda6
+
+(Seq (Seq (Plus (Alt (Alt (Opt (Term 'a')) (Term 'b')) (Term 'c'))) (Term 'd')) (Rep (Term 'e')))
+(1,[2],[((1,Nothing),[9,11]),((3,Nothing),[4]),((4,Nothing),[2,35]),((5,Nothing),[6]),((6,Just 'd'),[3]),((7,Nothing),[8]),((8,Nothing),[5,21]),((9,Nothing),[13,15]),((10,Nothing),[7]),((11,Just 'c'),[12]),((12,Nothing),[7]),((13,Nothing),[17,19]),((14,Nothing),[10]),((15,Just 'b'),[16]),((16,Nothing),[10]),((17,Just 'a'),[18]),((18,Nothing),[14]),((19,Nothing),[20]),((20,Nothing),[14]),((21,Nothing),[23,25]),((22,Nothing),[5,21]),((23,Nothing),[27,29]),((24,Nothing),[22]),((25,Just 'c'),[26]),((26,Nothing),[22]),((27,Nothing),[31,33]),((28,Nothing),[24]),((29,Just 'b'),[30]),((30,Nothing),[24]),((31,Just 'a'),[32]),((32,Nothing),[28]),((33,Nothing),[34]),((34,Nothing),[28]),((35,Just 'e'),[36]),((36,Nothing),[2,35])])

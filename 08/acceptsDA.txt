@@ -28,6 +28,12 @@ False
 da1 ""
 False
 
+da1 "q"
+False
+
+da1 "qwewqeeqw"
+False
+
 da3 "ab"
 True
 

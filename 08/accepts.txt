@@ -18,6 +18,8 @@ nda1 "y3"
 False
 nda1 ""
 False
+nda1 "qqweqqwes"
+False
 
 nda2 "x"
 True

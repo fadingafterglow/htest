@@ -16,11 +16,35 @@ re5
 Null
 Null
 
+(Term 'a')
+(Term 'a')
+
 (Seq (Term 'a') (Opt (Term 'b')))
 (Seq (Term 'a') (Alt (Term 'b') Null))
 
+(Seq (Opt (Term 'b')) (Term 'a'))
+(Seq (Alt (Term 'b') Null) (Term 'a'))
+
+(Alt (Term 'a') (Opt (Term 'b')))
+(Alt (Term 'a') (Alt (Term 'b') Null))
+
+(Alt (Opt (Term 'b')) (Term 'a'))
+(Alt (Alt (Term 'b') Null) (Term 'a'))
+
+(Rep (Opt (Term 'b')))
+(Rep (Alt (Term 'b') Null))
+
 (Opt (Term 'a'))
 (Alt (Term 'a') Null)
+
+(Opt (Opt (Term 'a')))
+(Alt ((Alt (Term 'a') Null)) Null)
+
+(Plus (Term 'a'))
+(Seq (Term 'a') (Rep (Term 'a')))
+
+(Plus (Plus (Term 'a')))
+(Seq ((Seq (Term 'a') (Rep (Term 'a')))) (Rep ((Seq (Term 'a') (Rep (Term 'a'))))))
 
 (Seq (Opt (Plus (Term 'a'))) (Plus (Term 'b')))
 (Seq (Alt (Seq (Term 'a') (Rep (Term 'a'))) Null) (Seq (Term 'b') (Rep (Term 'b'))))

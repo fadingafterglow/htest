@@ -1,10 +1,16 @@
 ""
 Nothing
 
+" "
+Just (Term ' ')
+
 "a"
 Just (Term 'a')
 
 "(a)"
+Just (Term 'a')
+
+"((a))"
 Just (Term 'a')
 
 "ab"
@@ -22,32 +28,35 @@ Just (Plus (Term 'a'))
 "a?"
 Just (Opt (Term 'a'))
 
-"(a|b)*c"
-Just (Seq (Rep (Alt (Term 'a') (Term 'b'))) (Term 'c'))
-
-"(x|y)(1|2)"
-Just (Seq (Alt (Term 'x') (Term 'y')) (Alt (Term '1') (Term '2')))
-
-"x'*"
-Just (Seq (Term 'x') (Rep (Term '\'')))
-
-"(ab|c)*"
-Just (Rep (Alt (Seq (Term 'a') (Term 'b')) (Term 'c')))
-
-"(a?)a"
-Just (Seq (Opt (Term 'a')) (Term 'a'))
-
-"(ab)?d+"
-Just (Seq (Opt (Seq (Term 'a') (Term 'b'))) (Plus (Term 'd')))
-
-"c?*"
-Just (Rep (Opt (Term 'c')))
-
 "a|b|c"
 Just (Alt (Alt (Term 'a') (Term 'b')) (Term 'c'))
 
 "(a(b)c)"
 Just (Seq (Seq (Term 'a') (Term 'b')) (Term 'c'))
+
+"abc|ABC|1?2+3*"
+Just (Alt (Alt (Seq (Seq (Term 'a') (Term 'b')) (Term 'c')) (Seq (Seq (Term 'A') (Term 'B')) (Term 'C'))) (Seq (Seq (Opt (Term '1')) (Plus (Term '2'))) (Rep (Term '3'))))
+
+"abc|(ABC)|1?2+3*"
+Just (Alt (Alt (Seq (Seq (Term 'a') (Term 'b')) (Term 'c')) (Seq (Seq (Term 'A') (Term 'B')) (Term 'C'))) (Seq (Seq (Opt (Term '1')) (Plus (Term '2'))) (Rep (Term '3'))))
+
+"abc|A(B((C)))|1?2+3*"
+Just (Alt (Alt (Seq (Seq (Term 'a') (Term 'b')) (Term 'c')) (Seq (Term 'A') (Seq (Term 'B') (Term 'C')))) (Seq (Seq (Opt (Term '1')) (Plus (Term '2'))) (Rep (Term '3'))))
+
+"ab(c|A)BC|1?2+3*"
+Just (Alt (Seq (Seq (Seq (Seq (Term 'a') (Term 'b')) (Alt (Term 'c') (Term 'A'))) (Term 'B')) (Term 'C')) (Seq (Seq (Opt (Term '1')) (Plus (Term '2'))) (Rep (Term '3'))))
+
+"abc|ABC|?1?2+3*"
+Nothing
+
+"abc|ABC)|1?2+3*"
+Nothing
+
+"(abc|)ABC|1?2+3*"
+Nothing
+
+"abc|()|1?2+3*"
+Nothing
 
 "a**"
 Just (Rep (Rep (Term 'a')))
@@ -58,14 +67,20 @@ Just (Plus (Plus (Term 'a')))
 "a??"
 Just (Opt (Opt (Term 'a')))
 
+"a*?"
+Just (Opt (Rep (Term 'a')))
+
+"a+*"
+Just (Rep (Plus (Term 'a')))
+
+"a*+?"
+Just (Opt (Plus (Rep (Term 'a'))))
+
 "a*b+"
 Just (Seq (Rep (Term 'a')) (Plus (Term 'b')))
 
 "(a*|b+)?c"
 Just (Seq (Opt (Alt (Rep (Term 'a')) (Plus (Term 'b')))) (Term 'c'))
-
-" "
-Just (Term ' ')
 
 "()"
 Nothing
@@ -82,25 +97,10 @@ Nothing
 "|a"
 Nothing
 
-"a*+"
-Just (Plus (Rep (Term 'a')))
-
 "ab(+)"
 Nothing
 
 "a(b|"
-Nothing
-
-"a?"
-Just (Opt (Term 'a'))
-
-"*"
-Nothing
-
-"+"
-Nothing
-
-"?"
 Nothing
 
 "a|b*"
@@ -112,9 +112,6 @@ Just (Seq (Term 'a') (Term 'b'))
 "a(b)"
 Just (Seq (Term 'a') (Term 'b'))
 
-"((a))"
-Just (Term 'a')
-
 "a||b"
 Nothing
 
@@ -123,9 +120,6 @@ Just (Seq (Seq (Term 'a') (Term ' ')) (Term 'b'))
 
 "a\\b"
 Just (Seq (Seq (Term 'a') (Term '\\')) (Term 'b'))
-
-"a*?"
-Just (Opt (Rep (Term 'a')))
 
 "."
 Just (Term '.')

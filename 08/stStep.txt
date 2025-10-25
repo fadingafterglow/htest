@@ -1,15 +1,13 @@
 nda1 1 (Just 'x')
 []
-
 nda1 1 Nothing
 [5,7]
-
 nda1 3 Nothing
 [4]
-
+nda1 4 Nothing
+[9, 11]
 nda1 9 (Just '1')
 [10]
-
 nda1 11 (Just '2')
 [12]
 
@@ -103,5 +101,14 @@ ndaTest 5 Nothing
 (1,[2],[((3,Just 'a'),[4])]) 1 (Just 'a')
 []
 
+(1,[2],[((3,Just 'a'),[4])]) 3 Nothing
+[]
+
+(1,[2],[((3,Just 'a'),[4])]) 5 (Just 'a')
+[]
+
 (1,[2],[]) 1 Nothing
+[]
+
+(1,[2],[]) 1 (Just 'a')
 []
