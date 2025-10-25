@@ -1,0 +1,44 @@
+((\(_,_,tr)->tr) nda1)
+"12xy"
+
+((\(_,_,tr)->tr) nda2)
+"\'x"
+
+((\(_,_,tr)->tr) nda3)
+"abc"
+
+((\(_,_,tr)->tr) nda4)
+"a"
+
+((\(_,_,tr)->tr) nda5)
+"abd"
+
+((\(_,_,tr)->tr) nda6)
+"c"
+
+((\(_,_,tr)->tr) ndaTest)
+"ab"
+
+((\(_,_,tr)->tr) ndaFigure)
+"abc"
+
+[((1,Nothing),[2])]
+""
+
+[((1,Just 'a'),[2]), ((2,Just 'b'),[3]), ((3,Just 'c'),[4])]
+"abc"
+
+[((1,Just 'b'),[2]), ((2,Just 'a'),[3]), ((3,Just 'b'),[4])]
+"ab"
+
+[((1,Nothing),[2]), ((2,Just 'a'),[3]), ((3,Nothing),[4])]
+"a"
+
+[((1,Just 'z'),[2]), ((2,Just 'y'),[3]), ((3,Just 'x'),[4])]
+"xyz"
+
+[((1,Just 'a'),[2]), ((2,Just 'a'),[3]), ((3,Just 'a'),[4])]
+"a"
+
+[((1,Just 'a'),[2,3]), ((2,Just 'c'),[4,5]), ((3,Just 'b'),[6])]
+"abc"

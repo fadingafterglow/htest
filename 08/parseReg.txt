@@ -1,0 +1,185 @@
+"nda1 [1] (Just 'x')"
+Nothing
+
+""
+Nothing
+
+"a"
+Just (Term 'a')
+
+"(a)"
+Just (Term 'a')
+
+"ab"
+Just (Seq (Term 'a') (Term 'b'))
+
+"a|b"
+Just (Alt (Term 'a') (Term 'b'))
+
+"a*"
+Just (Rep (Term 'a'))
+
+"a+"
+Just (Plus (Term 'a'))
+
+"a?"
+Just (Opt (Term 'a'))
+
+"(a|b)*c"
+Just (Seq (Rep (Alt (Term 'a') (Term 'b'))) (Term 'c'))
+
+"(x|y)(1|2)"
+Just (Seq (Alt (Term 'x') (Term 'y')) (Alt (Term '1') (Term '2')))
+
+"x'*"
+Just (Seq (Term 'x') (Rep (Term '\'')))
+
+"(ab|c)*"
+Just (Rep (Alt (Seq (Term 'a') (Term 'b')) (Term 'c')))
+
+"(a?)a"
+Just (Seq (Opt (Term 'a')) (Term 'a'))
+
+"(ab)?d+"
+Just (Seq (Opt (Seq (Term 'a') (Term 'b'))) (Plus (Term 'd')))
+
+"c?*"
+Just (Rep (Opt (Term 'c')))
+
+"a|b|c"
+Just (Alt (Alt (Term 'a') (Term 'b')) (Term 'c'))
+
+"(a(b)c)"
+Just (Seq (Seq (Term 'a') (Term 'b')) (Term 'c'))
+
+"a**"
+Just (Rep (Rep (Term 'a')))
+
+"a++"
+Just (Plus (Plus (Term 'a')))
+
+"a??"
+Just (Opt (Opt (Term 'a')))
+
+"a*b+"
+Just (Seq (Rep (Term 'a')) (Plus (Term 'b')))
+
+"(a*|b+)?c"
+Just (Seq (Opt (Alt (Rep (Term 'a')) (Plus (Term 'b')))) (Term 'c'))
+
+" "
+Nothing
+
+"()"
+Nothing
+
+"(a"
+Nothing
+
+"a)"
+Nothing
+
+"a|"
+Nothing
+
+"|a"
+Nothing
+
+"a*+"
+Just (Plus (Rep (Term 'a')))
+
+"ab(+)"
+Nothing
+
+"a(b|"
+Nothing
+
+"a?"
+Just (Opt (Term 'a'))
+
+"*"
+Nothing
+
+"+"
+Nothing
+
+"?"
+Nothing
+
+"a|b*"
+Just (Alt (Term 'a') (Rep (Term 'b')))
+
+"(a)b"
+Just (Seq (Term 'a') (Term 'b'))
+
+"a(b)"
+Just (Seq (Term 'a') (Term 'b'))
+
+"((a))"
+Just (Term 'a')
+
+"a||b"
+Nothing
+
+"a b"
+Nothing
+
+"a\\b"
+Just (Seq (Seq (Term 'a') (Term '\\')) (Term 'b'))
+
+"a*?"
+Just (Opt (Rep (Term 'a')))
+
+"."
+Just (Term '.')
+
+"!"
+Just (Term '!')
+
+"|"
+Nothing
+
+"("
+Nothing
+
+")"
+Nothing
+
+"*"
+Nothing
+
+"+"
+Nothing
+
+"?"
+Nothing
+
+"a|*"
+Nothing
+
+"(a|b)*c+"
+Just (Seq (Rep (Alt (Term 'a') (Term 'b'))) (Plus (Term 'c')))
+
+"((ab)?d+)"
+Just (Seq (Opt (Seq (Term 'a') (Term 'b'))) (Plus (Term 'd')))
+
+reFigureS
+Just reFigure
+
+re1S
+Just re1
+
+re2S
+Just re2
+
+re3S
+Just re3
+
+re4S
+Just re4
+
+re5S
+Just re5
+
+re6S
+Just re6

@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Runner {
 
@@ -22,7 +24,8 @@ public class Runner {
         String script = new ScriptBuilder().build(moduleName, tests);
         File scriptFile = saveToTempFile(script);
 
-        Process ghciProcess = invokeGhci(scriptFile);
+        List<String> packages = extractPackages(tests);
+        Process ghciProcess = invokeGhci(scriptFile, packages);
         ghciProcess.waitFor();
     }
 
@@ -31,6 +34,14 @@ public class Runner {
             System.err.println("At least two arguments required: module name and test file");
             System.exit(1);
         }
+    }
+
+    private static List<String> extractPackages(List<TestContext> tests) {
+        return tests.stream()
+                .flatMap(tc -> tc.packages().stream())
+                .distinct()
+                .flatMap(pkg -> Stream.of("-package", pkg))
+                .toList();
     }
 
     private static String getModuleName(String[] args) {
@@ -53,8 +64,12 @@ public class Runner {
         return file;
     }
 
-    private static Process invokeGhci(File script) throws IOException {
-        return new ProcessBuilder("ghci")
+    private static Process invokeGhci(File script, List<String> packageArgs) throws IOException {
+        List<String> command = new ArrayList<>();
+        command.add("ghci");
+        command.addAll(packageArgs);
+
+        return new ProcessBuilder(command)
                 .redirectInput(script)
                 .redirectOutput(ProcessBuilder.Redirect.INHERIT)
                 .redirectError(ProcessBuilder.Redirect.INHERIT)

@@ -1,0 +1,146 @@
+ndaFigure 5
+[((5,Nothing),[7,9])]
+
+ndaFigure 1
+[((1,Nothing),[3,5])]
+
+ndaFigure 3
+[((3,Nothing),[4])]
+
+ndaFigure 4
+[((4,Just 'c'),[2])]
+
+ndaFigure 9
+[((9,Just 'b'),[10])]
+
+nda1 1
+[((1,Nothing),[5,7])]
+
+nda1 5
+[((5,Just 'x'),[6])]
+
+nda1 6
+[((6,Nothing),[3])]
+
+nda1 7
+[((7,Just 'y'),[8])]
+
+nda1 10
+[((10,Nothing),[2])]
+
+nda2 1
+[((1,Just 'x'),[3])]
+
+nda2 3
+[((3,Nothing),[4])]
+
+nda2 4
+[((4,Nothing),[2,5])]
+
+nda2 5
+[((5,Just '\''),[6])]
+
+nda2 6
+[((6,Nothing),[2,5])]
+
+nda3 1
+[((1,Nothing),[2,3])]
+
+nda3 3
+[((3,Nothing),[5,7])]
+
+nda3 5
+[((5,Just 'a'),[9])]
+
+nda3 7
+[((7,Just 'c'),[8])]
+
+nda3 8
+[((8,Nothing),[4])]
+
+nda3 10
+[((10,Just 'b'),[6])]
+
+nda4 1
+[((1,Nothing),[5,7])]
+
+nda4 3
+[((3,Nothing),[4])]
+
+nda4 4
+[((4,Just 'a'),[2])]
+
+nda4 5
+[((5,Just 'a'),[6])]
+
+nda4 6
+[((6,Nothing),[3])]
+
+nda5 1
+[((1,Nothing),[5,7])]
+
+nda5 4
+[((4,Just 'd'),[11])]
+
+nda5 5
+[((5,Just 'a'),[9])]
+
+nda5 10
+[((10,Just 'b'),[6])]
+
+nda5 11
+[((11,Nothing),[12])]
+
+nda5 13
+[((13,Just 'd'),[14])]
+
+nda5 14
+[((14,Nothing),[2,13])]
+
+nda6 1
+[((1,Nothing),[2,3])]
+
+nda6 5
+[((5,Just 'c'),[6])]
+
+nda6 6
+[((6,Nothing),[4])]
+
+nda6 7
+[((7,Nothing),[8])]
+
+nda6 8
+[((8,Nothing),[4])]
+
+ndaTest 1
+[((1,Nothing),[4]),((1,Just 'a'),[2]),((1,Just 'b'),[3])]
+
+ndaTest 3
+[((3,Nothing),[5]),((3,Just 'a'),[4])]
+
+ndaTest 4
+[((4,Nothing),[1,4])]
+
+ndaTest 5
+[((5,Nothing),[2,4])]
+
+(10, [20], [((10,Nothing),[11,15]), ((11,Nothing),[12,14]), ((12,Just 'b'),[13])]) 11
+[((11,Nothing),[12,14])]
+
+(10, [20], [((10,Nothing),[11,15]), ((11,Nothing),[12,14]), ((12,Just 'b'),[13])]) 12
+[((12,Just 'b'),[13])]
+
+(1,[2], [((3,Nothing),[4]), ((5,Nothing),[9,7])]) 5
+[((5,Nothing),[7,9])]
+
+(1,[2], [((1,Nothing),[5,3]), ((3,Nothing),[4])]) 1
+[((1,Nothing),[3,5])]
+
+(1,[2], [((1,Nothing),[5,3]), ((3,Nothing),[4]), ((5,Just 'x'),[6])]) 1
+[((1,Nothing),[3,5])]
+
+(1,[2], [((4,Just 'c'),[2,2])]) 4
+[((4,Just 'c'),[2])]
+
+(1,[2], [((10,Just 'b'),[6,6])]) 10
+[((10,Just 'b'),[6])]

@@ -1,0 +1,74 @@
+nda1 1
+False
+
+nda1 2
+True
+
+nda1 3
+False
+
+nda1 5
+True
+
+nda1 8
+False
+
+nda1 9
+True
+
+nda1 12
+False
+
+nda2 5
+True
+
+nda2 6
+False
+
+nda3 2
+True
+
+nda4 1
+False
+
+nda4 2
+True
+
+nda4 3
+False
+
+nda4 8
+False
+
+nda5 2
+True
+
+nda5 13
+True
+
+nda5 14
+False
+
+nda6 1
+False
+
+nda6 4
+False
+
+nda6 8
+False
+
+ndaTest 1
+True
+
+ndaTest 2
+False
+
+ndaTest 3
+True
+
+ndaTest 4
+False
+
+ndaTest 5
+False
