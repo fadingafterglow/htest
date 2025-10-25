@@ -6,7 +6,7 @@
 
 <h1>Installation</h1>
 <ol>
-  <li>Download the test runner <code>htest</code></li>
+  <li>Download the test runner <code>htest</code> (.sh for Linux/macOS, .bat for Windows)</li>
   <li>Move it to a folder included into your OS %PATH% (e.g. <code>...\ghcup\bin\</code>)</li>
 </ol>
 
@@ -25,3 +25,10 @@
   Run <code>htest ModuleName file1 [file2 ...]</code> in the folder with your Haskell module. <br>
   Example: <code>htest Task01 .\01\*.txt</code>
 </p>
+
+<h1>Settings</h1>
+<p>You can use the following environment variables to alter runner behaviour:</p>
+<ul>
+  <li>HTEST_KEEP_TEMP_FILES - if defined, the generated .ghci script is not deleted and can be found in the default temp directory.</li>
+  <li>HTEST_GHCI_PATH - if not blank, used to determine path to ghci executable.</li>
+</ul>
