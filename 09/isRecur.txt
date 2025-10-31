@@ -1,0 +1,151 @@
+[("const0", Zero), ("const0v2", Super Zero [Sel 2 1]), ("subtraction", Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3]))] (Name "const0v2")
+True
+
+[("const0", Zero), ("const0v2", Super Zero [Sel 2 1]), ("subtraction", Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3]))] (Name "subtraction")
+False
+
+syst1 Zero
+True
+
+syst1 Succ
+True
+
+syst1 (Sel 2 1)
+True
+
+syst1 (Sel 3 3)
+True
+
+syst1 (Sel 0 1)
+False
+
+syst1 (Sel 3 0)
+False
+
+syst1 (Sel 2 3)
+False
+
+
+
+syst1 (Name "const0")
+True
+
+syst1 (Name "addition")
+True
+
+syst1 (Super Succ [Zero])
+True
+
+syst1 (Super Succ [Sel 2 1])
+True
+
+syst1 (Super (Sel 2 1) [Sel 3 1, Sel 3 2])
+True
+
+syst1 (Super (Sel 2 1) [Sel 2 1, Sel 3 2])
+False
+
+syst1 (Super (Sel 3 1) [Zero, Succ])
+False
+
+syst1 (Super Zero [])
+False
+
+syst1 (Prim Zero (Sel 2 1))
+True
+
+syst1 (Prim (Sel 1 1) (Sel 3 3))
+True
+
+syst1 (Prim (Sel 2 1) (Sel 3 3))
+False
+
+syst1 (Prim (Sel 1 1) (Sel 2 1))
+False
+
+syst1 (Prim (Super Succ [Zero]) (Sel 2 1))
+True
+
+syst1 (Mini (Sel 2 1) 100)
+True
+
+syst1 (Mini (Sel 3 2) 50)
+True
+
+syst1 (Mini Zero 10)
+False
+
+syst1 (Mini Succ 5)
+False
+
+syst1 (Name "subtractionAbs3")
+True
+
+syst1 (Mini (Name "subtractionAbs3") 100)
+True
+
+syst1 (Super (Name "addition") [Sel 2 1, Sel 2 2])
+True
+
+syst1 (Super (Name "addition") [Zero, Succ])
+True
+
+syst1 (Super (Name "addition") [Sel 2 1, Zero])
+False
+
+syst1 (Prim (Name "const0") (Sel 2 1))
+True
+
+syst1 (Prim (Name "addition") (Sel 4 3))
+True
+
+syst1 (Mini (Name "addition") 20)
+True
+
+syst1 (Super Succ [Super Succ [Zero]])
+True
+
+syst1 (Sel 5 5)
+True
+
+syst1 (Sel 1 2)
+False
+
+syst1 (Super (Sel 2 1) [Name "const0", Name "const0"])
+True
+
+syst1 (Super (Sel 2 1) [Name "const0v2", Name "const0v2"])
+True
+
+syst1 (Prim (Sel 1 1) (Name "addition"))
+False
+
+syst1 (Mini (Name "subtraction") 15)
+True
+
+syst1 (Super (Name "multiplication") [Sel 2 1, Sel 2 2])
+True
+
+syst1 (Prim Zero (Name "addition"))
+True
+
+syst1 (Super (Sel 4 2) [Sel 3 1, Sel 3 2, Sel 3 3, Name "const0v3"])
+True
+
+syst1 (Mini (Name "const0") 5)
+False
+
+syst1 (Prim (Name "const2") (Sel 2 1))
+True
+
+syst1 (Super Succ [Sel 0 1])
+False
+
+syst1 (Super (Sel 3 1) [Zero, Zero, Zero])
+True
+
+syst1 (Prim (Sel 3 1) (Sel 5 2))
+True
+
+syst1 (Mini (Sel 10 5) 1000)
+True

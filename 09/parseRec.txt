@@ -1,0 +1,392 @@
+#package parsec
+
+" f1 = (a1:z1); f2 = (a1, f2);"
+Nothing
+
+" f1 = (a1:z1); f2 = (a1:f2);"
+Just [("f1",Super Succ [Zero]),("f2",Super Succ [Name "f2"])]
+
+"f1=a1;"
+Just [("f1",Succ)]
+
+"f1 = z1; f2 = s12;"
+Just [("f1",Zero),("f2",Sel 1 2)]
+
+""
+Just []
+
+"f1=(a1:z1,z1);"
+Just [("f1",Super Succ [Zero,Zero])]
+
+"f1=[a1,z1];"
+Just [("f1",Prim Succ Zero)]
+
+"f1={a1,123};"
+Just [("f1",Mini Succ 123)]
+
+"f1=myFunc;"
+Nothing
+
+"f1=(a1:z1);f2=(f1:a1);"
+Just [("f1",Super Succ [Zero]),("f2",Super (Name "f1") [Succ])]
+
+""
+Just []
+
+"f1=a1;"
+Just [("f1",Succ)]
+
+"f1=z1;"
+Just [("f1",Zero)]
+
+"f1=s11;"
+Just [("f1",Sel 1 1)]
+
+"f1=s99;"
+Just [("f1",Sel 9 9)]
+
+#/ Test on if notFollowedBy was inserted to discern names
+"w = s123;"
+Just [("w",Name "s123")]
+
+"w = a12;"
+Just [("w",Name "a12")]
+
+"w = z12;"
+Nothing
+
+"myFunc=a1;"
+Nothing
+
+"ABC=z1;"
+Just [("ABC",Zero)]
+
+"f123=s23;"
+Just [("f123",Sel 2 3)]
+
+"f1=(a1:z1);"
+Just [("f1",Super Succ [Zero])]
+
+"f1=(z1:a1);"
+Just [("f1",Super Zero [Succ])]
+
+"f1=(a1:z1,z1);"
+Just [("f1",Super Succ [Zero,Zero])]
+
+"f1=(s12:a1,z1);"
+Just [("f1",Super (Sel 1 2) [Succ,Zero])]
+
+"f1=(a1:z1,z1,a1,s11);"
+Just [("f1",Super Succ [Zero,Zero,Succ,Sel 1 1])]
+
+"f1=(a1:z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1,z1);"
+Just [("f1",Super Succ [Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero])]
+
+"f1=((a1:z1):z1);"
+Just [("f1",Super (Super Succ [Zero]) [Zero])]
+
+"f1=(a1:(z1:a1));"
+Just [("f1",Super Succ [Super Zero [Succ]])]
+
+"f1=(((((((((a1:z1):z1):z1):z1):z1):z1):z1):z1):z1);"
+Just [("f1",Super (Super (Super (Super (Super (Super (Super (Super (Super Succ [Zero]) [Zero]) [Zero]) [Zero]) [Zero]) [Zero]) [Zero]) [Zero]) [Zero])]
+
+"f1=[a1,z1];"
+Just [("f1",Prim Succ Zero)]
+
+"f1=[z1,a1];"
+Just [("f1",Prim Zero Succ)]
+
+"f1=[s12,s34];"
+Just [("f1",Prim (Sel 1 2) (Sel 3 4))]
+
+"f1=[[a1,z1],a1];"
+Just [("f1",Prim (Prim Succ Zero) Succ)]
+
+"f1=[a1,[z1,a1]];"
+Just [("f1",Prim Succ (Prim Zero Succ))]
+
+"f1=[[[[[[[[a1,z1],z1],z1],z1],z1],z1],z1],z1];"
+Just [("f1",Prim (Prim (Prim (Prim (Prim (Prim (Prim (Prim Succ Zero) Zero) Zero) Zero) Zero) Zero) Zero) Zero)]
+
+"f1={a1,0};"
+Just [("f1",Mini Succ 0)]
+
+"f1={z1,100};"
+Just [("f1",Mini Zero 100)]
+
+"f1={s23,999};"
+Just [("f1",Mini (Sel 2 3) 999)]
+
+"f1={a1,123456789};"
+Just [("f1",Mini Succ 123456789)]
+
+"f1={{a1,10},20};"
+Just [("f1",Mini (Mini Succ 10) 20)]
+
+"f1={[(a1:z1),z1],50};"
+Just [("f1",Mini (Prim (Super Succ [Zero]) Zero) 50)]
+
+"f1={{{{{{a1,1},2},3},4},5},6};"
+Just [("f1", (Mini (Mini (Mini (Mini (Mini (Mini Succ 1) 2) 3) 4) 5) 6))]
+
+"wA123=z1;"
+Just [("wA123",Zero)]
+
+"abcdefghijklmnopqrstuvw0123456789=a1;"
+Just [("abcdefghijklmnopqrstuvw0123456789",Succ)]
+
+"plusLettersWwwwwwwwwwwwwwwwwwwwwww123=a1;"
+Just [("plusLettersWwwwwwwwwwwwwwwwwwwwwww123",Succ)]
+
+"f1=a1;f2=f1;"
+Just [("f1",Succ),("f2",Name "f1")]
+
+"f1=z1;f2=(f1:a1);"
+Just [("f1",Zero),("f2",Super (Name "f1") [Succ])]
+
+"f1=a1;f2=[f1,z1];"
+Just [("f1",Succ),("f2",Prim (Name "f1") Zero)]
+
+"f1=z1;f2={f1,10};"
+Just [("f1",Zero),("f2",Mini (Name "f1") 10)]
+
+"f1=a1;f1=z1;"
+Just [("f1",Succ),("f1",Zero)]
+
+"f1=a1;f2=z1;f1=s11;"
+Just [("f1",Succ),("f2",Zero),("f1",Sel 1 1)]
+
+"f1=(a1:(z1:a1),(a1:z1));"
+Just [("f1",Super Succ [Super Zero [Succ],Super Succ [Zero]])]
+
+"f1=[(a1:(z1:a1)),(a1:(z1:a1))];"
+Just [("f1",Prim (Super Succ [Super Zero [Succ]]) (Super Succ [Super Zero [Succ]]))]
+
+"f1={(a1:[(z1:a1),{a1,5}]),100};"
+Just [("f1",Mini (Super Succ [Prim (Super Zero [Succ]) (Mini Succ 5)]) 100)]
+
+"base=a1;lev1=(base:z1);lev2=[lev1,lev1];lev3={lev2,10};lev4=(lev3:lev1);"
+Just [("base",Succ),("lev1",Super (Name "base") [Zero]),("lev2",Prim (Name "lev1") (Name "lev1")),("lev3",Mini (Name "lev2") 10),("lev4",Super (Name "lev3") [Name "lev1"])]
+
+"f1=a1;f2=z1;"
+Just [("f1",Succ),("f2",Zero)]
+
+"f1=a1;f2=z1;f3=s12;"
+Just [("f1",Succ),("f2",Zero),("f3",Sel 1 2)]
+
+"const0=z1;const1=(a1:const0);const2=(a1:const1);"
+Just [("const0",Zero),("const1",Super Succ [Name "const0"]),("const2",Super Succ [Name "const1"])]
+
+"base=a1;helper=z1;result=(base:helper,helper);"
+Just [("base",Succ),("helper",Zero),("result",Super (Name "base") [Name "helper",Name "helper"])]
+
+"id=s11;compose=(id:id);twice=[compose,compose];"
+Just [("id",Sel 1 1),("compose",Super (Name "id") [Name "id"]),("twice",Prim (Name "compose") (Name "compose"))]
+
+"f1=((((a1:z1):z1):z1):z1);"
+Just [("f1",Super (Super (Super (Super Succ [Zero]) [Zero]) [Zero]) [Zero])]
+
+"f1=[[[[a1,z1],z1],z1],z1];"
+Just [("f1",Prim (Prim (Prim (Prim Succ Zero) Zero) Zero) Zero)]
+
+"f1={{{{a1,1},2},3},4};"
+Just [("f1",Mini (Mini (Mini (Mini Succ 1) 2) 3) 4)]
+
+"f1=[(a1:{z1,10}),{[a1,z1],20}];"
+Just [("f1",Prim (Super Succ [Mini Zero 10]) (Mini (Prim Succ Zero) 20))]
+
+"f1 = {((a1:[z1,a1]):(z1:{a1,5})), 15};"
+Just [("f1",Mini (Super (Super Succ [Prim Zero Succ]) [Super Zero [Mini Succ 5]]) 15)]
+
+"f1 = {(a1:[z1,a1]):(z1:{a1, 5}), 15};"
+Nothing
+
+"f1 = a1 ;"
+Just [("f1",Succ)]
+
+"f1=a1;    f2=z1;"
+Just [("f1",Succ),("f2",Zero)]
+
+"f1   =   (  a1  :  z1  )  ;"
+Just [("f1",Super Succ [Zero])]
+
+"f1=[  a1  ,  z1  ];"
+Just [("f1",Prim Succ Zero)]
+
+"f1={  a1  ,  123  };"
+Just [("f1",Mini Succ 123)]
+
+"f1=(a1,z1);"
+Nothing
+
+"f1=(a1:);"
+Nothing
+
+"f1=(:z1);"
+Nothing
+
+"f1=[a1];"
+Nothing
+
+"f1=[a1,];"
+Nothing
+
+"f1=[,z1];"
+Nothing
+
+"f1={a1};"
+Nothing
+
+"f1={a1,};"
+Nothing
+
+"f1={,10};"
+Nothing
+
+"f1={a1,10,10};"
+Nothing
+
+#/ Даний тест не включено через суперечку із завданням, яку реалізують більшість
+#/ "f1={a1, 10 10};"
+#/ Nothing
+
+"f1=(a1:z1,);"
+Nothing
+
+"f1=(a1:z1,z1,);"
+Nothing
+
+"f1=(a1:,z1);"
+Nothing
+
+"f1=(a1:z1];"
+Nothing
+
+"f1=[a1,z1);"
+Nothing
+
+"f1={a1,10];"
+Nothing
+
+
+
+"f1=((a1:z1);"
+Nothing
+
+"f1=(a1:z1));"
+Nothing
+
+"f1=a1"
+Nothing
+
+"f1=a1;f2=z1"
+Nothing
+
+"f1 a1;"
+Nothing
+
+"f1:a1;"
+Nothing
+
+"1f=a1;"
+Nothing
+
+"f-1=a1;"
+Nothing
+
+"=a1;"
+Nothing
+
+"x=a1;"
+Nothing
+
+"Xyz=z1;"
+Nothing
+
+"Zed=s11;"
+Nothing
+
+"waXyz=a1;"
+Nothing
+
+"testX123=z1;"
+Nothing
+
+"validNameWA=a1;"
+Just [("validNameWA",Succ)]
+
+"f1=s1;"
+Just [("f1",Name "s1")]
+
+"f1=s;"
+Just [("f1",Name "s")]
+
+"f1=sa1;"
+Just [("f1",Name "sa1")]
+
+"f1=s1a;"
+Just [("f1",Name "s1a")]
+
+"f1=a2;"
+Just [("f1",Name "a2")]
+
+"f1=z2;"
+Nothing
+
+"f1=b1;"
+Just [("f1",Name "b1")]
+
+"f1=a1;;;"
+Nothing
+
+"f1=a1; ;"
+Nothing
+
+"f1=a1;extra"
+Nothing
+
+"nil=z1;succ=a1;pred=[s22,nil];add=[s22,(succ:s32,add)];mult=[s22,(nil:s22,(add:s12,s32,mult))];"
+Just [("nil",Zero),("succ",Succ),("pred",Prim (Sel 2 2) (Name "nil")),("add",Prim (Sel 2 2) (Super (Name "succ") [Sel 3 2,Name "add"])),("mult",Prim (Sel 2 2) (Super (Name "nil") [Sel 2 2,Super (Name "add") [Sel 1 2,Sel 3 2,Name "mult"]]))]
+
+"f1=s00;"
+Just [("f1",Sel 0 0)]
+
+"f1=s09;"
+Just [("f1",Sel 0 9)]
+
+"f1=s90;"
+Just [("f1",Sel 9 0)]
+
+"f1=(a1:z1,z1,z1,z1,z1,z1,z1,z1,z1,z1);"
+Just [("f1",Super Succ [Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero,Zero])]
+
+"f1=(a1:[z1,{s12,50}],(z1:a1));"
+Just [("f1",Super Succ [Prim Zero (Mini (Sel 1 2) 50),Super Zero [Succ]])]
+
+"f1=[{(a1:z1,a1),100},(z1:[a1,a1])];"
+Just [("f1",Prim (Mini (Super Succ [Zero,Succ]) 100) (Super Zero [Prim Succ Succ]))]
+
+sysStr1
+Just syst1
+
+sysStr2
+Nothing
+
+"a = (a1:(a1:(a1:s22)));"
+Just [("a",Super Succ [Super Succ [Super Succ [Sel 2 2]]])]
+
+"addition=[s11,(a1:s33)]; subtract1=[z1,s21]; subtraction=[s11,(subtract1:s33)]; subtractionRev=(subtraction:s22,s21); subtractionAbs=(addition:subtraction,subtractionRev);  epr2 = (subtractionAbs:s33, (addition:s31,s32));"
+Just [("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("subtract1",Prim Zero (Sel 2 1)),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("epr2",Super (Name "subtractionAbs") [Sel 3 3,Super (Name "addition") [Sel 3 1,Sel 3 2]])]
+
+"const2=(a1:(a1:z1));const2v2=(a1:(a1:(z1:s21)));addition=[s11,(a1:s33)];multiplication=[z1,(addition:s33,s31)];subepr3=[(a1: z1), (multiplication: s22, const2v2)];epr3=(addition:(subepr3:s11),(multiplication:(a1:const2),s11));"
+Just [("const2",Super Succ [Super Succ [Zero]]),("const2v2",Super Succ [Super Succ [Super Zero [Sel 2 1]]]),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("subepr3",Prim (Super Succ [Zero]) (Super (Name "multiplication") [Sel 2 2,Name "const2v2"])),("epr3",Super (Name "addition") [Super (Name "subepr3") [Sel 1 1],Super (Name "multiplication") [Super Succ [Name "const2"],Sel 1 1]])]
+
+"const0v2=(z1:s21);const1v2=(a1:(z1:s21));const2v2=(a1:(a1:(z1:s21)));notSignum=[(a1:z1),(z1:s21)];subtract1=[z1,s21];addition=[s11,(a1:s33)];signum=[z1, const1v2];multiplication=[z1,(addition:s33,s31)];auif1=(multiplication: (notSignum: s31), s32);auif2=(multiplication: (signum: s31), s33);if=(addition:auif1,auif2);subtraction=[s11,(subtract1:s33)];subtractionRev=(subtraction:s22,s21);subtractionAbs=(addition:subtraction,subtractionRev);checkforeq=(if:(subtraction:s21,s22),const0v2,(a1:const0v2));remain=([z1,(multiplication:(signum:(subtractionAbs:s31,(a1:s33))),(a1:s33))]:s22,s21);epr4=[z1,(if:(checkforeq:(remain:s21,(a1:const2v2)),const0v2),(a1:s22),s22)];"
+Just [("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 2 1]]),("const2v2",Super Succ [Super Succ [Super Zero [Sel 2 1]]]),("notSignum",Prim (Super Succ [Zero]) (Super Zero [Sel 2 1])),("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("signum",Prim Zero (Name "const1v2")),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("auif1",Super (Name "multiplication") [Super (Name "notSignum") [Sel 3 1],Sel 3 2]),("auif2",Super (Name "multiplication") [Super (Name "signum") [Sel 3 1],Sel 3 3]),("if",Super (Name "addition") [Name "auif1",Name "auif2"]),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("checkforeq",Super (Name "if") [Super (Name "subtraction") [Sel 2 1,Sel 2 2],Name "const0v2",Super Succ [Name "const0v2"]]),("remain",Super (Prim Zero (Super (Name "multiplication") [Super (Name "signum") [Super (Name "subtractionAbs") [Sel 3 1,Super Succ [Sel 3 3]]],Super Succ [Sel 3 3]])) [Sel 2 2,Sel 2 1]),("epr4",Prim Zero (Super (Name "if") [Super (Name "checkforeq") [Super (Name "remain") [Sel 2 1,Super Succ [Name "const2v2"]],Name "const0v2"],Super Succ [Sel 2 2],Sel 2 2]))]
+
+"const0v2=(z1:s21);const1v2=(a1:(z1:s21));notSignum=[(a1:z1),(z1:s21)];subtract1=[z1,s21];addition=[s11,(a1:s33)];signum=[z1, const1v2];multiplication=[z1,(addition:s33,s31)];auif1=(multiplication: (notSignum: s31), s32);auif2=(multiplication: (signum: s31), s33);if=(addition:auif1,auif2);subtraction=[s11,(subtract1:s33)];subtractionRev=(subtraction:s22,s21);subtractionAbs=(addition:subtraction,subtractionRev);less=(if:(subtractionAbs:s21,s22), (const0v2:s21,s22), (if:(subtraction:s21, s22),(const1v2:s21,s22),(const0v2:s21,s22)));"
+Just [("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 2 1]]),("notSignum",Prim (Super Succ [Zero]) (Super Zero [Sel 2 1])),("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("signum",Prim Zero (Name "const1v2")),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("auif1",Super (Name "multiplication") [Super (Name "notSignum") [Sel 3 1],Sel 3 2]),("auif2",Super (Name "multiplication") [Super (Name "signum") [Sel 3 1],Sel 3 3]),("if",Super (Name "addition") [Name "auif1",Name "auif2"]),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("less",Super (Name "if") [Super (Name "subtractionAbs") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2],Super (Name "if") [Super (Name "subtraction") [Sel 2 1,Sel 2 2],Super (Name "const1v2") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2]]])]
+
+"subtract1=[z1,s21];addition=[s11,(a1:s33)];subtraction=[s11,(subtract1:s33)];subtractionRev=(subtraction:s22,s21);subtractionAbs=(addition:subtraction,subtractionRev);subtractionAbs3=(subtractionAbs:s31,(addition:s32,s33));subtractionPart={subtractionAbs3, 300};"
+Just [("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("subtractionAbs3",Super (Name "subtractionAbs") [Sel 3 1,Super (Name "addition") [Sel 3 2,Sel 3 3]]),("subtractionPart",Mini (Name "subtractionAbs3") 300)]

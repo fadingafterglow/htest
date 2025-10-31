@@ -1,0 +1,86 @@
+syst1 Zero
+True
+
+syst1 Succ
+False
+
+syst1 (Sel 2 1)
+False
+
+syst1 (Name "const0")
+True
+
+syst1 (Name "const0v2")
+False
+
+syst1 (Name "const0v3")
+False
+
+syst1 (Name "const1v2")
+False
+
+syst1 (Name "const2")
+True
+
+syst1 (Super Succ [Zero])
+True
+
+syst1 (Super Succ [Super Succ [Zero]])
+True
+
+syst1 (Super Succ [Name "const0"])
+True
+
+syst1 (Super Succ [Name "const2"])
+True
+
+syst1 (Name "addition")
+False
+
+syst1 (Name "multiplication")
+False
+
+syst1 (Name "notSignum")
+False
+
+syst1 (Name "subtract1")
+False
+
+syst1 (Name "subtraction")
+False
+
+syst1 (Prim Zero Succ)
+False
+
+syst1 (Mini (Name "const0") 10)
+False
+
+syst1 (Super Succ [Succ])
+False
+
+syst1 (Super Succ [Sel 1 1])
+False
+
+syst1 (Super Zero [Sel 1 1])
+False
+
+syst1 (Super (Name "addition") [Zero, Zero])
+False
+
+syst1 (Super Succ [Super Succ [Super Succ [Zero]]])
+True
+
+syst1 (Super Succ [Name "const1v2"])
+False
+
+syst1 (Super Succ [Super Succ [Name "const0"]])
+True
+
+syst1 (Name "subtractionRev")
+False
+
+syst1 (Name "subtractionAbs")
+False
+
+syst1 (Name "subtractionPart")
+False
