@@ -88,5 +88,11 @@ False
 [("f1", Zero), ("f2", Prim (Name "f1") Succ), ("f3", Mini (Name "f2") 100)]
 True
 
+[("f1", Zero), ("f2", Prim (Mini (Name "f2") 234) Succ)]
+False
+
+[("f1", Zero), ("f2", Prim (Mini (Name "f1") 234) (Super Succ [Name "f1", Name "f3"]))]
+False
+
 [("f1", Super (Name "f2") [Super (Name "f3") [Zero]]), ("f2", Succ), ("f3", Sel 2 1)]
 False

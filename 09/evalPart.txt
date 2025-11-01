@@ -525,3 +525,66 @@ Just 1
 
 [("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("subtractionAbs3",Super (Name "subtractionAbs") [Sel 3 1,Super (Name "addition") [Sel 3 2,Sel 3 3]]),("subtractionPart",Mini (Name "subtractionAbs3") 70)] (Name "subtractionPart") [20, 21]
 Nothing
+
+syst1 (Super (Super (Name "addition") [Sel 3 1,Super (Name "addition") [Sel 3 2,Sel 3 3]]) [Name "addition",Name "multiplication",Sel 2 2]) [2, 2]
+Just 10
+
+syst1 (Super (Super (Name "addition") [Sel 3 1,Super (Name "addition") [Sel 3 2,Sel 3 3]]) [Name "addition",Name "multiplication",Sel 2 2]) [3, 5]
+Just 28
+
+syst1 (Name "subtractionPart") [200, 0]
+Nothing
+
+syst1 (Mini (Name "subtractionAbs3") 200) [200, 1]
+Just 199
+
+syst1 (Mini (Name "subtractionAbs3") 200) [200, 0]
+Just 200
+
+syst1 (Mini (Name "subtractionAbs3") 200) [201, 0]
+Nothing
+
+syst1 (Mini (Name "subtractionPart") 5) [3]
+Just 3
+
+syst1 (Mini (Name "subtractionPart") 5) [101]
+Nothing
+
+syst1 (Mini (Super (Name "addition") [Sel 2 2,Super (Name "subtractionPart") [Sel 2 1,Sel 2 2]]) 10) [0]
+Just 0
+
+syst1 (Mini (Super (Name "addition") [Sel 2 2,Super (Name "subtractionPart") [Sel 2 1,Sel 2 2]]) 10) [1]
+Nothing
+
+syst1 (Mini (Super (Name "addition") [Sel 2 2,Super (Name "subtractionPart") [Sel 2 1,Sel 2 2]]) 10) [3]
+Nothing
+
+syst1 (Super (Name "addition") [Super Zero [Sel 2 1], Name "subtractionPart"]) [3, 2]
+Just 1
+
+syst1 (Super (Name "addition") [Super Zero [Sel 2 1], Name "subtractionPart"]) [2, 3]
+Nothing
+
+syst1 (Prim Zero (Super (Name "subtractionPart") [Sel 2 2, Sel 2 1])) [0]
+Just 0
+
+syst1 (Prim Zero (Super (Name "subtractionPart") [Sel 2 2, Sel 2 1])) [1]
+Just 0
+
+syst1 (Prim Zero (Super (Name "subtractionPart") [Sel 2 2, Sel 2 1])) [2]
+Nothing
+
+syst1 (Prim Zero (Super (Name "subtractionPart") [Sel 2 2, Sel 2 1])) [5]
+Nothing
+
+syst1 (Name "multiplication") [3, 2]
+Just 6
+
+syst1 (Prim (Sel 2 1) (Sel 4 4)) [3, 2, 4]
+Just 3
+
+syst1 (Name "subtractionPart") [6,3]
+Just 3
+
+syst1 (Name "subtractionPart") [6, 34]
+Nothing

@@ -250,6 +250,15 @@ Nothing
 "f1={a1, 10 10};"
 Nothing
 
+"f1={a 1, 100};"
+Nothing
+
+"f1={qe wqwe, 100};"
+Nothing
+
+"f 1={a1, 110};"
+Nothing
+
 "f1=(a1:z1,);"
 Nothing
 
@@ -387,3 +396,9 @@ Just [("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 
 
 "subtract1=[z1,s21];addition=[s11,(a1:s33)];subtraction=[s11,(subtract1:s33)];subtractionRev=(subtraction:s22,s21);subtractionAbs=(addition:subtraction,subtractionRev);subtractionAbs3=(subtractionAbs:s31,(addition:s32,s33));subtractionPart={subtractionAbs3, 300};"
 Just [("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("subtractionAbs3",Super (Name "subtractionAbs") [Sel 3 1,Super (Name "addition") [Sel 3 2,Sel 3 3]]),("subtractionPart",Mini (Name "subtractionAbs3") 300)]
+
+"   a  =  z1  ;   b = { s13 , 72 }  ;  c   =    [ func    , funcfunc    ]   ;  d   =  ( f : a1 ,  c , z1 )   ;    "
+Just [("a", Zero), ("b", Mini (Sel 1 3) 72), ("c", Prim (Name "func") (Name "funcfunc")), ("d", Super (Name "f") [Succ, Name "c", Zero])]
+
+"a=z1;b={s13,72};c=[func,funcfunc];d=(f:a1,c,z1);"
+Just [("a", Zero), ("b", Mini (Sel 1 3) 72), ("c", Prim (Name "func") (Name "funcfunc")), ("d", Super (Name "f") [Succ, Name "c", Zero])]

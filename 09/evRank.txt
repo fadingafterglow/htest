@@ -76,6 +76,9 @@ syst1 (Prim Zero (Sel 2 1))
 syst1 (Prim (Sel 1 1) (Sel 3 3))
 2
 
+syst1 (Mini (Sel 3 3) 132)
+2
+
 syst1 (Super Succ [Sel 3 2])
 3
 

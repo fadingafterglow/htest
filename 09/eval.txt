@@ -4,6 +4,9 @@
 [] Zero [0]
 0
 
+[] Zero [100]
+0
+
 [] Zero [999]
 0
 
@@ -45,9 +48,6 @@
 
 [] (Sel 5 3) [10, 20, 30, 40, 50]
 30
-
-[] Zero [100]
-0
 
 [] (Super Succ [Zero]) [5]
 1
@@ -434,3 +434,9 @@ syst1 (Name "subtractionAbs3") [5, 8, 2]
 
 [("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 2 1]]),("notSignum",Prim (Super Succ [Zero]) (Super Zero [Sel 2 1])),("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("signum",Prim Zero (Name "const1v2")),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("auif1",Super (Name "multiplication") [Super (Name "notSignum") [Sel 3 1],Sel 3 2]),("auif2",Super (Name "multiplication") [Super (Name "signum") [Sel 3 1],Sel 3 3]),("if",Super (Name "addition") [Name "auif1",Name "auif2"]),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("less",Super (Name "if") [Super (Name "subtractionAbs") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2],Super (Name "if") [Super (Name "subtraction") [Sel 2 1,Sel 2 2],Super (Name "const1v2") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2]]])] (Name "less") [67,69]
 1
+
+syst1 (Name "addition") [6, 34]
+40
+
+syst1 (Super Succ [Super Succ [Zero]]) [60]
+2 

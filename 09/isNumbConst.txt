@@ -73,6 +73,9 @@ True
 syst1 (Super Succ [Name "const1v2"])
 False
 
+syst1 (Super Succ [Name "const1"])
+False
+
 syst1 (Super Succ [Super Succ [Name "const0"]])
 True
 
@@ -83,4 +86,10 @@ syst1 (Name "subtractionAbs")
 False
 
 syst1 (Name "subtractionPart")
+False
+
+syst1 (Super Succ [])
+False
+
+syst1 (Super Succ [Zero, Zero])
 False

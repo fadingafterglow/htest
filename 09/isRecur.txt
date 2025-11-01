@@ -25,8 +25,6 @@ False
 syst1 (Sel 2 3)
 False
 
-
-
 syst1 (Name "const0")
 True
 
@@ -45,26 +43,68 @@ True
 syst1 (Super (Sel 2 1) [Sel 2 1, Sel 3 2])
 False
 
+syst1 (Super (Sel 3 1) [Sel 2 1, Sel 2 2, Sel 1 1])
+False
+
 syst1 (Super (Sel 3 1) [Zero, Succ])
 False
 
 syst1 (Super Zero [])
 False
 
-syst1 (Prim Zero (Sel 2 1))
-True
+syst1 (Super Succ [Sel 0 1])
+False
+
+syst1 (Super (Sel 3 1) [Sel 1 1, Sel 1 1, Sel 1 0])
+False
+
+syst1 (Super (Sel 1 0) [Succ])
+False
 
 syst1 (Prim (Sel 1 1) (Sel 3 3))
+True
+
+syst1 (Prim (Sel 98 9) (Sel 100 8))
 True
 
 syst1 (Prim (Sel 2 1) (Sel 3 3))
 False
 
+syst1 (Prim (Sel 23 1) (Sel 54 3))
+False
+
+syst1 (Prim (Sel 1 0) (Sel 3 3))
+False
+
+syst1 (Prim (Sel 1 1) (Sel 3 0))
+False
+
 syst1 (Prim (Sel 1 1) (Sel 2 1))
 False
 
+syst1 (Prim Zero (Sel 2 1))
+True
+
 syst1 (Prim (Super Succ [Zero]) (Sel 2 1))
 True
+
+syst1 (Prim (Name "const2") (Sel 2 1))
+True
+
+syst1 (Prim (Name "const1") (Sel 2 1))
+False
+
+syst1 (Prim Succ (Sel 2 1))
+False
+
+syst1 (Prim (Super Succ [Super Succ []]) (Sel 2 1))
+False
+
+syst1 (Prim (Name "const2") (Sel 2 0))
+False
+
+syst1 (Prim Zero (Sel 1 1))
+False
 
 syst1 (Mini (Sel 2 1) 100)
 True
@@ -78,11 +118,20 @@ False
 syst1 (Mini Succ 5)
 False
 
+syst1 (Mini (Sel 2 0) 5)
+False
+
+syst1 (Mini (Sel 1 1) 5)
+False
+
 syst1 (Name "subtractionAbs3")
 True
 
 syst1 (Mini (Name "subtractionAbs3") 100)
 True
+
+syst1 (Mini (Name "substractionAbs3") 100)
+False
 
 syst1 (Super (Name "addition") [Sel 2 1, Sel 2 2])
 True
@@ -135,12 +184,6 @@ True
 syst1 (Mini (Name "const0") 5)
 False
 
-syst1 (Prim (Name "const2") (Sel 2 1))
-True
-
-syst1 (Super Succ [Sel 0 1])
-False
-
 syst1 (Super (Sel 3 1) [Zero, Zero, Zero])
 True
 
@@ -149,3 +192,18 @@ True
 
 syst1 (Mini (Sel 10 5) 1000)
 True
+
+syst1 (Super (Name "addition") [Prim (Name "const2") (Name "multiplication"),Mini (Super (Name "subtraction") [Sel 2 2,Super Succ [Super Zero [Sel 2 1]]]) 111])
+True
+
+syst1 (Super (Name "addition") [Prim (Name "const2") (Name "multiplication"),Mini (Super (Name "substraction") [Sel 2 2,Super Succ [Super Zero [Sel 2 1]]]) 111])
+False
+
+syst1 (Super (Name "addition") [Prim (Name "const2") (Name "subtractionAbs3"),Mini (Super (Name "subtraction") [Sel 2 2,Super Succ [Super Zero [Sel 2 1]]]) 111])
+False
+
+syst1 (Super (Name "addition") [Prim (Name "const2") (Name "multiplication"),Mini (Super (Name "subtraction") [Sel 2 2,Super Succ [Super Zero [Sel 3 1]]]) 111])
+False
+
+syst1 (Super (Name "addition") [Prim (Name "const2") (Name "multiplication"),Mini (Super (Name "subtraction") [Super Succ [Super Zero [Sel 2 1]]]) 111])
+False
