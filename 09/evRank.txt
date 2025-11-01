@@ -1,0 +1,104 @@
+syst1 Zero
+1
+
+syst1 Succ
+1
+
+syst1 (Sel 2 1)
+2
+
+syst1 (Sel 3 1)
+3
+
+syst1 (Sel 3 3)
+3
+
+syst1 (Super Succ [Zero])
+1
+
+syst1 (Super Succ [Super Succ [Zero]])
+1
+
+syst1 (Name "const0")
+1
+
+syst1 (Name "const0v2")
+2
+
+syst1 (Name "const0v3")
+3
+
+syst1 (Name "const1v2")
+2
+
+syst1 (Name "const2")
+1
+
+syst1 (Name "addition")
+2
+
+syst1 (Name "multiplication")
+2
+
+syst1 (Name "notSignum")
+1
+
+syst1 (Name "subtract1")
+1
+
+syst1 (Name "subtraction")
+2
+
+syst1 (Name "subtractionRev")
+2
+
+syst1 (Name "subtractionAbs")
+2
+
+syst1 (Name "subtractionAbs3")
+3
+
+syst1 (Name "subtractionPart")
+2
+
+syst1 (Super Zero [Sel 2 1])
+2
+
+syst1 (Super Zero [Sel 3 1])
+3
+
+syst1 (Super (Name "addition") [Sel 2 1, Sel 2 2])
+2
+
+syst1 (Prim Zero (Sel 2 1))
+1
+
+syst1 (Prim (Sel 1 1) (Sel 3 3))
+2
+
+syst1 (Super Succ [Sel 3 2])
+3
+
+syst1 (Super (Name "const0") [Sel 2 1])
+2
+
+syst1 (Sel 5 3)
+5
+
+syst1 (Super Succ [Name "const0v3"])
+3
+
+[("epr1",Super Succ [Super Succ [Super Succ [Sel 2 2]]])] (Name "epr1")
+2
+
+[("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("subtract1",Prim Zero (Sel 2 1)),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("epr2",Super (Name "subtractionAbs") [Sel 3 3,Super (Name "addition") [Sel 3 1,Sel 3 2]])] (Name "epr2")
+3
+
+[("const2",Super Succ [Super Succ [Zero]]),("const2v2",Super Succ [Super Succ [Super Zero [Sel 2 1]]]),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("subepr3",Prim (Super Succ [Zero]) (Super (Name "multiplication") [Sel 2 2,Name "const2v2"])),("epr3",Super (Name "addition") [Super (Name "subepr3") [Sel 1 1],Super (Name "multiplication") [Super Succ [Name "const2"],Sel 1 1]])] (Name "epr3")
+1
+
+[("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 2 1]]),("const2v2",Super Succ [Super Succ [Super Zero [Sel 2 1]]]),("notSignum",Prim (Super Succ [Zero]) (Super Zero [Sel 2 1])),("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("signum",Prim Zero (Name "const1v2")),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("auif1",Super (Name "multiplication") [Super (Name "notSignum") [Sel 3 1],Sel 3 2]),("auif2",Super (Name "multiplication") [Super (Name "signum") [Sel 3 1],Sel 3 3]),("if",Super (Name "addition") [Name "auif1",Name "auif2"]),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("checkforeq",Super (Name "if") [Super (Name "subtraction") [Sel 2 1,Sel 2 2],Name "const0v2",Super Succ [Name "const0v2"]]),("remain",Super (Prim Zero (Super (Name "multiplication") [Super (Name "signum") [Super (Name "subtractionAbs") [Sel 3 1,Super Succ [Sel 3 3]]],Super Succ [Sel 3 3]])) [Sel 2 2,Sel 2 1]),("epr4",Prim Zero (Super (Name "if") [Super (Name "checkforeq") [Super (Name "remain") [Sel 2 1,Super Succ [Name "const2v2"]],Name "const0v2"],Super Succ [Sel 2 2],Sel 2 2]))] (Name "epr4")
+1
+
+[("const0v2",Super Zero [Sel 2 1]),("const1v2",Super Succ [Super Zero [Sel 2 1]]),("notSignum",Prim (Super Succ [Zero]) (Super Zero [Sel 2 1])),("subtract1",Prim Zero (Sel 2 1)),("addition",Prim (Sel 1 1) (Super Succ [Sel 3 3])),("signum",Prim Zero (Name "const1v2")),("multiplication",Prim Zero (Super (Name "addition") [Sel 3 3,Sel 3 1])),("auif1",Super (Name "multiplication") [Super (Name "notSignum") [Sel 3 1],Sel 3 2]),("auif2",Super (Name "multiplication") [Super (Name "signum") [Sel 3 1],Sel 3 3]),("if",Super (Name "addition") [Name "auif1",Name "auif2"]),("subtraction",Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3])),("subtractionRev",Super (Name "subtraction") [Sel 2 2,Sel 2 1]),("subtractionAbs",Super (Name "addition") [Name "subtraction",Name "subtractionRev"]),("less",Super (Name "if") [Super (Name "subtractionAbs") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2],Super (Name "if") [Super (Name "subtraction") [Sel 2 1,Sel 2 2],Super (Name "const1v2") [Sel 2 1,Sel 2 2],Super (Name "const0v2") [Sel 2 1,Sel 2 2]]])] (Name "less")
+2
