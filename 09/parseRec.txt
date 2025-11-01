@@ -25,7 +25,7 @@ Just [("f1",Prim Succ Zero)]
 Just [("f1",Mini Succ 123)]
 
 "f1=myFunc;"
-Nothing
+Just [("f1", Name "myFunc")]
 
 "f1=(a1:z1);f2=(f1:a1);"
 Just [("f1",Super Succ [Zero]),("f2",Super (Name "f1") [Succ])]
@@ -53,10 +53,10 @@ Just [("w",Name "s123")]
 Just [("w",Name "a12")]
 
 "w = z12;"
-Nothing
+Just [("w",Name "z12")] 
 
 "myFunc=a1;"
-Nothing
+Just [("myFunc",Succ)] 
 
 "ABC=z1;"
 Just [("ABC",Zero)]
@@ -247,9 +247,8 @@ Nothing
 "f1={a1,10,10};"
 Nothing
 
-#/ Даний тест не включено через суперечку із завданням, яку реалізують більшість
-#/ "f1={a1, 10 10};"
-#/ Nothing
+"f1={a1, 10 10};"
+Nothing
 
 "f1=(a1:z1,);"
 Nothing
@@ -268,8 +267,6 @@ Nothing
 
 "f1={a1,10];"
 Nothing
-
-
 
 "f1=((a1:z1);"
 Nothing
@@ -299,19 +296,19 @@ Nothing
 Nothing
 
 "x=a1;"
-Nothing
+Just [("x", Succ)]
 
 "Xyz=z1;"
-Nothing
+Just [("Xyz", Zero)]
 
 "Zed=s11;"
-Nothing
+Just [("Zed", Sel 1 1)]
 
 "waXyz=a1;"
-Nothing
+Just [("waXyz", Succ)]
 
 "testX123=z1;"
-Nothing
+Just [("testX123", Zero)]
 
 "validNameWA=a1;"
 Just [("validNameWA",Succ)]
@@ -332,7 +329,7 @@ Just [("f1",Name "s1a")]
 Just [("f1",Name "a2")]
 
 "f1=z2;"
-Nothing
+Just [("f1",Name "z2")]
 
 "f1=b1;"
 Just [("f1",Name "b1")]

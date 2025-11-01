@@ -1,7 +1,7 @@
 [("const0", Zero), ("const0v2", Super Zero [Sel 2 1]), ("subtraction", Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3]))] (Name "const0v2")
 True
 
-[("const0", Zero), ("const0v2", Super Zero [Sel 2 1]), ("subtraction", Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3]))] (Name "subtraction")
+[("const0", Zero), ("const0v2", Super Zero [Sel 2 1]), ("subtraction", Prim (Sel 1 1) (Super (Name "subtract1") [Sel 3 3]))] (Name "const0v3")
 False
 
 syst1 Zero
