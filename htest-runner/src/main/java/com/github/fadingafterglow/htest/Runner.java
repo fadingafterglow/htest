@@ -15,6 +15,7 @@ public class Runner {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         checkArgs(args);
+        
         String moduleName = getModuleName(args);
         List<Path> testFiles = getTestFiles(args);
 
