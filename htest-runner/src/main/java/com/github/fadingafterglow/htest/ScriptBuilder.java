@@ -3,9 +3,13 @@ package com.github.fadingafterglow.htest;
 import com.github.fadingafterglow.htest.data.TestCase;
 import com.github.fadingafterglow.htest.data.TestContext;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ScriptBuilder {
+    private Set<Flag> flags = new HashSet<>();
 
     public String build(String moduleName, List<TestContext> tests) {
         StringBuilder script = new StringBuilder();
@@ -58,10 +62,22 @@ public class ScriptBuilder {
     }
 
     private void addTestProcessing(StringBuilder script) {
+        script.append("mapM_ (\\ t -> putStrLn (snd t ++ (if fst t then \"\\nPASS\\n\" else \"\\nFAIL\\n\"))) $ ");
+
+        if(flags.contains(Flag.SILENT)) {
+            script.append("filter (not . fst)");
+        }
+
+        script.append(" tests\n");
+
         script.append("""
-        mapM_ (\\ t -> putStrLn (snd t ++ (if fst t then "\\nPASS\\n" else "\\nFAIL\\n"))) tests
         putStrLn ("Total: " ++ show (length tests))
         putStrLn ("Failed: " ++ show (length (filter (\\ t -> fst t == False) tests)))
         """);
+    }
+
+    public ScriptBuilder addFlags(Set<Flag> flags) {
+        this.flags.addAll(flags);
+        return this;
     }
 }

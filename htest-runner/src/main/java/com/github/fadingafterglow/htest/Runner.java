@@ -8,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Runner {
 
@@ -17,9 +19,10 @@ public class Runner {
         checkArgs(args);
         String moduleName = getModuleName(args);
         List<Path> testFiles = getTestFiles(args);
+        Set<Flag> flags = getFlags(args);
 
         List<TestContext> tests = new FileProcessor().process(testFiles);
-        String script = new ScriptBuilder().build(moduleName, tests);
+        String script = new ScriptBuilder().addFlags(flags).build(moduleName, tests);
         List<String> ghciCommand = new GhciCommandBuilder().build(tests);
         File scriptFile = saveToTempFile(script);
 
@@ -41,8 +44,17 @@ public class Runner {
     private static List<Path> getTestFiles(String[] args) {
         return Arrays.stream(args)
                 .skip(1)
+                .filter(s -> !Flag.isFlag(s))
                 .map(Path::of)
                 .toList();
+    }
+
+    private static Set<Flag> getFlags(String[] args) {
+        return Arrays.stream(args)
+                .skip(1)
+                .filter(Flag::isFlag)
+                .map(Flag::toFlag)
+                .collect(Collectors.toSet());
     }
 
     private static File saveToTempFile(String script) throws IOException {

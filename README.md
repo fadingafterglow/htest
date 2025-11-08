@@ -26,6 +26,16 @@
   Example: <code>htest Task01 .\01\*.txt</code>
 </p>
 
+<h2>Flags</h2>
+<p>Use flags to configure runner behavior. Pass flags as command line arguments. E.g:</p>
+<code>htest.bat [module_name] [path] --silent</code>
+<ul>
+  <li>
+    <code>--silent</code>
+    <p>Outputs only failed tests.</p>
+  </li>
+</ul>
+
 <h1>Settings</h1>
 <p>You can use the following environment variables to alter runner behaviour:</p>
 <ul>
