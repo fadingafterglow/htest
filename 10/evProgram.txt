@@ -1,0 +1,657 @@
+squareRoot ["0"]
+["0"]
+
+squareRoot ["1"]
+["1"]
+
+squareRoot ["2"]
+["1"]
+
+squareRoot ["3"]
+["1"]
+
+squareRoot ["4"]
+["2"]
+
+squareRoot ["9"]
+["3"]
+
+squareRoot ["10"]
+["3"]
+
+squareRoot ["16"]
+["4"]
+
+squareRoot ["317"]
+["17"]
+
+fibonacci ["0"]
+["1"]
+
+fibonacci ["1"]
+["1"]
+
+fibonacci ["2"]
+["2"]
+
+fibonacci ["3"]
+["3"]
+
+fibonacci ["4"]
+["5"]
+
+fibonacci ["5"]
+["8"]
+
+fibonacci ["6"]
+["13"]
+
+fibonacci ["7"]
+["21"]
+
+fibonacci ["8"]
+["34"]
+
+#/ Collatz, 3n+1
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["1"]
+[]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["2"]
+["1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["3"]
+["10","5","16","8","4","2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["4"]
+["2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["5"]
+["16","8","4","2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["6"]
+["3","10","5","16","8","4","2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["7"]
+["22","11","34","17","52","26","13","40","20","10","5","16","8","4","2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["8"]
+["4","2","1"]
+
+(Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])]) ["9"]
+["28","14","7","22","11","34","17","52","26","13","40","20","10","5","16","8","4","2","1"]
+
+#/ Factorial
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["0"]
+["1"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["1"]
+["1"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["2"]
+["2"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["3"]
+["6"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["4"]
+["24"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["5"]
+["120"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["6"]
+["720"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["7"]
+["5040"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["8"]
+["40320"]
+
+(Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")]) ["9"]
+["362880"]
+
+#/ Summ of digits
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["0"]
+["0"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["1"]
+["1"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["10"]
+["1"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["123"]
+["6"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["456"]
+["15"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["789"]
+["24"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["9999"]
+["36"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["10000"]
+["1"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["2468"]
+["20"]
+
+(Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")]) ["13579"]
+["25"]
+
+#/ isPrime
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["0"]
+["False"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["1"]
+["False"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["2"]
+["True"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["3"]
+["True"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["4"]
+["False"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["5"]
+["True"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["6"]
+["False"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["7"]
+["True"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["11"]
+["True"]
+
+(Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")]) ["13"]
+["True"]
+
+#/ gcd
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["12","18"]
+["6"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["35","49"]
+["7"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["1","1"]
+["1"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["2","4"]
+["2"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["3","6"]
+["3"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["100","75"]
+["25"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["42","56"]
+["14"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"), Assign "b" (Var "temp")]),Write (Var "a")]) ["0","5"]
+["5"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["5","0"]
+["5"]
+
+(Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")]) ["17","13"]
+["1"]
+
+#/ reverse number
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["123"]
+["321"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["0"]
+["0"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["1"]
+["1"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["10"]
+["1"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["4567"]
+["7654"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["100"]
+["1"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["99999"]
+["99999"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["12321"]
+["12321"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["2468"]
+["8642"]
+
+(Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")]) ["13579"]
+["97531"]
+
+#/ Is a Palindrome
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["123"]
+["False"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["121"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["0"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["11"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["12321"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["1234"]
+["False"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["1001"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["999"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["24642"]
+["True"]
+
+(Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))]) ["13531"]
+["True"]
+
+#/ powerTo
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["2","0"]
+["1"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["2","1"]
+["2"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["2","2"]
+["4"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["2","3"]
+["8"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["2","4"]
+["16"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["3","3"]
+["27"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["5","2"]
+["25"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["10","0"]
+["1"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["1","10"]
+["1"]
+
+(Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")]) ["4","3"]
+["64"]
+
+#/ Count divisors
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["1"]
+["1"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["2"]
+["2"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["3"]
+["2"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["4"]
+["3"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["6"]
+["4"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["12"]
+["6"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["28"]
+["6"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["36"]
+["9"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["100"]
+["9"]
+
+(Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")]) ["0"]
+["0"]
+
+#/ Self analyze
+
+(Block [("statements",It),("blocks",It),("loops",It)] [Assign "statements" (Const (I 7)),Assign "blocks" (Const (I 1)),Assign "loops" (Const (I 0)),Write (Var "statements"),Write (Var "blocks"),Write (Var "loops")]) []
+["7","1","0"]
+
+#/ Cycle detector in Collatz
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["4"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) ( Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["1"]
+["False"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["2"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["3"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["5"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["6"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["7"]
+["True"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["8"]
+["False"]
+
+(Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")]) ["9"]
+["True"]
+
+#/ Turing machine
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["0"]
+["1"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["1"]
+["1"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["2"]
+["2"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["3"]
+["3"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["4"]
+["4"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["5"]
+["5"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["6"]
+["6"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["7"]
+["7"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["8"]
+["8"]
+
+(Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")]) ["9"]
+["9"]
+
+#/ Reverse ПОЛІЗ calculator
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["3","4","10","0"]
+["7"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["5","3","12","0"]
+["15"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const ( I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["8","2","11","0"]
+["6"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["10","5","11","0"]
+["-5"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["2","3","4","10","12","0"]
+["0"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["1","2","3","4","10","10","10","0"]
+["7"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["6","2","12","0"]
+["12"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["7","8","11","0"]
+["-1"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["9","3","10","0"]
+["12"]
+
+(Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")]) ["4","5","6","12","10","0"]
+["30"]
+
+#/ Unary result
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","1","1","2","1","0"]
+["3"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","2","0"]
+["0"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","1","1","1","0"]
+["4"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["2","2","0"]
+["-2"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","2","1","2","0"]
+["0"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","1","2","1","1","0"]
+["3"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","1","1","0"]
+["3"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["2","2","2","0"]
+["-3"]
+
+(Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")]) ["1","0"]
+["1"]
+
+#/ Count even digits
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["123"]
+["1"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["246"]
+["3"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["135"]
+["0"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["0"]
+["0"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["2"]
+["1"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["1"]
+["0"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["4680"]
+["4"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["97531"]
+["0"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["86420"]
+["5"]
+
+(Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")]) ["11111"]
+["0"]
+
+#/ Sum parity
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["0"]
+["True"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["1"]
+["False"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["2"]
+["False"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["3"]
+["True"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["4"]
+["True"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["5"]
+["False"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["6"]
+["False"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["7"]
+["True"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["8"]
+["True"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op ( Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))]) ["9"]
+["False"]
+
+#/ Min3
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["1","2","3"]
+["1"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["3","1","2"]
+["1"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["2","3","1"]
+["1"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["0","0","0"]
+["0"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["-1","0","1"]
+["-1"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["100","50","75"]
+["50"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["42","42","42"]
+["42"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["-5","-10","-15"]
+["-15"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["5","5","4"]
+["4"]
+
+(Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")]) ["999","1","100"]
+["1"]
+
+#/ Lcm
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["12","18"]
+["36"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["35","49"]
+["245"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["1","1"]
+["1"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["2","4"]
+["4"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["3","6"]
+["6"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["100","75"]
+["300"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["42","56"]
+["168"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["0","5"]
+["0"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["5","0"]
+["0"]
+
+(Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))]) ["17","13"]
+["221"]
+
+#/ Triangular number
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["0"]
+["0"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["1"]
+["1"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["2"]
+["3"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["3"]
+["6"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["4"]
+["10"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["5"]
+["15"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["6"]
+["21"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["7"]
+["28"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["8"]
+["36"]
+
+(Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")]) ["9"]
+["45"]
+
+#/ shadowing test
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["5"]
+["15","10","5"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["0"]
+["15","10","0"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["10"]
+["15","10","10"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["-5"]
+["15","10","-5"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["42"]
+["15","10","42"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["100"]
+["15","10","100"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["1"]
+["15","10","1"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["2"]
+["15","10","2"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["3"]
+["15","10","3"]
+
+(Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["4"]
+["15","10","4"]

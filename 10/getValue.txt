@@ -1,0 +1,152 @@
+([], [("x", I 5)], []) "x"
+I 5
+
+([], [("flag", B True)], []) "flag"
+B True
+
+([], [("flag", B False)], []) "flag"
+B False
+
+(["10"], [("a", I 1), ("b", I 2)], []) "a"
+I 1
+
+(["10"], [("a", I 1), ("b", I 2)], []) "b"
+I 2
+
+([], [("x", I 0), ("y", I 0)], []) "x"
+I 0
+
+([], [("x", I 0), ("y", I 0)], []) "y"
+I 0
+
+(["input"], [("in", I 7), ("out", I 0)], ["result"]) "in"
+I 7
+
+(["input"], [("in", I 7), ("out", I 0)], ["result"]) "out"
+I 0
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "counter"
+I 100
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "limit"
+I 200
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "done"
+B False
+
+([], [("outer", I 10), ("inner", I 5)], []) "inner"
+I 5
+
+([], [("outer", I 10), ("inner", I 5)], []) "outer"
+I 10
+
+([], [("isEven", B True)], []) "isEven"
+B True
+
+([], [("isEven", B False)], []) "isEven"
+B False
+
+([], [("sum", I 55)], []) "sum"
+I 55
+
+([], [("product", I 120)], []) "product"
+I 120
+
+([], [("max", I 100)], []) "max"
+I 100
+
+([], [("a1", I 10), ("a2", I 20), ("a3", I 30)], []) "a1"
+I 10
+
+([], [("a1", I 10), ("a2", I 20), ("a3", I 30)], []) "a2"
+I 20
+
+([], [("a1", I 10), ("a2", I 20), ("a3", I 30)], []) "a3"
+I 30
+
+([], [("k", I 7), ("m", I 8), ("n", I 9)], []) "k"
+I 7
+
+([], [("k", I 7), ("m", I 8), ("n", I 9)], []) "m"
+I 8
+
+([], [("k", I 7), ("m", I 8), ("n", I 9)], []) "n"
+I 9
+
+([], [("alpha", I 1), ("beta", B True)], []) "alpha"
+I 1
+
+([], [("alpha", I 1), ("beta", B True)], []) "beta"
+B True
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "start"
+I 0
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "end"
+I 100
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "step"
+I 1
+
+([], [("enabled", B True), ("mode", I 1)], []) "enabled"
+B True
+
+([], [("enabled", B True), ("mode", I 1)], []) "mode"
+I 1
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterA"
+I 1
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterB"
+I 2
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterC"
+I 3
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit0"
+B False
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit1"
+B True
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit2"
+B False
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "total"
+I 1000
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "count"
+I 10
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "avg"
+I 100
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "input1"
+I 5
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "input2"
+I 10
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "output"
+I 0
+
+([], [("prime", B True), ("composite", B False)], []) "prime"
+B True
+
+([], [("prime", B True), ("composite", B False)], []) "composite"
+B False
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "odd"
+B True
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "even"
+B False
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "zero"
+B False
+
+([], [("flag1", B True), ("flag2", B False), ("flag3", B True), ("flag4", B False)], []) "flag1"
+B True
+
+([], [("flag1", B True), ("flag2", B False), ("flag3", B True), ("flag4", B False)], []) "flag2"
+B False

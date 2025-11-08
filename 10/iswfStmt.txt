@@ -1,0 +1,182 @@
+(Assign "x" (Const (I 0))) [("x", It)]
+True
+
+(Assign "flag" (Const (B True))) [("flag", Bt)]
+True
+
+(Assign "y" (Var "x")) [("x", It), ("y", It)]
+True
+
+(Assign "x" (Const (B True))) [("x", It)]
+False
+
+(Assign "flag" (Const (I 1))) [("flag", Bt)]
+False
+
+(Assign "unknown" (Const (I 2))) []
+False
+
+(Read "x") [("x", It)]
+True
+
+(Read "flag") [("flag", Bt)]
+True
+
+(Read "y") [("y", It), ("z", Bt)]
+True
+
+(Read "unknown") []
+False
+
+(Read "x") [("flag", Bt)]
+False
+
+(Write (Const (I 5))) []
+True
+
+(Write (Const (B False))) []
+True
+
+(Write (Var "x")) [("x", It)]
+True
+
+(Write (Op (Const (I 1)) Plus (Const (I 2)))) []
+True
+
+(Write (Const (B True))) [("x", It)]
+True
+
+(Write (Op (Const (I 1)) Plus (Const (B True)))) []
+False
+
+(Write (Var "flag")) [("x", It)]
+False
+
+(Incr "x") [("x", It)]
+True
+
+(Incr "y") [("y", It), ("z", Bt)]
+True
+
+(Incr "flag") [("flag", Bt)]
+False
+
+(Incr "unknown") []
+False
+
+(Incr "x") [("x", Bt)]
+False
+
+(If (Const (B True)) (Assign "x" (Const (I 0)))) [("x", It)]
+True
+
+(If (Op (Const (I 1)) Gt (Const (I 0))) (Read "y")) [("y", It)]
+True
+
+(If (Const (B False)) (Write (Const (I 5)))) []
+True
+
+(If (Const (I 1)) (Assign "x" (Const (I 2)))) [("x", It)]
+False
+
+(If (Const (B True)) (Assign "flag" (Const (I 3)))) [("flag", Bt)]
+False
+
+(While (Const (B True)) (Incr "x")) [("x", It)]
+True
+
+(While (Op (Var "a") Lt (Const (I 10))) (Assign "a" (Op (Var "a") Plus (Const (I 1))))) [("a", It)]
+True
+
+(While (Const (B False)) (Write (Const (B True)))) []
+True
+
+(While (Const (I 0)) (Incr "x")) [("x", It)]
+False
+
+(While (Const (B True)) (Assign "x" (Const (B False)))) [("x", It)]
+False
+
+(For (Assign "c" (Const (I 0))) (Op (Var "c") Lt (Const (I 10))) (Incr "c") (Write (Var "c"))) [("c", It)]
+True
+
+(For (Assign "i" (Const (I 1))) (Const (B True)) (Assign "i" (Op (Var "i") Plus (Const (I 1)))) (Incr "j")) [("i", It), ("j", It)]
+True
+
+(For (Assign "k" (Const (I 0))) (Op (Var "k") Le (Const (I 5))) (Incr "k") (Assign "k" (Const (I 6)))) [("k", It)]
+True
+
+(For (Assign "c" (Const (B True))) (Op (Var "c") Lt (Const (I 10))) (Incr "c") (Write (Var "c"))) [("c", It)]
+False
+
+(For (Assign "i" (Const (I 1))) (Const (I 0)) (Assign "i" (Op (Var "i") Plus (Const (I 1)))) (Incr "j")) [("i", It), ("j", It)]
+False
+
+(For (Assign "k" (Const (I 0))) (Op (Var "k") Le (Const (I 5))) (Assign "k" (Const (B False))) (Assign "k" (Const (I 6)))) [("k", It)]
+False
+
+(Block [("a", It), ("b", Bt)] [Assign "a" (Const (I 0)), Assign "b" (Const (B True))]) []
+True
+
+(Block [("x", It)] [Incr "x"]) []
+True
+
+(Block [("flag", Bt)] [If (Var "flag") (Write (Const (I 1)))]) []
+True
+
+(Block [("a", It), ("a", Bt)] [Assign "a" (Const (I 0))]) []
+False
+
+(Block [("b", Bt)] [Assign "b" (Const (I 1))]) []
+False
+
+(Block [] [Read "unknown"]) []
+False
+
+(Block [("outer", It)] [Block [("inner", Bt)] [Assign "inner" (Const (B True))], Assign "outer" (Const (I 5))]) []
+True
+
+(Block [("x", It)] [Block [("x", Bt)] [Assign "x" (Const (B False))]]) []
+True
+
+(Block [("y", Bt)] [Block [("y", It)] [Assign "y" (Const (B True))]]) []
+False
+
+(Incr "i") [("i", Bt)]
+False
+
+squareRoot []
+True
+
+fibonacci []
+True
+
+(If (Op (Var "in") Ge (Const (I 0))) (Block [("f0", It), ("f1", It), ("c", It)] [Assign "f0" (Const (I 1)), Assign "f1" (Const (I 1)), Assign "out" (Const (I 1))])) [("in", It), ("out", It)]
+True
+
+(While (Var "c") (Block [] [Incr "b", Assign "c" (Op (Var "a") Ge (Op (Var "b") Times (Var "b")))])) [("c", Bt), ("a", It), ("b", It)]
+True
+
+(For (Assign "c" (Const (I 1))) (Op (Var "c") Lt (Var "in")) (Incr "c") (Block [] [Assign "out" (Op (Var "f0") Plus (Var "f1")), Assign "f0" (Var "f1"), Assign "f1" (Var "out")])) [("c", It), ("in", It), ("out", It), ("f0", It), ("f1", It)]
+True
+
+(Block [("a", It), ("b", It)] [Read "a", Assign "b" (Const (I 0)), If (Op (Var "a") Ge (Const (I 0))) (Block [("c", Bt)] [Assign "c" (Const (B True)), While (Var "c") (Block [] [Incr "b", Assign "c" (Op (Var "a") Ge (Op (Var "b") Times (Var "b")))])]), Write (Op (Var "b") Minus (Const (I 1)))]) []
+True
+
+(Block [("in", It), ("out", It)] [Read "in", Assign "out" (Const (I 0)), If (Op (Var "in") Ge (Const (I 0))) (Block [("f0", It), ("f1", It), ("c", It)] [Assign "f0" (Const (I 1)), Assign "f1" (Const (I 1)), Assign "out" (Const (I 1)), If (Op (Var "in") Gt (Const (I 1))) (For (Assign "c" (Const (I 1))) (Op (Var "c") Lt (Var "in")) (Incr "c") (Block [] [Assign "out" (Op (Var "f0") Plus (Var "f1")), Assign "f0" (Var "f1"), Assign "f1" (Var "out")]))]), Write (Var "out")]) []
+True
+
+(Assign "x" (Const (I 0))) [("x", Bt)]
+False
+
+(While (Const (I 1)) (Incr "x")) [("x", It)]
+False
+
+(Block [("a", It), ("b", Bt)] [Assign "a" (Const (B True))]) []
+False
+
+(For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 10))) (Incr "i") (Assign "i" (Const (B False)))) [("i", It)]
+False
+
+(If (Const (B True)) (Read "flag")) [("flag", It)]
+True

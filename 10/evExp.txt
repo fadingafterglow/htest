@@ -1,0 +1,389 @@
+([], [], []) (Const (I 0))
+I 0
+
+([], [], []) (Const (I 5))
+I 5
+
+([], [], []) (Const (I 10))
+I 10
+
+([], [], []) (Const (B True))
+B True
+
+([], [], []) (Const (B False))
+B False
+
+([], [("x", I 1)], []) (Const (I 42))
+I 42
+
+([], [("flag", B True)], []) (Const (B False))
+B False
+
+([], [], ["out"]) (Const (I 100))
+I 100
+
+([], [], []) (Const (I 999))
+I 999
+
+([], [], []) (Const (I 1))
+I 1
+
+([], [("x", I 5)], []) (Var "x")
+I 5
+
+([], [("y", I 0)], []) (Var "y")
+I 0
+
+([], [("flag", B True)], []) (Var "flag")
+B True
+
+([], [("flag", B False)], []) (Var "flag")
+B False
+
+([], [("a", I 42), ("b", I 24)], []) (Var "a")
+I 42
+
+([], [("a", I 42), ("b", I 24)], []) (Var "b")
+I 24
+
+(["input"], [("in", I 7)], ["out"]) (Var "in")
+I 7
+
+([], [("counter", I 100), ("limit", I 200)], []) (Var "counter")
+I 100
+
+([], [("counter", I 100), ("limit", I 200)], []) (Var "limit")
+I 200
+
+([], [("done", B False)], []) (Var "done")
+B False
+
+([], [], []) (Op (Const (I 1)) Plus (Const (I 2)))
+I 3
+
+([], [], []) (Op (Const (I 5)) Minus (Const (I 3)))
+I 2
+
+([], [], []) (Op (Const (I 4)) Times (Const (I 2)))
+I 8
+
+([], [], []) (Op (Const (I 10)) Div (Const (I 2)))
+I 5
+
+([], [], []) (Op (Const (I 1)) Minus (Const (I 2)))
+I (-1)
+
+([], [], []) (Op (Const (I 0)) Minus (Const (I 5)))
+I (-5)
+
+([], [], []) (Op (Const (I 7)) Div (Const (I 3)))
+I 2
+
+([], [], []) (Op (Const (I 100)) Plus (Const (I 200)))
+I 300
+
+([], [], []) (Op (Const (I 50)) Times (Const (I 0)))
+I 0
+
+([], [], []) (Op (Const (I 999)) Minus (Const (I 1)))
+I 998
+
+([], [("x", I 3), ("y", I 4)], []) (Op (Var "x") Plus (Var "y"))
+I 7
+
+([], [("a", I 10), ("b", I 5)], []) (Op (Var "a") Minus (Var "b"))
+I 5
+
+([], [("m", I 6), ("n", I 7)], []) (Op (Var "m") Times (Var "n"))
+I 42
+
+([], [("p", I 20), ("q", I 4)], []) (Op (Var "p") Div (Var "q"))
+I 5
+
+([], [("r", I 2), ("s", I 5)], []) (Op (Var "r") Minus (Var "s"))
+I (-3)
+
+([], [("t", I 0), ("u", I 10)], []) (Op (Var "t") Plus (Var "u"))
+I 10
+
+([], [("v", I 100), ("w", I 50)], []) (Op (Var "v") Div (Var "w"))
+I 2
+
+([], [("xx", I 1), ("yy", I 1)], []) (Op (Var "xx") Times (Var "yy"))
+I 1
+
+([], [("aa", I (-5)), ("bb", I 3)], []) (Op (Var "aa") Plus (Var "bb"))
+I (-2)
+
+([], [("cc", I 8), ("dd", I 3)], []) (Op (Var "cc") Minus (Var "dd"))
+I 5
+
+([], [], []) (Op (Const (I 1)) Gt (Const (I 2)))
+B False
+
+([], [], []) (Op (Const (I 3)) Ge (Const (I 3)))
+B True
+
+([], [], []) (Op (Const (I 4)) Lt (Const (I 2)))
+B False
+
+([], [], []) (Op (Const (I 5)) Le (Const (I 5)))
+B True
+
+([], [], []) (Op (Const (I 6)) Eql (Const (I 6)))
+B True
+
+([], [], []) (Op (Const (I 7)) Gt (Const (I 10)))
+B False
+
+([], [], []) (Op (Const (I 0)) Le (Const (I 0)))
+B True
+
+([], [], []) (Op (Const (I 100)) Lt (Const (I 99)))
+B False
+
+([], [], []) (Op (Const (I 50)) Ge (Const (I 51)))
+B False
+
+([], [], []) (Op (Const (I 42)) Eql (Const (I 24)))
+B False
+
+([], [("x", I 5), ("y", I 3)], []) (Op (Var "x") Gt (Var "y"))
+B True
+
+([], [("a", I 10), ("b", I 10)], []) (Op (Var "a") Ge (Var "b"))
+B True
+
+([], [("m", I 1), ("n", I 2)], []) (Op (Var "m") Lt (Var "n"))
+B True
+
+([], [("p", I 20), ("q", I 25)], []) (Op (Var "p") Le (Var "q"))
+B True
+
+([], [("r", I 7), ("s", I 7)], []) (Op (Var "r") Eql (Var "s"))
+B True
+
+([], [("t", I 0), ("u", I (-1))], []) (Op (Var "t") Gt (Var "u"))
+B True
+
+([], [("v", I (-5)), ("w", I (-3))], []) (Op (Var "v") Lt (Var "w"))
+B True
+
+([], [("xx", I 100), ("yy", I 100)], []) (Op (Var "xx") Eql (Var "yy"))
+B True
+
+([], [("aa", I 42), ("bb", I 24)], []) (Op (Var "aa") Ge (Var "bb"))
+B True
+
+([], [("cc", I 8), ("dd", I 9)], []) (Op (Var "cc") Le (Var "dd"))
+B True
+
+([], [], []) (Op (Const (B True)) And (Const (B True)))
+B True
+
+([], [], []) (Op (Const (B True)) And (Const (B False)))
+B False
+
+([], [], []) (Op (Const (B False)) Or (Const (B True)))
+B True
+
+([], [], []) (Op (Const (B False)) Or (Const (B False)))
+B False
+
+([], [], []) (Op (Const (B True)) Or (Const (B False)))
+B True
+
+([], [], []) (Op (Const (B False)) And (Const (B True)))
+B False
+
+([], [], []) (Op (Const (B True)) And (Const (B True)))
+B True
+
+([], [], []) (Op (Const (B False)) Or (Const (B False)))
+B False
+
+([], [], []) (Op (Const (B True)) Or (Const (B True)))
+B True
+
+([], [], []) (Op (Const (B False)) And (Const (B False)))
+B False
+
+([], [("p", B True), ("q", B False)], []) (Op (Var "p") And (Var "q"))
+B False
+
+([], [("r", B True), ("s", B True)], []) (Op (Var "r") Or (Var "s"))
+B True
+
+([], [("t", B False), ("u", B False)], []) (Op (Var "t") And (Var "u"))
+B False
+
+([], [("v", B False), ("w", B True)], []) (Op (Var "v") Or (Var "w"))
+B True
+
+([], [("xx", B True), ("yy", B False)], []) (Op (Var "xx") And (Var "yy"))
+B False
+
+([], [("aa", B True), ("bb", B True)], []) (Op (Var "aa") Or (Var "bb"))
+B True
+
+([], [("cc", B False), ("dd", B True)], []) (Op (Var "cc") And (Var "dd"))
+B False
+
+([], [("ee", B True), ("ff", B False)], []) (Op (Var "ee") Or (Var "ff"))
+B True
+
+([], [("gg", B False), ("hh", B False)], []) (Op (Var "gg") Or (Var "hh"))
+B False
+
+([], [("ii", B True), ("jj", B True)], []) (Op (Var "ii") And (Var "jj"))
+B True
+
+([], [], []) (Op (Op (Const (I 1)) Plus (Const (I 2))) Times (Const (I 3)))
+I 9
+
+([], [], []) (Op (Const (I 10)) Minus (Op (Const (I 5)) Div (Const (I 2))))
+I 8
+
+([], [], []) (Op (Op (Const (I 4)) Times (Const (I 5))) Eql (Const (I 20)))
+B True
+
+([], [], []) (Op (Const (B True)) And (Op (Const (B False)) Or (Const (B True))))
+B True
+
+([], [], []) (Op (Op (Const (I 3)) Gt (Const (I 2))) Or (Op (Const (I 1)) Lt (Const (I 0))))
+B True
+
+([], [], []) (Op (Const (I 0)) Plus (Op (Const (I 1)) Minus (Const (I 2))))
+I (-1)
+
+([], [], []) (Op (Op (Const (I 100)) Div (Const (I 10))) Le (Const (I 10)))
+B True
+
+([], [], []) (Op (Const (B False)) Or (Op (Const (B True)) And (Const (B False))))
+B False
+
+([], [], []) (Op (Op (Const (I 7)) Minus (Const (I 3))) Ge (Const (I 4)))
+B True
+
+([], [], []) (Op (Const (I 2)) Times (Op (Const (I 3)) Plus (Const (I 4))))
+I 14
+
+([], [("x", I 5), ("y", I 3)], []) (Op (Var "x") Plus (Op (Var "y") Times (Const (I 2))))
+I 11
+
+([], [("a", I 10), ("b", I 2)], []) (Op (Op (Var "a") Div (Var "b")) Eql (Const (I 5)))
+B True
+
+([], [("flag1", B True), ("flag2", B False)], []) (Op (Var "flag1") And (Op (Var "flag2") Or (Const (B True))))
+B True
+
+([], [("m", I 4), ("n", I 1)], []) (Op (Var "m") Minus (Op (Var "n") Plus (Const (I 2))))
+I 1
+
+([], [("p", I 6), ("q", I 7)], []) (Op (Op (Var "p") Lt (Var "q")) Or (Const (B False)))
+B True
+
+([], [("r", I 8), ("s", I 9)], []) (Op (Var "r") Ge (Op (Var "s") Minus (Const (I 1))))
+B True
+
+([], [("t", B False), ("u", B True)], []) (Op (Op (Var "t") And (Var "u")) Or (Const (B True)))
+B True
+
+([], [("v", I 0), ("w", I 5)], []) (Op (Const (I 10)) Div (Op (Var "v") Plus (Var "w")))
+I 2
+
+([], [("xx", I 100), ("yy", I 50)], []) (Op (Var "xx") Le (Op (Var "yy") Times (Const (I 2))))
+B True
+
+([], [("aa", B True), ("bb", B False)], []) (Op (Var "aa") Or (Op (Var "bb") And (Const (B True))))
+B True
+
+(["input"], [("x", I 5)], ["out"]) (Var "x")
+I 5
+
+(["5","10"], [("y", I 3)], ["prev"]) (Op (Const (I 1)) Plus (Var "y"))
+I 4
+
+(["True"], [("flag", B True), ("extra", I 99)], []) (Var "flag")
+B True
+
+([], [("a", I 10), ("b", I 5), ("c", B False)], ["log"]) (Op (Var "a") Minus (Var "b"))
+I 5
+
+(["-3"], [("d", I 20)], ["init"]) (Const (I 15))
+I 15
+
+(["1","2","3"], [("p", I 10), ("q", B True), ("r", I 0)], []) (Op (Var "p") Eql (Const (I 10)))
+B True
+
+(["True","False"], [("s", I 20), ("t", I 30)], ["out1"]) (Op (Var "s") Lt (Var "t"))
+B True
+
+([], [("u", B True), ("v", I 40), ("w", B False)], []) (Op (Var "u") Or (Var "w"))
+B True
+
+(["input1"], [("xx", I 50)], ["out2","out3"]) (Var "xx")
+I 50
+
+(["a","b"], [("yy", B False)], ["c"]) (Const (B True))
+B True
+
+([], [], []) (Op (Const (I 2147483646)) Plus (Const (I 1)))
+I 2147483647
+
+([], [], []) (Op (Const (I (-2147483647))) Minus (Const (I 1)))
+I (-2147483648)
+
+([], [], []) (Op (Const (I 100000)) Times (Const (I 10000)))
+I 1000000000
+
+([], [], []) (Op (Const (I 999999999)) Div (Const (I 9)))
+I 111111111
+
+([], [], []) (Op (Const (I 1)) Minus (Const (I 1000000000)))
+I (-999999999)
+
+([], [("max", I 2147483647)], []) (Op (Var "max") Plus (Const (I 0)))
+I 2147483647
+
+([], [("min", I (-2147483648))], []) (Op (Var "min") Minus (Const (I 0)))
+I (-2147483648)
+
+([], [], []) (Op (Const (I 0)) Div (Const (I 1)))
+I 0
+
+([], [], []) (Op (Const (I 1)) Div (Const (I 1)))
+I 1
+
+([], [], []) (Op (Const (I 2)) Times (Const (I 500000000)))
+I 1000000000
+
+([], [], []) (Op (Op (Const (I 2)) Plus (Op (Const (I 3)) Times (Const (I 4)))) Div (Const (I 7)))
+I 2
+
+([], [], []) (Op (Const (B True)) And (Op (Op (Const (B False)) Or (Const (B True))) And (Const (B True))))
+B True
+
+([], [], []) (Op (Op (Const (I 5)) Gt (Const (I 4))) Or (Op (Const (I 3)) Lt (Op (Const (I 2)) Plus (Const (I 1)))))
+B True
+
+([], [("x", I 10)], []) (Op (Var "x") Minus (Op (Const (I 5)) Times (Op (Const (I 1)) Plus (Const (I 1)))))
+I 0
+
+([], [("y", I 20), ("z", I 3)], []) (Op (Op (Var "y") Div (Var "z")) Ge (Const (I 6)))
+B True
+
+([], [("flag", B False)], []) (Op (Const (B True)) Or (Op (Var "flag") And (Const (B True))))
+B True
+
+([], [], []) (Op (Op (Const (I 100)) Minus (Const (I 50))) Eql (Op (Const (I 10)) Times (Const (I 5))))
+B True
+
+([], [("a", I 1), ("b", I 2)], []) (Op (Var "a") Plus (Op (Var "b") Minus (Op (Const (I 3)) Times (Const (I 0)))))
+I 3
+
+([], [("c", B True), ("d", B False)], []) (Op (Op (Var "c") Or (Var "d")) And (Const (B True)))
+B True
+
+([], [], []) (Op (Const (I 0)) Le (Op (Op (Const (I 1)) Plus (Const (I 2))) Div (Const (I 3))))
+B True

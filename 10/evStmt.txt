@@ -1,0 +1,263 @@
+([], [("x", I 0)], []) (Assign "x" (Const (I 42)))
+([], [("x", I 42)], [])
+
+([], [("flag", B True)], []) (Assign "flag" (Const (B False)))
+([], [("flag", B False)], [])
+
+([], [("a", I 5), ("b", I 3)], []) (Assign "a" (Op (Var "b") Plus (Const (I 2))))
+([], [("a", I 5), ("b", I 3)], [])
+
+([], [("result", I 0)], []) (Assign "result" (Op (Const (I 10)) Times (Const (I 3))))
+([], [("result", I 30)], [])
+
+([], [("isEven", B True)], []) (Assign "isEven" (Op (Const (I 4)) Eql (Op (Const (I 2)) Times (Const (I 2)))))
+([], [("isEven", B True)], [])
+
+([], [("x", I 10)], ["out"]) (Assign "x" (Const (I 20)))
+([], [("x", I 20)], ["out"])
+
+([], [("n", I 7)], []) (Assign "n" (Op (Var "n") Minus (Const (I 1))))
+([], [("n", I 6)], [])
+
+([], [("counter", I 0), ("limit", I 5)], []) (Assign "counter" (Var "limit"))
+([], [("counter", I 5), ("limit", I 5)], [])
+
+([], [("value", I 0)], []) (Assign "value" (Op (Const (I 1)) Minus (Const (I 3))))
+([], [("value", I (-2))], [])
+
+([], [("status", B False)], []) (Assign "status" (Op (Const (B True)) And (Const (B True))))
+([], [("status", B True)], [])
+
+(["15"], [("x", I 0)], []) (Read "x")
+([], [("x", I 15)], [])
+
+(["True"], [("flag", B False)], []) (Read "flag")
+([], [("flag", B True)], [])
+
+(["5","extra"], [("n", I 0)], ["out"]) (Read "n")
+(["extra"], [("n", I 5)], ["out"])
+
+(["False","next"], [("done", B True)], []) (Read "done")
+(["next"], [("done", B False)], [])
+
+(["0"], [("counter", I 10)], []) (Read "counter")
+([], [("counter", I 0)], [])
+
+(["123"], [("value", I 0)], []) (Read "value")
+([], [("value", I 123)], [])
+
+(["-7"], [("temp", I 0)], []) (Read "temp")
+([], [("temp", I (-7))], [])
+
+(["abc"], [("x", I 5)], []) (Read "x")
+(["abc"], [("x", I 0)], [])
+
+([""], [("flag", B True)], []) (Read "flag")
+([""], [("flag", B False)], [])
+
+(["10","20"], [("a", I 0), ("b", I 0)], []) (Read "a")
+(["20"], [("a", I 10), ("b", I 0)], [])
+
+([], [("x", I 7)], []) (Write (Var "x"))
+([], [("x", I 7)], ["7"])
+
+([], [("flag", B True)], []) (Write (Const (B False)))
+([], [("flag", B True)], ["False"])
+
+([], [], ["prev"]) (Write (Const (I 100)))
+([], [], ["prev","100"])
+
+([], [("a", I 4), ("b", I 5)], []) (Write (Op (Var "a") Plus (Var "b")))
+([], [("a", I 4), ("b", I 5)], ["9"])
+
+([], [("isGt", B True)], []) (Write (Op (Const (I 3)) Gt (Const (I 2))))
+([], [("isGt", B True)], ["True"])
+
+([], [("n", I 0)], ["log"]) (Write (Op (Var "n") Times (Const (I 10))))
+([], [("n", I 0)], ["log","0"])
+
+([], [("x", I 10)], []) (Write (Op (Var "x") Div (Const (I 2))))
+([], [("x", I 10)], ["5"])
+
+([], [("flag", B False)], []) (Write (Op (Var "flag") Or (Const (B True))))
+([], [("flag", B False)], ["True"])
+
+([], [("value", I (-3))], []) (Write (Var "value"))
+([], [("value", I (-3))], ["-3"])
+
+([], [], []) (Write (Op (Const (B True)) And (Const (B True))))
+([], [], ["True"])
+
+([], [("i", I 0)], []) (Incr "i")
+([], [("i", I 1)], [])
+
+([], [("counter", I 5)], []) (Incr "counter")
+([], [("counter", I 6)], [])
+
+([], [("n", I (-1))], []) (Incr "n")
+([], [("n", I 0)], [])
+
+([], [("loop", I 999)], ["out"]) (Incr "loop")
+([], [("loop", I 1000)], ["out"])
+
+([], [("index", I 42)], []) (Incr "index")
+([], [("index", I 43)], [])
+
+([], [("x", I 0), ("y", I 10)], []) (Incr "x")
+([], [("x", I 1), ("y", I 10)], [])
+
+([], [("temp", I 100)], []) (Incr "temp")
+([], [("temp", I 101)], [])
+
+([], [("count", I 0)], []) (Incr "count")
+([], [("count", I 1)], [])
+
+([], [("val", I 2147483647)], []) (Incr "val")
+([], [("val", I 2147483648)], [])
+
+([], [("min", I (-2147483648))], []) (Incr "min")
+([], [("min", I (-2147483647))], [])
+
+([], [("cond", B True), ("x", I 0)], []) (If (Var "cond") (Assign "x" (Const (I 1))))
+([], [("cond", B True), ("x", I 1)], [])
+
+([], [("cond", B False), ("x", I 0)], []) (If (Var "cond") (Assign "x" (Const (I 1))))
+([], [("cond", B False), ("x", I 0)], [])
+
+([], [("a", I 10)], []) (If (Op (Var "a") Gt (Const (I 5))) (Write (Const (I 99))))
+([], [("a", I 10)], ["99"])
+
+([], [("a", I 3)], []) (If (Op (Var "a") Gt (Const (I 5))) (Write (Const (I 99))))
+([], [("a", I 3)], [])
+
+([], [("n", I 4)], []) (If (Op (Var "n") Eql (Const (I 4))) (Assign "n" (Const (I 44))))
+([], [("n", I 44)], [])
+
+([], [("x", I 0)], []) (If (Const (B False)) (Write (Const (I 1))))
+([], [("x", I 0)], [])
+
+([], [("temp", I 25)], []) (If (Op (Var "temp") Le (Const (I 30))) (Assign "temp" (Const (I 30))))
+([], [("temp", I 30)], [])
+
+([], [("status", B True)], []) (If (Op (Const (I 1)) Eql (Const (I 1))) (Assign "status" (Const (B False))))
+([], [("status", B False)], [])
+
+([], [("i", I 0)], []) (While (Op (Var "i") Lt (Const (I 3))) (Incr "i"))
+([], [("i", I 3)], [])
+
+([], [("sum", I 0), ("n", I 5)], []) (While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Var "n")), Assign "n" (Op (Var "n") Minus (Const (I 1)))]))
+([], [("sum", I 15), ("n", I 0)], [])
+
+([], [("count", I 0)], []) (While (Op (Var "count") Lt (Const (I 4))) (Block [] [Write (Const (I 1)), Incr "count"]))
+([], [("count", I 4)], ["1","1","1","1"])
+
+([], [("x", I 10)], []) (While (Op (Var "x") Gt (Const (I 0))) (Assign "x" (Op (Var "x") Div (Const (I 2)))))
+([], [("x", I 0)], [])
+
+([], [("flag", B True), ("steps", I 0)], []) (While (Var "flag") (Block [] [Incr "steps", Assign "flag" (Const (B False))]))
+([], [("flag", B False), ("steps", I 1)], [])
+
+([], [("n", I 0)], []) (While (Op (Var "n") Lt (Const (I 5))) (Incr "n"))
+([], [("n", I 5)], [])
+
+([], [("product", I 1), ("i", I 1)], []) (While (Op (Var "i") Le (Const (I 4))) (Block [] [Assign "product" (Op (Var "product") Times (Var "i")), Incr "i"]))
+([], [("product", I 24), ("i", I 5)], [])
+
+([], [("done", B False)], []) (While (Const (B False)) (Assign "done" (Const (B True))))
+([], [("done", B False)], [])
+
+([], [("value", I 2)], []) (While (Op (Var "value") Lt (Const (I 16))) (Assign "value" (Op (Var "value") Times (Const (I 2)))))
+([], [("value", I 16)], [])
+
+([], [("counter", I 3)], ["log"]) (While (Op (Var "counter") Gt (Const (I 0))) (Block [] [Write (Var "counter"), Assign "counter" (Op (Var "counter") Minus (Const (I 1)))]))
+([], [("counter", I 0)], ["log","3","2","1"])
+
+([], [("i", I 0)], []) (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 3))) (Incr "i") (Write (Var "i")))
+([], [("i", I 3)], ["0","1","2"])
+
+([], [("sum", I 0), ("i", I 0)], []) (For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Const (I 5))) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))))
+([], [("sum", I 15), ("i", I 6)], [])
+
+([], [("count", I 0), ("j", I 0)], []) (For (Assign "j" (Const (I 0))) (Op (Var "j") Lt (Const (I 4))) (Incr "j") (Incr "count"))
+([], [("count", I 4), ("j", I 4)], [])
+
+([], [("result", I 1), ("k", I 0)], []) (For (Assign "k" (Const (I 1))) (Op (Var "k") Le (Const (I 3))) (Incr "k") (Assign "result" (Op (Var "result") Times (Const (I 2)))))
+([], [("result", I 8), ("k", I 4)], [])
+
+([], [("n", I 5), ("i", I 0)], []) (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 0))) (Incr "i") (Write (Const (I 1))))
+([], [("n", I 5), ("i", I 0)], [])
+
+([], [("x", I 0), ("i", I 0)], []) (For (Assign "i" (Const (I 5))) (Op (Var "i") Gt (Const (I 0))) (Assign "i" (Op (Var "i") Minus (Const (I 1)))) (Incr "x"))
+([], [("x", I 5), ("i", I 0)], [])
+
+([], [("flag", B False), ("i", I 0)], []) (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 1))) (Incr "i") (Assign "flag" (Const (B True))))
+([], [("flag", B True), ("i", I 1)], [])
+
+([], [("output", I 0), ("i", I 0)], ["log"]) (For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Const (I 3))) (Incr "i") (Write (Var "i")))
+([], [("output", I 0), ("i", I 4)], ["log","1","2","3"])
+
+([], [("val", I 10), ("i", I 0)], []) (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 3))) (Incr "i") (Assign "val" (Op (Var "val") Plus (Const (I 1)))))
+([], [("val", I 13), ("i", I 3)], [])
+
+([], [("done", B True), ("i", I 0)], []) (For (Assign "i" (Const (I 0))) (Const (B False)) (Incr "i") (Assign "done" (Const (B False))))
+([], [("done", B True), ("i", I 0)], [])
+
+([], [], []) (Block [("x", It)] [Assign "x" (Const (I 5))])
+([], [], [])
+
+([], [], []) (Block [("flag", Bt)] [Assign "flag" (Const (B True)), Write (Var "flag")])
+([], [], ["True"])
+
+([], [("global", I 10)], []) (Block [("local", It)] [Assign "local" (Const (I 20)), Write (Op (Var "global") Plus (Var "local"))])
+([], [("global", I 10)], ["30"])
+
+([], [("x", I 1)], []) (Block [("x", It)] [Assign "x" (Const (I 100)), Write (Var "x")])
+([], [("x", I 1)], ["100"])
+
+([], [], []) (Block [("a", It), ("b", It)] [Assign "a" (Const (I 3)), Assign "b" (Const (I 4)), Write (Op (Var "a") Times (Var "b"))])
+([], [], ["12"])
+
+([], [], ["prev"]) (Block [("temp", It)] [Assign "temp" (Const (I 42)), Write (Var "temp")])
+([], [], ["prev","42"])
+
+([], [], []) (Block [("i", It)] [For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 2))) (Incr "i") (Write (Var "i"))])
+([], [], ["0","1"])
+
+([], [("outer", I 5)], []) (Block [("inner", Bt)] [Assign "inner" (Const (B True)), If (Var "inner") (Assign "outer" (Const (I 99)))])
+([], [("outer", I 99)], [])
+
+([], [], []) (Block [("x", It), ("y", It)] [Assign "x" (Const (I 1)), Assign "y" (Const (I 2)), Write (Op (Var "x") Plus (Var "y"))])
+([], [], ["3"])
+
+([], [("shadow", I 0)], []) (Block [("shadow", Bt)] [Assign "shadow" (Const (B True)), Write (Var "shadow")])
+([], [("shadow", I 0)], ["True"])
+
+([], [("x", I 0), ("y", I 0)], []) (Block [] [Assign "x" (Const (I 5)), Assign "y" (Op (Var "x") Plus (Const (I 3))), Write (Var "y")])
+([], [("x", I 5), ("y", I 8)], ["8"])
+
+(["10"], [("n", I 0)], []) (Block [] [Read "n", Assign "n" (Op (Var "n") Times (Const (I 2))), Write (Var "n")])
+([], [("n", I 20)], ["20"])
+
+([], [("i", I 0)], []) (Block [] [While (Op (Var "i") Lt (Const (I 3))) (Block [] [Incr "i", Write (Var "i")])])
+([], [("i", I 3)], ["1","2","3"])
+
+([], [("sum", I 0)], []) (Block [("i", It)] [Assign "i" (Const (I 1)), While (Op (Var "i") Le (Const (I 4))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Var "i")), Incr "i"]), Write (Var "sum")])
+([], [("sum", I 10)], ["10"])
+
+([], [("flag", B False)], []) (Block [] [If (Const (B True)) (Assign "flag" (Const (B True))), Write (Var "flag")])
+([], [("flag", B True)], ["True"])
+
+([], [("counter", I 0), ("i", I 0)], []) (Block [] [For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 5))) (Incr "i") (Incr "counter"), Write (Var "counter")])
+([], [("counter", I 5), ("i", I 5)], ["5"])
+
+(["7"], [("x", I 0)], []) (Block [] [Read "x", If (Op (Var "x") Gt (Const (I 5))) (Write (Const (I 1)))])
+([], [("x", I 7)], ["1"])
+
+([], [("a", I 2), ("b", I 3)], []) (Block [] [Assign "a" (Op (Var "a") Times (Var "b")), Write (Var "a")])
+([], [("a", I 6), ("b", I 3)], ["6"])
+
+([], [("loop", I 0)], []) (Block [] [While (Op (Var "loop") Lt (Const (I 2))) (Block [] [Write (Const (I 10)), Incr "loop"])])
+([], [("loop", I 2)], ["10","10"])
+
+([], [("result", I 1)], []) (Block [("i", It)] [For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Const (I 3))) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "i"))), Write (Var "result")])
+([], [("result", I 6)], ["6"])
