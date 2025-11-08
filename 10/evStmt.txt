@@ -261,3 +261,57 @@
 
 ([], [("result", I 1)], []) (Block [("i", It)] [For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Const (I 3))) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "i"))), Write (Var "result")])
 ([], [("result", I 6)], ["6"])
+
+(["True"], [("a", B True), ("b", B False)], ["321"]) (Assign "a" (Var "b"))
+(["True"], [("a", B False), ("b", B False)], ["321"])
+
+(["True"], [("a", B True), ("b", B False)], ["321"]) (Assign "a" (Op (Const (I 5)) Gt (Const (I 55))))
+(["True"], [("a", B False), ("b", B False)], ["321"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (Incr "a")
+(["True"], [("a", I 23), ("b", B False)], ["321"])
+
+(["-23", "True"], [("a", I 22), ("b", B False)], ["321"]) (Read "a")
+(["True"], [("a", I (-23)), ("b", B False)], ["321"])
+
+(["-23", "True"], [("a", I 22), ("b", B True)], ["321"]) (Read "b")
+(["-23", "True"], [("a", I 22), ("b", B False)], ["321"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (Write (Var "a"))
+(["True"], [("a", I 22), ("b", B False)], ["321", "22"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (Write (Const (B True)))
+(["True"], [("a", I 22), ("b", B False)], ["321", "True"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (If (Const (B True)) (Write (Var "a")))
+(["True"], [("a", I 22), ("b", B False)], ["321", "22"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (If (Const (B False)) (Write (Var "a")))
+(["True"], [("a", I 22), ("b", B False)], ["321"])
+
+(["-12", "23", "42", "True"], [("a", I 22), ("b", B False)], ["321"]) (While (Op (Var "a") Lt (Const (I 25))) (Read "a"))
+(["True"], [("a", I 42), ("b", B False)], ["321"])
+
+(["-12", "23", "42", "True"], [("a", I 22), ("b", B False)], ["321"]) (While (Const (B False)) (Read "a"))
+(["-12", "23", "42", "True"], [("a", I 22), ("b", B False)], ["321"]) 
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (For (Assign "a" (Const (I 0))) (Op (Var "a") Lt (Const (I 5))) (Incr "a") (Write (Var "a")))
+(["True"], [("a", I 5), ("b", B False)], ["321", "0", "1", "2", "3", "4"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (For (Assign "a" (Const (I 0))) (Const (B False)) (Incr "a") (Write (Var "a")))
+(["True"], [("a", I 0), ("b", B False)], ["321"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (Block [("a", It)] [Assign "a" (Const (I (-12))), Write (Var "a"), Assign "b" (Const (B True))])
+(["True"], [("a", I 22), ("b", B True)], ["321", "-12"])
+
+(["True"], [("a", I 22), ("b", B False)], ["321"]) (Block [("a", It), ("c", Bt)] [Write (Var "a"), Write (Var "c")])
+(["True"], [("a", I 22), ("b", B False)], ["321", "0", "False"])
+
+([], [("b", B False)], []) (Block [("a",It)] [Assign "a" (Const (I 4)),Block [("a",Bt)] [Assign "a" (Const (B True)),Block [("a",It)] [Write (Var "a")],Write (Var "a")],Write (Var "a")])
+([], [("b", B False)], ["0", "True", "4"])
+
+([], [("A",(I 4))], []) (Assign "A" (Const (I 0)))
+([], [("A", (I 0))], [])
+
+([], [("A",(I 4))], []) (Incr "A" )
+([], [("A", (I 5))], [])

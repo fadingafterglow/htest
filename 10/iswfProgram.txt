@@ -1,0 +1,23 @@
+squareRoot
+True
+
+fibonacci
+True
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])])
+True
+
+(Block [("count",Bt)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])])
+False
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])])
+False
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (B True)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])])
+False
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Plus (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])])
+False
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Gt (Const (I 1)))])])
+False

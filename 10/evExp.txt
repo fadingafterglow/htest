@@ -387,3 +387,108 @@ B True
 
 ([], [], []) (Op (Const (I 0)) Le (Op (Op (Const (I 1)) Plus (Const (I 2))) Div (Const (I 3))))
 B True
+
+([], [], []) (Const (I 1))
+(I 1)
+
+([], [], []) (Const (B True))
+(B True)
+
+([], [("a", I 1), ("a", B True)], []) (Var "a")
+(I 1)
+
+([], [("b", I 1), ("a", B True)], []) (Var "a")
+(B True)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Plus (Var "b"))
+(I 9)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Minus (Var "b"))
+(I 5)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Times (Var "b"))
+(I 14)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Div (Var "b"))
+(I 3)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Lt (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 7)], ["321"]) (Op (Var "a") Lt (Var "b"))
+(B True)
+
+(["123"], [("a", I 2), ("b", I 2)], ["321"]) (Op (Var "a") Lt (Var "b"))
+(B False)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Le (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 7)], ["321"]) (Op (Var "a") Le (Var "b"))
+(B True)
+
+(["123"], [("a", I 2), ("b", I 2)], ["321"]) (Op (Var "a") Le (Var "b"))
+(B True)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Gt (Var "b"))
+(B True)
+
+(["123"], [("a", I 2), ("b", I 7)], ["321"]) (Op (Var "a") Gt (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 2)], ["321"]) (Op (Var "a") Gt (Var "b"))
+(B False)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Ge (Var "b"))
+(B True)
+
+(["123"], [("a", I 2), ("b", I 7)], ["321"]) (Op (Var "a") Ge (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 2)], ["321"]) (Op (Var "a") Ge (Var "b"))
+(B True)
+
+(["123"], [("a", I 7), ("b", I 2)], ["321"]) (Op (Var "a") Eql (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 7)], ["321"]) (Op (Var "a") Eql (Var "b"))
+(B False)
+
+(["123"], [("a", I 2), ("b", I 2)], ["321"]) (Op (Var "a") Eql (Var "b"))
+(B True)
+
+(["123"], [("a", B False), ("b", B False)], ["321"]) (Op (Var "a") And (Var "b"))
+(B False)
+
+(["123"], [("a", B True), ("b", B False)], ["321"]) (Op (Var "a") And (Var "b"))
+(B False)
+
+(["123"], [("a", B False), ("b", B True)], ["321"]) (Op (Var "a") And (Var "b"))
+(B False)
+
+(["123"], [("a", B True), ("b", B True)], ["321"]) (Op (Var "a") And (Var "b"))
+(B True)
+
+(["123"], [("a", B False), ("b", B False)], ["321"]) (Op (Var "a") Or (Var "b"))
+(B False)
+
+(["123"], [("a", B True), ("b", B False)], ["321"]) (Op (Var "a") Or (Var "b"))
+(B True)
+
+(["123"], [("a", B False), ("b", B True)], ["321"]) (Op (Var "a") Or (Var "b"))
+(B True)
+
+(["123"], [("a", B True), ("b", B True)], ["321"]) (Op (Var "a") Or (Var "b"))
+(B True)
+
+([], [("a", I 2), ("b", I 5), ("c", I 13)], []) (Op (Op (Op (Op (Var "a") Plus (Var "b")) Times (Const (I 2))) Gt (Var "c")) And (Const (B True)))
+(B True)
+
+([], [("a", I 2), ("b", I 5), ("c", I 14)], []) (Op (Op (Op (Op (Var "a") Plus (Var "b")) Times (Const (I 2))) Gt (Var "c")) And (Const (B True)))
+(B False)
+
+([], [], [])  (Op (Const (I 1)) Eql (Const (I 2)))
+(B False)
+
+([], [("y",(I 5)), ("x",(I 6))], [])  (Var "x")
+(I 6)

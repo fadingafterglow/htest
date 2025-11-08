@@ -147,3 +147,63 @@ Just It
 
 (Op (Const (B True)) Eql (Const (B False))) []
 Nothing
+
+(Const (I 0)) []
+Just It
+
+(Const (I 123)) []
+Just It
+
+(Var "a") []
+Nothing
+
+(Var "a") [("b", It)]
+Nothing
+
+(Var "a") [("a", It)]
+Just It
+
+(Var "a") [("b", It), ("a", Bt)]
+Just Bt
+
+(Var "a") [("c", It), ("b", It), ("a", Bt)]
+Just Bt
+
+(Var "a") [("b", It), ("a", Bt), ("a", It)]
+Just Bt
+
+(Op (Var "a") And (Const (B False))) []
+Nothing
+
+(Op (Var "a") And (Const (B False))) [("a", It)]
+Nothing
+
+(Op (Var "a") And (Const (B False))) [("a", Bt)]
+Just Bt
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) []
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("a", It)]
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("a", It), ("b", It)]
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("c", It)]
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("a", It), ("b", It), ("c", Bt)]
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("a", Bt), ("b", It), ("c", It)]
+Nothing
+
+(Op (Var "a") Times (Op (Var "b") Plus (Var "c"))) [("a", It), ("b", It), ("c", It)]
+Just It
+
+(Op (Var "in") Eql (Const (I 1))) [("in",It), ("b",Bt)]
+Just Bt
+
+(Op (Var "in") Eql (Const (I 1))) [("in",Bt), ("b",It)]
+Nothing 

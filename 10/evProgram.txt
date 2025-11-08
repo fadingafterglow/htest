@@ -25,6 +25,15 @@ squareRoot ["16"]
 squareRoot ["317"]
 ["17"]
 
+squareRoot ["10000"]
+["100"]
+
+squareRoot ["-1"]
+["-1"]
+
+squareRoot ["-100"]
+["-1"]
+
 fibonacci ["0"]
 ["1"]
 
@@ -51,6 +60,12 @@ fibonacci ["7"]
 
 fibonacci ["8"]
 ["34"]
+
+fibonacci ["10"]
+["89"]
+
+fibonacci ["18"]
+["4181"]
 
 #/ Collatz, 3n+1
 
@@ -655,3 +670,24 @@ fibonacci ["8"]
 
 (Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")]) ["4"]
 ["15","10","4"]
+
+(Block [("x",It),("y",It),("cond",Bt)] [Read "y",Read "cond",Incr "x",Assign "y" (Op (Var "y") Times (Const (I 5))),If (Var "cond") (Block [] [Write (Op (Var "x") Plus (Var "y"))]),While (Op (Var "x") Le (Const (I 5))) (Block [] [Read "x",Write (Const (B True))]),For (Assign "y" (Const (I 0))) (Op (Op (Const (I 2)) Gt (Var "y")) And (Var "cond")) (Incr "y") (If (Var "cond") (Block [("c",Bt)] [Assign "c" (Op (Var "c") Or (Var "cond")),Write (Var "y")]))]) ["22", "False", "2", "55"]
+["True", "True"]
+
+(Block [("x",It),("y",It),("cond",Bt)] [Read "y",Read "cond",Incr "x",Assign "y" (Op (Var "y") Times (Const (I 5))),If (Var "cond") (Block [] [Write (Op (Var "x") Plus (Var "y"))]),While (Op (Var "x") Le (Const (I 5))) (Block [] [Read "x",Write (Const (B True))]),For (Assign "y" (Const (I 0))) (Op (Op (Const (I 2)) Gt (Var "y")) And (Var "cond")) (Incr "y") (If (Var "cond") (Block [("c",Bt)] [Assign "c" (Op (Var "c") Or (Var "cond")),Write (Var "y")]))]) ["22", "True", "28", "55"]
+["111", "True", "0", "1"]
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])]) []
+[]
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])]) ["0"]
+[]
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])]) ["3", "-2", "0", "2"]
+["1", "1", "2"]
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])]) ["3", "-2"]
+["1", "1", "1"]
+
+(Block [("count",It)] [Read "count",While (Op (Var "count") Gt (Const (I 0))) (Block [("n",It),("f",It),("i",It)] [Read "n",Assign "f" (Const (I 1)),For (Assign "i" (Const (I 2))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "f" (Op (Var "f") Times (Var "i"))),Write (Var "f"),Assign "count" (Op (Var "count") Minus (Const (I 1)))])]) ["5", "1", "3", "7", "10", "12"]
+["1", "6", "5040", "3628800", "479001600"]

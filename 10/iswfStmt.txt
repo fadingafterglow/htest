@@ -142,6 +142,156 @@ True
 (Block [("y", Bt)] [Block [("y", It)] [Assign "y" (Const (B True))]]) []
 False
 
+(Assign "a" (Var "b")) []
+False
+
+(Assign "a" (Var "b")) [("a", It)]
+False
+
+(Assign "a" (Var "b")) [("b", Bt)]
+False
+
+(Assign "a" (Var "b")) [("a", It), ("b", Bt)]
+False
+
+(Assign "a" (Var "b")) [("a", Bt), ("b", It)]
+False
+
+(Assign "a" (Var "b")) [("a", It), ("b", It)]
+True
+
+(Assign "a" (Var "b")) [("a", Bt), ("b", Bt)]
+True
+
+(Incr "a") []
+False
+
+(Incr "a") [("a", Bt)]
+False
+
+(Incr "a") [("a", It)]
+True
+
+(Read "a") []
+False
+
+(Read "a") [("a", It)]
+True
+
+(Read "a") [("a", Bt)]
+True
+
+(Write (Var "a")) []
+False
+
+(Write (Var "a")) [("a", It)]
+True
+
+(Write (Var "a")) [("a", Bt)]
+True
+
+(If (Var "c") (Read "r")) []
+False
+
+(If (Var "c") (Read "r")) [("c", Bt)]
+False
+
+(If (Var "c") (Read "r")) [("r", Bt)]
+False
+
+(If (Var "c") (Read "r")) [("c", It), ("r", Bt)]
+False
+
+(If (Var "c") (Read "r")) [("c", Bt), ("r", Bt)]
+True
+
+(While (Var "c") (Read "r")) []
+False
+
+(While (Var "c") (Read "r")) [("c", Bt)]
+False
+
+(While (Var "c") (Read "r")) [("r", Bt)]
+False
+
+(While (Var "c") (Read "r")) [("c", It), ("r", Bt)]
+False
+
+(While (Var "c") (Read "r")) [("c", Bt), ("r", Bt)]
+True
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) []
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("sn", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("e", Bt)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("s", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It), ("e", Bt), ("sn", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It), ("e", Bt), ("s", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It), ("sn", Bt), ("s", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("e", It), ("sn", Bt), ("s", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It), ("e", It), ("sn", It), ("s", It)]
+False
+
+(For (Read "si") (Var "e") (Read "sn") (Read "s")) [("si", It), ("e", Bt), ("sn", It), ("s", It)]
+True
+
+(Block [("a", It), ("a", It)] [Read "a"]) []
+False
+
+(Block [("a", It), ("a", Bt)] [Read "a"]) []
+False
+
+(Block [("a", It)] [Read "b"]) []
+False
+
+(Block [("a", It)] [Read "a", Read "b"]) []
+False
+
+(Block [("a", It)] [Read "a", Read "b"]) [("b", Bt)]
+True
+
+(Block [("a", Bt)] [If (Var "a") (Write (Const (I 5)))]) [("a", It), ("b", Bt)]
+True
+
+(Block [] [If (Var "a") (Write (Const (I 5)))]) [("a", It), ("b", Bt)]
+False
+
+(Block [] [Write (Const (I 5))]) [("a", It), ("b", Bt)]
+True
+
+(Block [] [Write (Const (I 5)), Write (Const (B True))]) []
+True
+
+(Block [("a",It)] [Block [("b",It)] [Block [("c",It)] [Write (Op (Op (Var "i") Times (Var "a")) Plus (Op (Var "b") Div (Var "c")))],Write (Op (Op (Var "i") Times (Var "a")) Plus (Var "b"))],Write (Op (Var "i") Times (Var "a"))]) [("i", It)]
+True
+
+(Block [("a",It)] [Block [("b",It)] [Block [("c",It)] [Write (Op (Op (Var "i") Times (Var "a")) Plus (Op (Var "b") Div (Var "c")))],Write (Op (Op (Var "i") Times (Var "a")) Plus (Var "b"))],Write (Op (Var "i") Times (Var "a"))]) []
+False
+
+(Block [("a",It)] [Block [("b",Bt)] [Block [("c",It)] [Write (Op (Op (Var "i") Times (Var "a")) Plus (Op (Var "b") Div (Var "c")))],Write (Op (Op (Var "i") Times (Var "a")) Plus (Var "b"))],Write (Op (Var "i") Times (Var "a"))]) [("i", It)]
+False
+
+(Block [("a",It)] [Block [("b",It)] [Block [("c",It)] [Write (Op (Op (Var "i") Times (Var "a")) Plus (Op (Var "b") Div (Var "c")))],Write (Op (Op (Var "i") Times (Var "a")) Plus (Var "c"))],Write (Op (Var "i") Times (Var "a"))]) [("i", It)]
+False
+
 (Incr "i") [("i", Bt)]
 False
 

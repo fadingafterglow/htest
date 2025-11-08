@@ -1,7 +1,100 @@
-Plus [It, It]
-Just It
+Plus []
+Nothing
+
+Minus []
+Nothing
+
+Times []
+Nothing
+
+Div []
+Nothing
+
+Gt []
+Nothing
+
+Ge []
+Nothing
+
+Lt []
+Nothing
+
+Le []
+Nothing
+
+Eql []
+Nothing
+
+And []
+Nothing
+
+Or []
+Nothing
 
 Plus [It]
+Nothing
+
+Minus [It]
+Nothing
+
+Times [It]
+Nothing
+
+Div [It]
+Nothing
+
+Gt [It]
+Nothing
+
+Ge [It]
+Nothing
+
+Lt [It]
+Nothing
+
+Le [It]
+Nothing
+
+Eql [It]
+Nothing
+
+And [Bt]
+Nothing
+
+Or [Bt]
+Nothing
+
+Plus [It, It, It]
+Nothing
+
+Minus [It, It, It]
+Nothing
+
+Times [It, It, It]
+Nothing
+
+Div [It, It, It]
+Nothing
+
+Gt [It, It, It]
+Nothing
+
+Ge [It, It, It]
+Nothing
+
+Lt [It, It, It]
+Nothing
+
+Le [It, It, It]
+Nothing
+
+Eql [It, It, It]
+Nothing
+
+And [Bt, Bt, Bt]
+Nothing
+
+Or [Bt, Bt, Bt]
 Nothing
 
 Plus [It, Bt]
@@ -13,44 +106,44 @@ Nothing
 Plus [Bt, Bt]
 Nothing
 
-Plus []
-Nothing
-
-Minus [It, It]
+Plus [It, It]
 Just It
 
 Minus [It, Bt]
 Nothing
 
+Minus [Bt, It]
+Nothing
+
 Minus [Bt, Bt]
 Nothing
 
-Times [It, It]
+Minus [It, It]
 Just It
 
-Times [It]
+Times [It, Bt]
 Nothing
 
 Times [Bt, It]
 Nothing
 
-Div [It, It]
+Times [Bt, Bt]
+Nothing
+
+Times [It, It]
 Just It
 
 Div [It, Bt]
 Nothing
 
+Div [Bt, It]
+Nothing
+
 Div [Bt, Bt]
 Nothing
 
-Div []
-Nothing
-
-Gt [It, It]
-Just Bt
-
-Gt [It]
-Nothing
+Div [It, It]
+Just It
 
 Gt [It, Bt]
 Nothing
@@ -61,53 +154,71 @@ Nothing
 Gt [Bt, Bt]
 Nothing
 
-Ge [It, It]
+Gt [It, It]
 Just Bt
 
 Ge [It, Bt]
 Nothing
 
-Lt [It, It]
+Ge [Bt, It]
+Nothing
+
+Ge [Bt, Bt]
+Nothing
+
+Ge [It, It]
 Just Bt
 
-Lt [Bt, Bt]
+Le [It, Bt]
+Nothing
+
+Le [Bt, It]
+Nothing
+
+Le [Bt, Bt]
 Nothing
 
 Le [It, It]
 Just Bt
 
-Le [It]
+Lt [It, Bt]
 Nothing
 
-Eql [It, It]
+Lt [Bt, It]
+Nothing
+
+Lt [Bt, Bt]
+Nothing
+
+Lt [It, It]
 Just Bt
 
 Eql [It, Bt]
 Nothing
 
+Eql [Bt, It]
+Nothing
+
 Eql [Bt, Bt]
 Nothing
 
-Eql []
-Nothing
-
-And [Bt, Bt]
+Eql [It, It]
 Just Bt
 
-And [Bt]
+And [It, Bt]
 Nothing
 
 And [Bt, It]
 Nothing
 
-And [It, Bt]
-Nothing
-
 And [It, It]
 Nothing
 
-Or [Bt, Bt]
+And [Bt, Bt]
 Just Bt
+
+Or [It, Bt]
+Nothing
 
 Or [Bt, It]
 Nothing
@@ -115,35 +226,5 @@ Nothing
 Or [It, It]
 Nothing
 
-Or []
-Nothing
-
-Plus [It, It, It]
-Nothing
-
-And [Bt, Bt, Bt]
-Nothing
-
-Eql [It, It]
-Just Bt
-
-Gt [It, It]
-Just Bt
-
-Div [It, It]
-Just It
-
-Times [It, It]
-Just It
-
-Minus [It, It]
-Just It
-
-Le [It, It]
-Just Bt
-
-Lt [It, It]
-Just Bt
-
-Ge [It, It]
+Or [Bt, Bt]
 Just Bt

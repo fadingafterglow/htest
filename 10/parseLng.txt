@@ -1,5 +1,413 @@
 #package parsec
 
+"read x"
+Just (Read "x")
+
+"   read    x    "
+Just (Read "x")
+
+"write x"
+Just (Write (Var "x"))
+
+"   write    x    "
+Just (Write (Var "x"))
+
+"x++"
+Just (Incr "x")
+
+"  x   ++  "
+Just (Incr "x")
+
+"x:=5"
+Just (Assign "x" (Const (I 5)))
+
+"   x   :=   5   "
+Just (Assign "x" (Const (I 5)))
+
+"for(i:=0;i<5;i++)write i"
+Just (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 5))) (Incr "i") (Write (Var "i")))
+
+"   for   (  i   :=  0  ;  i  <  5  ;  i  ++  )   write   i  "
+Just (For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 5))) (Incr "i") (Write (Var "i")))
+
+"while(i)read i"
+Just (While (Var "i") (Read "i"))
+
+"   while    (   i   )   read    i   "
+Just (While (Var "i") (Read "i"))
+
+"if(i==0)read i"
+Just (If (Op (Var"i") Eql (Const (I 0))) (Read "i"))
+
+"   if   (   i   ==   0  )  read    i   "
+Just (If (Op (Var"i") Eql (Const (I 0))) (Read "i"))
+
+"{write 5}"
+Just (Block [] [Write (Const (I 5))])
+
+"  {   write   5  }  "
+Just (Block [] [Write (Const (I 5))])
+
+"{int a,b;bool c,d;a:=b;d:=c}"
+Just (Block [("a", It), ("b", It), ("c", Bt), ("d", Bt)] [Assign "a" (Var "b"), Assign "d" (Var "c")])
+
+"   {   int    a   ,   b   ;   bool    c   ,   d  ;  a  :=   b  ;  d   :=   c   }  "
+Just (Block [("a", It), ("b", It), ("c", Bt), ("d", Bt)] [Assign "a" (Var "b"), Assign "d" (Var "c")])
+
+"x:=123"
+Just (Assign "x" (Const (I 123)))
+
+"x:=x"
+Just (Assign "x" (Var "x"))
+
+"x:=true"
+Just (Assign "x" (Const (B True)))
+
+"x:=false"
+Just (Assign "x" (Const (B False)))
+
+"x:=(((222)))"
+Just (Assign "x" (Const (I 222)))
+
+"x:=a|true"
+Just (Assign "x" (Op (Var "a") Or (Const (B True))))
+
+"   x   :=   a   |   true  "
+Just (Assign "x" (Op (Var "a") Or (Const (B True))))
+
+"x:=a&false"
+Just (Assign "x" (Op (Var "a") And (Const (B False))))
+
+"   x   :=   a   &   false  "
+Just (Assign "x" (Op (Var "a") And (Const (B False))))
+
+"x:=a>=1"
+Just (Assign "x" (Op (Var "a") Ge (Const (I 1))))
+
+"   x   :=   a   >=   1  "
+Just (Assign "x" (Op (Var "a") Ge (Const (I 1))))
+
+"x:=a>1"
+Just (Assign "x" (Op (Var "a") Gt (Const (I 1))))
+
+"  x  :=   a  >  1    "
+Just (Assign "x" (Op (Var "a") Gt (Const (I 1))))
+
+"x:=a<=1"
+Just (Assign "x" (Op (Var "a") Le (Const (I 1))))
+
+"  x    :=  a   <=   1  "
+Just (Assign "x" (Op (Var "a") Le (Const (I 1))))
+
+"x:=a<1"
+Just (Assign "x" (Op (Var "a") Lt (Const (I 1))))
+
+"    x :=  a   <  1  "
+Just (Assign "x" (Op (Var "a") Lt (Const (I 1))))
+
+"x:=a==1"
+Just (Assign "x" (Op (Var "a") Eql (Const (I 1))))
+
+"    x  :=   a   ==  1  "
+Just (Assign "x" (Op (Var "a") Eql (Const (I 1))))
+
+"x:=a+1"
+Just (Assign "x" (Op (Var "a") Plus (Const (I 1))))
+
+"    x    :=    a  +   1  "
+Just (Assign "x" (Op (Var "a") Plus (Const (I 1))))
+
+"x:=a-1"
+Just (Assign "x" (Op (Var "a") Minus (Const (I 1))))
+
+"    x   :=  a  -  1   "
+Just (Assign "x" (Op (Var "a") Minus (Const (I 1))))
+
+"x:=a*1"
+Just (Assign "x" (Op (Var "a") Times (Const (I 1))))
+
+"    x   :=   a   *  1  "
+Just (Assign "x" (Op (Var "a") Times (Const (I 1))))
+
+"x:=a/1"
+Just (Assign "x" (Op (Var "a") Div (Const (I 1))))
+
+"  x  :=  a /  1  "
+Just (Assign "x" (Op (Var "a") Div (Const (I 1))))
+
+"x:=a|b>0&5==0|(14*z-h/88+23<=id|true)&false"
+Just (Assign "x" (Op (Op (Op (Var "a") Or (Op (Var "b") Gt (Const (I 0)))) And (Op (Op (Const (I 5)) Eql (Const (I 0))) Or (Op (Op (Op (Op (Op (Const (I 14)) Times (Var "z")) Minus (Op (Var "h") Div (Const (I 88)))) Plus (Const (I 23))) Le (Var "id")) Or (Const (B True))))) And (Const (B False))))
+
+"  x   :=   a  |  b  >  0  &   5   ==   0  |  (   14  *  z  -  h  /  88  +  23  <=  id   |  true  )  &  false "
+Just (Assign "x" (Op (Op (Op (Var "a") Or (Op (Var "b") Gt (Const (I 0)))) And (Op (Op (Const (I 5)) Eql (Const (I 0))) Or (Op (Op (Op (Op (Op (Const (I 14)) Times (Var "z")) Minus (Op (Var "h") Div (Const (I 88)))) Plus (Const (I 23))) Le (Var "id")) Or (Const (B True))))) And (Const (B False))))
+
+"write a/(b-c+d)<=0&(true|false|(1<2&4>=2))"
+Just (Write (Op (Op (Op (Var "a") Div (Op (Op (Var "b") Minus (Var "c")) Plus (Var "d"))) Le (Const (I 0))) And (Op (Op (Const (B True)) Or (Const (B False))) Or (Op (Op (Const (I 1)) Lt (Const (I 2))) And (Op (Const (I 4)) Ge (Const (I 2)))))))
+
+"  write  a  /  (   b  -  c  +  d  )  <=  0  &  (  true | false |  (  1 <  2  &  4  >=  2  )  )  "
+Just (Write (Op (Op (Op (Var "a") Div (Op (Op (Var "b") Minus (Var "c")) Plus (Var "d"))) Le (Const (I 0))) And (Op (Op (Const (B True)) Or (Const (B False))) Or (Op (Op (Const (I 1)) Lt (Const (I 2))) And (Op (Const (I 4)) Ge (Const (I 2)))))))
+
+"read"
+Nothing
+
+"readx"
+Nothing
+
+"re ad x"
+Nothing
+
+"write"
+Nothing
+
+"writex"
+Nothing
+
+"wr ite x"
+Nothing
+
+"x+"
+Nothing
+
+"x+-"
+Nothing
+
+"x+ +"
+Nothing
+
+"++x"
+Nothing
+
+"x:="
+Nothing
+
+"x:=()"
+Nothing
+
+":=x"
+Nothing
+
+"for(;true;i++)write i"
+Nothing
+
+"for(5;true;i++)write i"
+Nothing
+
+"for(i:=0;;i++)write i"
+Nothing
+
+"for(i:=0;read i;i++)write i"
+Nothing
+
+"for(i:=0;false;)write i"
+Nothing
+
+"for(i:=0;false;5)write i"
+Nothing
+
+"for(i:=0;true;i++)"
+Nothing
+
+"for(i:=0;true;i++)5"
+Nothing
+
+"fo r(i:=0;true;i++)write i"
+Nothing
+
+"while()write i"
+Nothing
+
+"while(read i)write i"
+Nothing
+
+"while(i)"
+Nothing
+
+"while(i)5"
+Nothing
+
+"whi le(i)write i"
+Nothing
+
+"if()write i"
+Nothing
+
+"if(read i)write i"
+Nothing
+
+"if(i)"
+Nothing
+
+"if(i)5"
+Nothing
+
+"i f(i)write i"
+Nothing
+
+"{}"
+Nothing
+
+"{write 5"
+Nothing
+
+"write true}"
+Nothing
+
+"{in x;write x}"
+Nothing
+
+"{in t x;write x}"
+Nothing
+
+"{int}"
+Nothing
+
+"{int ;}"
+Nothing
+
+"{int x;}"
+Nothing
+
+"{boo x;write x}"
+Nothing
+
+"{boo l x;write x}"
+Nothing
+
+"{bool}"
+Nothing
+
+"{bool ;}"
+Nothing
+
+"{bool x;}"
+Nothing
+
+"{int x, bool y;read x}"
+Nothing
+
+"{write 5 read x}"
+Nothing
+
+"x:=-1"
+Nothing
+
+"x:=(5+4"
+Nothing
+
+"x:=5-4)"
+Nothing
+
+"x:=for"
+Nothing
+
+"x:=while"
+Nothing
+
+"x:=if"
+Nothing
+
+"x:=read"
+Nothing
+
+"x:=read y"
+Nothing
+
+"x:=write"
+Nothing
+
+"x:=write true"
+Nothing
+
+"x:=x++"
+Nothing
+
+"x++:=x"
+Nothing
+
+"x:=tr"
+Just (Assign "x" (Var "tr"))
+
+"x:=true"
+Just (Assign "x" (Const (B True)))
+
+"x:=True"
+Just (Assign "x" (Var "True"))
+
+"x:=int"
+Nothing
+
+"x:=intVar"
+Just (Assign "x" (Var "intVar"))
+
+"12aa++"
+Nothing
+
+"a2-a++"
+Nothing
+
+"a.a++"
+Nothing
+
+"read x; write x"
+Nothing
+
+"read x  write x"
+Nothing
+
+"{read x; write x}"
+Just (Block [] [Read "x", Write (Var "x")])
+
+"{int a; bool b; int c,d,e; bool f,g;a++;b:=true;write a+c}"
+Just (Block [("a", It), ("b", Bt), ("c", It), ("d", It), ("e", It), ("f", Bt), ("g", Bt)] [Incr "a", Assign "b" (Const (B True)), Write (Op (Var "a") Plus (Var "c"))])
+
+"write a/(b-c+d)<=0&(true|false|(1<2&4>=2)"
+Nothing
+
+"write a/(b-c+d)< =0&(true|false|(1<2&4>=2))"
+Nothing
+
+"write a/(b-c+d)<=0&(bool|false|(1<2&4>=2))"
+Nothing
+
+"write a^(b-c+d)<=0&(true|false|(1<2&4>=2))"
+Nothing
+
+"write a/(b-c+d)<=0&(true|false|(1<2&4<>2))"
+Nothing
+
+"write a/(b-c++d)<=0&(true|false|(1<2&4>=2))"
+Nothing
+
+"for ({i:=1};y;{int s; s:=5; i:= i + s}){write y; write i<=4}"
+Just (For (Block [] [Assign "i" (Const (I 1))]) (Var "y") (Block [("s", It)] [Assign "s" (Const (I 5)), Assign "i" (Op (Var "i") Plus (Var "s"))]) (Block [] [Write (Var "y"), Write (Op (Var "i") Le (Const (I 4)))]))
+
+"for (i:=1;y;{int s; s:=5; i:= i + s}){write y; write i<=4}"
+Just (For (Assign "i" (Const (I 1))) (Var "y") (Block [("s", It)] [Assign "s" (Const (I 5)), Assign "i" (Op (Var "i") Plus (Var "s"))]) (Block [] [Write (Var "y"), Write (Op (Var "i") Le (Const (I 4)))]))
+
+"{for ({i:=1};y;{int s; s:=5; i:= i + s}){write y}; write i<=4}"
+Just (Block [] [For (Block [] [Assign "i" (Const (I 1))]) (Var "y") (Block [("s", It)] [Assign "s" (Const (I 5)), Assign "i" (Op (Var "i") Plus (Var "s"))]) (Block [] [Write (Var "y")]), Write (Op (Var "i") Le (Const (I 4)))])
+
+"{for (i:=1;y;{int s; s:=5; i:= i + s})write y; write i<=4}"
+Just (Block [] [For (Assign "i" (Const (I 1))) (Var "y") (Block [("s", It)] [Assign "s" (Const (I 5)), Assign "i" (Op (Var "i") Plus (Var "s"))]) (Write (Var "y")), Write (Op (Var "i") Le (Const (I 4)))])
+
+"{for ({i:=1};y;{int s; s:=5; i:= i + s}){write y}; write i<=4"
+Nothing
+
+"{for (i:=1};y;{int s; s:=5; i:= i + s}){write y}; write i<=4}"
+Nothing
+
+"{for ({i:=1};y;int s; s:=5; i:= i + s){write y}; write i<=4}"
+Nothing
+
+"for (i:=1;y;{int s; s:=5; i:= i + s})write y; write i<=4"
+Nothing
+
+"{for ({i:=1};y;{int s; s:=5; i:= i + s}){writ y}; write i<=4}"
+Nothing
+
+"{for ({i:=1};y;{double s; s:=5; i:= i + s}){write y}; write i<=4}"
+Nothing
+
 squareRootS
 Just squareRoot
 
