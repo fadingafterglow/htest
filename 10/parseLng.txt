@@ -1,0 +1,70 @@
+#package parsec
+
+squareRootS
+Just squareRoot
+
+fibonacciS
+Just fibonacci
+
+"{int a, b; read a; b := 0; if (a>= 0) \n  {bool c; c:=true; while(c) {b++; c:= a >= b*b}    };  write (b-1) }"
+Just (Block [("a",It),("b",It)] [Read "a",Assign "b" (Const (I 0)),If (Op (Var "a") Ge (Const (I 0))) (Block [("c",Bt)] [Assign "c" (Const (B True)),While (Var "c") (Block [] [Incr "b",Assign "c" (Op (Var "a") Ge (Op (Var "b") Times (Var "b")))])]),Write (Op (Var "b") Minus (Const (I 1)))])
+
+" {int x; read x;\n  {int x; x := 10;\n {int y; y := x + 5; write y};\n write x};\n write x\n }"
+Just (Block [("x",It)] [Read "x",Block [("x",It)] [Assign "x" (Const (I 10)),Block [("y",It)] [Assign "y" (Op (Var "x") Plus (Const (I 5))),Write (Var "y")],Write (Var "x")],Write (Var "x")])
+
+" {int n, i; int sum; read n;\n  sum := 0;\n  for (i := 1; i <= n; i++)\n      sum := sum + i;\n  write sum\n  }"
+Just (Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Var "sum")])
+
+" {int a; int b; int origA; int origB; int temp; read a; read b;\n origA := a; origB := b;\n while (b > 0)\n  {\n     temp := a - (a / b * b);\n     a := b;\n     b := temp\n  };\n write (origA * origB / a)\n }"
+Just (Block [("a",It),("b",It),("origA",It),("origB",It),("temp",It)] [Read "a",Read "b",Assign "origA" (Var "a"),Assign "origB" (Var "b"),While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Op (Op (Var "origA") Times (Var "origB")) Div (Var "a"))])
+
+" {int a; int b; int c; int min; read a; read b; read c;\n min := a;\n if (b < min)\n     min := b;\n if (c < min)\n     min := c;\n write min\n }"
+Just (Block [("a",It),("b",It),("c",It),("min",It)] [Read "a",Read "b",Read "c",Assign "min" (Var "a"),If (Op (Var "b") Lt (Var "min")) (Assign "min" (Var "b")),If (Op (Var "c") Lt (Var "min")) (Assign "min" (Var "c")),Write (Var "min")])
+
+" {int n, i; int sum; read n;\n sum := 0;\n for (i := 1; i <= n; i++)\n     sum := sum + i;\n write ((sum - (sum / 2 * 2)) == 0)\n }"
+Just (Block [("n",It),("i",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),For (Assign "i" (Const (I 1))) (Op (Var "i") Le (Var "n")) (Incr "i") (Assign "sum" (Op (Var "sum") Plus (Var "i"))),Write (Op (Op (Var "sum") Minus (Op (Op (Var "sum") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0)))])
+
+" {int n; int count; int digit; read n;\n count := 0;\n while (n > 0)\n  {\n     digit := n - (n / 10 * 10);\n     if ((digit - (digit / 2 * 2)) == 0)\n         count++;\n     n := n / 10\n  };\n write count\n }"
+Just (Block [("n",It),("count",It),("digit",It)] [Read "n",Assign "count" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),If (Op (Op (Var "digit") Minus (Op (Op (Var "digit") Div (Const (I 2))) Times (Const (I 2)))) Eql (Const (I 0))) (Incr "count"),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "count")])
+
+" {int result; int cmd; result := 0;\n read cmd;\n while (cmd > 0)\n  {\n     if (cmd == 1)\n         result++;\n     if (cmd == 2)\n         result := result - 1;\n     read cmd\n  };\n write result\n }"
+Just (Block [("result",It),("cmd",It)] [Assign "result" (Const (I 0)),Read "cmd",While (Op (Var "cmd") Gt (Const (I 0))) (Block [] [If (Op (Var "cmd") Eql (Const (I 1))) (Incr "result"),If (Op (Var "cmd") Eql (Const (I 2))) (Assign "result" (Op (Var "result") Minus (Const (I 1)))),Read "cmd"]),Write (Var "result")])
+
+" {int stack1; int stack2; int op; int temp;\n stack1 := 0; stack2 := 0;\n read op;\n while (op >= 1)\n  {\n     if (op < 10)\n     {\n         stack2 := stack1;\n         stack1 := op\n     };\n     if (op == 10)\n     {\n         temp := stack1 + stack2;\n         stack1 := temp;\n         stack2 := 0\n     };\n     if (op == 11)\n     {\n         temp := stack2 - stack1;\n         stack1 := temp;\n         stack2 := 0\n     };\n     if (op == 12)\n     {\n         temp := stack1 * stack2;\n         stack1 := temp;\n         stack2 := 0\n     };\n     read op\n  };\n write stack1\n }"
+Just (Block [("stack1",It),("stack2",It),("op",It),("temp",It)] [Assign "stack1" (Const (I 0)),Assign "stack2" (Const (I 0)),Read "op",While (Op (Var "op") Ge (Const (I 1))) (Block [] [If (Op (Var "op") Lt (Const (I 10))) (Block [] [Assign "stack2" (Var "stack1"),Assign "stack1" (Var "op")]),If (Op (Var "op") Eql (Const (I 10))) (Block [] [Assign "temp" (Op (Var "stack1") Plus (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 11))) (Block [] [Assign "temp" (Op (Var "stack2") Minus (Var "stack1")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),If (Op (Var "op") Eql (Const (I 12))) (Block [] [Assign "temp" (Op (Var "stack1") Times (Var "stack2")),Assign "stack1" (Var "temp"),Assign "stack2" (Const (I 0))]),Read "op"]),Write (Var "stack1")])
+
+" {int state; int tape; int steps; read tape;\n state := 0; steps := 0;\n while (state >= 0)\n  {\n     if (state == 0)\n     {\n         if (tape == 0)\n         {\n             tape := 1;\n             state := 1\n         };\n         if (tape > 0)\n             state := state - 1\n     };\n     if (state == 1)\n     {\n         tape++;\n         state := state - 1\n     };\n     steps++;\n     if (steps > 100)\n         state := state - 1\n  };\n write tape\n }"
+Just (Block [("state",It),("tape",It),("steps",It)] [Read "tape",Assign "state" (Const (I 0)),Assign "steps" (Const (I 0)),While (Op (Var "state") Ge (Const (I 0))) (Block [] [If (Op (Var "state") Eql (Const (I 0))) (Block [] [If (Op (Var "tape") Eql (Const (I 0))) (Block [] [Assign "tape" (Const (I 1)),Assign "state" (Const (I 1))]),If (Op (Var "tape") Gt (Const (I 0))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),If (Op (Var "state") Eql (Const (I 1))) (Block [] [Incr "tape",Assign "state" (Op (Var "state") Minus (Const (I 1)))]),Incr "steps",If (Op (Var "steps") Gt (Const (I 100))) (Assign "state" (Op (Var "state") Minus (Const (I 1))))]),Write (Var "tape")])
+
+" {int slow; int fast; int temp, i; bool foundCycle; read slow;\n fast := slow; foundCycle := false;\n for (i := 0; i < 100; i++)\n  {\n     temp := slow / 2 * 2;\n     if (slow == temp)\n         slow := slow / 2;\n     if (slow > temp)\n         slow := 3 * slow + 1;\n     temp := fast / 2 * 2;\n     if (fast == temp)\n         fast := fast / 2;\n     if (fast > temp)\n         fast := 3 * fast + 1;\n     temp := fast / 2 * 2;\n     if (fast == temp)\n         fast := fast / 2;\n     if (fast > temp)\n         fast := 3 * fast + 1;\n     if (slow == fast)\n         if (slow > 1)\n             foundCycle := true\n  };\n write foundCycle\n }"
+Just (Block [("slow",It),("fast",It),("temp",It),("i",It),("foundCycle",Bt)] [Read "slow",Assign "fast" (Var "slow"),Assign "foundCycle" (Const (B False)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Const (I 100))) (Incr "i") (Block [] [Assign "temp" (Op (Op (Var "slow") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "slow") Eql (Var "temp")) (Assign "slow" (Op (Var "slow") Div (Const (I 2)))),If (Op (Var "slow") Gt (Var "temp")) (Assign "slow" (Op (Op (Const (I 3)) Times (Var "slow")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),Assign "temp" (Op (Op (Var "fast") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "fast") Eql (Var "temp")) (Assign "fast" (Op (Var "fast") Div (Const (I 2)))),If (Op (Var "fast") Gt (Var "temp")) (Assign "fast" (Op (Op (Const (I 3)) Times (Var "fast")) Plus (Const (I 1)))),If (Op (Var "slow") Eql (Var "fast")) (If (Op (Var "slow") Gt (Const (I 1))) (Assign "foundCycle" (Const (B True))))]),Write (Var "foundCycle")])
+
+" {int statements; int blocks; int loops;\n statements := 7;\n blocks := 1;\n loops := 0;\n write statements;\n write blocks;\n write loops\n }"
+Just (Block [("statements",It),("blocks",It),("loops",It)] [Assign "statements" (Const (I 7)),Assign "blocks" (Const (I 1)),Assign "loops" (Const (I 0)),Write (Var "statements"),Write (Var "blocks"),Write (Var "loops")])
+
+" {int n; int count; int i; read n;\n count := 0;\n i := 1;\n while (i <= n)\n  {\n     if ((n - (n / i * i)) == 0)\n         count++;\n     i++\n  };\n write count\n }"
+Just (Block [("n",It),("count",It),("i",It)] [Read "n",Assign "count" (Const (I 0)),Assign "i" (Const (I 1)),While (Op (Var "i") Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "i")) Times (Var "i"))) Eql (Const (I 0))) (Incr "count"),Incr "i"]),Write (Var "count")])
+
+" {int base, exp, result, i; read base; read exp;\n result := 1;\n for (i := 0; i < exp; i++)\n     result := result * base;\n write result\n }"
+Just (Block [("base",It),("exp",It),("result",It),("i",It)] [Read "base",Read "exp",Assign "result" (Const (I 1)),For (Assign "i" (Const (I 0))) (Op (Var "i") Lt (Var "exp")) (Incr "i") (Assign "result" (Op (Var "result") Times (Var "base"))),Write (Var "result")])
+
+" {int n; int original; int reversed; int digit; read n;\n original := n;\n reversed := 0;\n while (n > 0)\n  {\n     digit := n - (n / 10 * 10);\n     reversed := reversed * 10 + digit;\n     n := n / 10\n  };\n write (original == reversed)\n }"
+Just (Block [("n",It),("original",It),("reversed",It),("digit",It)] [Read "n",Assign "original" (Var "n"),Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Op (Var "original") Eql (Var "reversed"))])
+
+" {int n; int reversed; int digit; read n;\n reversed := 0;\n while (n > 0)\n  {\n     digit := n - (n / 10 * 10);\n     reversed := reversed * 10 + digit;\n     n := n / 10\n  };\n write reversed\n }"
+Just (Block [("n",It),("reversed",It),("digit",It)] [Read "n",Assign "reversed" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "digit" (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10)))),Assign "reversed" (Op (Op (Var "reversed") Times (Const (I 10))) Plus (Var "digit")),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "reversed")])
+
+" {int a; int b; int temp; read a; read b;\n while (b > 0)\n  {\n     temp := a - (a / b * b);\n     a := b;\n     b := temp\n  };\n write a\n }"
+Just (Block [("a",It),("b",It),("temp",It)] [Read "a",Read "b",While (Op (Var "b") Gt (Const (I 0))) (Block [] [Assign "temp" (Op (Var "a") Minus (Op (Op (Var "a") Div (Var "b")) Times (Var "b"))),Assign "a" (Var "b"),Assign "b" (Var "temp")]),Write (Var "a")])
+
+" {int n; int div; bool isPrime; read n;\n isPrime := true;\n if (n < 2)\n     isPrime := false;\n div := 2;\n while (div * div <= n)\n  {\n     if ((n - (n / div * div)) == 0)\n         isPrime := false;\n     div++\n  };\n write isPrime\n }"
+Just (Block [("n",It),("div",It),("isPrime",Bt)] [Read "n",Assign "isPrime" (Const (B True)),If (Op (Var "n") Lt (Const (I 2))) (Assign "isPrime" (Const (B False))),Assign "div" (Const (I 2)),While (Op (Op (Var "div") Times (Var "div")) Le (Var "n")) (Block [] [If (Op (Op (Var "n") Minus (Op (Op (Var "n") Div (Var "div")) Times (Var "div"))) Eql (Const (I 0))) (Assign "isPrime" (Const (B False))),Incr "div"]),Write (Var "isPrime")])
+
+" {int n; int sum; read n;\n sum := 0;\n while (n > 0)\n  {\n     sum := sum + (n - (n / 10 * 10));\n     n := n / 10\n  };\n write sum\n }"
+Just (Block [("n",It),("sum",It)] [Read "n",Assign "sum" (Const (I 0)),While (Op (Var "n") Gt (Const (I 0))) (Block [] [Assign "sum" (Op (Var "sum") Plus (Op (Var "n") Minus (Op (Op (Var "n") Div (Const (I 10))) Times (Const (I 10))))),Assign "n" (Op (Var "n") Div (Const (I 10)))]),Write (Var "sum")])
+
+" {int n; int result; read n;\n result := 1;\n while (n > 1)\n  {\n     result := result * n;\n     n := n - 1\n  };\n write result\n }"
+Just (Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "result" (Op (Var "result") Times (Var "n")),Assign "n" (Op (Var "n") Minus (Const (I 1)))]),Write (Var "result")])
+
+" {int n; int temp; read n;\n while (n > 1)\n  {\n     temp := n / 2 * 2;\n     if (n == temp)\n         n := n / 2;\n     if (n > temp)\n         n := 3 * n + 1;\n     write n\n  }\n }"
+Just (Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])])

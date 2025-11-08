@@ -1,0 +1,230 @@
+([], [("x", I 5)], []) "x" (I 10)
+([],[("x",I 10)],[])
+
+([], [("flag", B True)], []) "flag" (B False)
+([],[("flag",B False)],[])
+
+([], [("flag", B False)], []) "flag" (B True)
+([],[("flag",B True)],[])
+
+([], [("a", I 1), ("b", I 2)], []) "a" (I 100)
+([],[("a",I 100),("b",I 2)],[])
+
+([], [("a", I 1), ("b", I 2)], []) "b" (I 200)
+([],[("a",I 1),("b",I 200)],[])
+
+([], [("x", I 0)], []) "x" (I 1)
+([],[("x",I 1)],[])
+
+([], [("x", I 1)], []) "x" (I 2)
+([],[("x",I 2)],[])
+
+([], [("x", I 2)], []) "x" (I 3)
+([],[("x",I 3)],[])
+
+([], [("x", I 3)], []) "x" (I 4)
+([],[("x",I 4)],[])
+
+([], [("x", I 4)], []) "x" (I 5)
+([],[("x",I 5)],[])
+
+([], [("x", I 5)], []) "x" (I 0)
+([],[("x",I 0)],[])
+
+([], [("isTrue", B False)], []) "isTrue" (B True)
+([],[("isTrue",B True)],[])
+
+([], [("isTrue", B True)], []) "isTrue" (B False)
+([],[("isTrue",B False)],[])
+
+([], [("val", I 42)], []) "val" (I 24)
+([],[("val",I 24)],[])
+
+([], [("n", I 0)], []) "n" (I 10)
+([],[("n",I 10)],[])
+
+([], [("n", I 10)], []) "n" (I 20)
+([],[("n",I 20)],[])
+
+([], [("n", I 20)], []) "n" (I 30)
+([],[("n",I 30)],[])
+
+([], [("n", I 30)], []) "n" (I 40)
+([],[("n",I 40)],[])
+
+([], [("n", I 40)], []) "n" (I 50)
+([],[("n",I 50)],[])
+
+([], [("sum", I 55)], []) "sum" (I 100)
+([],[("sum",I 100)],[])
+
+([], [("product", I 120)], []) "product" (I 144)
+([],[("product",I 144)],[])
+
+([], [("max", I 100)], []) "max" (I 200)
+([],[("max",I 200)],[])
+
+(["input"], [("in", I 7), ("out", I 0)], ["result"]) "in" (I 15)
+(["input"],[("in",I 15),("out",I 0)],["result"])
+
+(["input"], [("in", I 7), ("out", I 0)], ["result"]) "out" (I 42)
+(["input"],[("in",I 7),("out",I 42)],["result"])
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "counter" (I 150)
+([],[("counter",I 150),("limit",I 200),("done",B False)],[])
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "limit" (I 300)
+([],[("counter",I 100),("limit",I 300),("done",B False)],[])
+
+([], [("counter", I 100), ("limit", I 200), ("done", B False)], []) "done" (B True)
+([],[("counter",I 100),("limit",I 200),("done",B True)],[])
+
+([], [("x", I 0), ("y", B False), ("z", I 1)], []) "x" (I 99)
+([],[("x",I 99),("y",B False),("z",I 1)],[])
+
+([], [("x", I 0), ("y", B False), ("z", I 1)], []) "y" (B True)
+([],[("x",I 0),("y",B True),("z",I 1)],[])
+
+([], [("x", I 0), ("y", B False), ("z", I 1)], []) "z" (I 100)
+([],[("x",I 0),("y",B False),("z",I 100)],[])
+
+([], [("outer", I 10), ("inner", I 5)], []) "inner" (I 50)
+([],[("outer",I 10),("inner",I 50)],[])
+
+([], [("outer", I 10), ("inner", I 5)], []) "outer" (I 100)
+([],[("outer",I 100),("inner",I 5)],[])
+
+([], [("val", I 999), ("flag", B True), ("tmp", I 0)], []) "val" (I 0)
+([],[("val",I 0),("flag",B True),("tmp",I 0)],[])
+
+([], [("val", I 999), ("flag", B True), ("tmp", I 0)], []) "flag" (B False)
+([],[("val",I 999),("flag",B False),("tmp",I 0)],[])
+
+([], [("val", I 999), ("flag", B True), ("tmp", I 0)], []) "tmp" (I 1)
+([],[("val",I 999),("flag",B True),("tmp",I 1)],[])
+
+([], [("loop", B True), ("count", I 5)], []) "loop" (B False)
+([],[("loop",B False),("count",I 5)],[])
+
+([], [("loop", B True), ("count", I 5)], []) "count" (I 10)
+([],[("loop",B True),("count",I 10)],[])
+
+([], [("found", B False)], []) "found" (B True)
+([],[("found",B True)],[])
+
+([], [("active", B True)], []) "active" (B False)
+([],[("active",B False)],[])
+
+([], [("index", I 0), ("value", I 42)], []) "index" (I 5)
+([],[("index",I 5),("value",I 42)],[])
+
+([], [("index", I 0), ("value", I 42)], []) "value" (I 100)
+([],[("index",I 0),("value",I 100)],[])
+
+([], [("temp", I 25)], []) "temp" (I 0)
+([],[("temp",I 0)],[])
+
+([], [("status", B True)], []) "status" (B False)
+([],[("status",B False)],[])
+
+([], [("result", I 1)], []) "result" (I 0)
+([],[("result",I 0)],[])
+
+([], [("error", B False)], []) "error" (B True)
+([],[("error",B True)],[])
+
+([], [("x1", I 1), ("x2", I 2), ("x3", I 3)], []) "x1" (I 10)
+([],[("x1",I 10),("x2",I 2),("x3",I 3)],[])
+
+([], [("x1", I 1), ("x2", I 2), ("x3", I 3)], []) "x2" (I 20)
+([],[("x1",I 1),("x2",I 20),("x3",I 3)],[])
+
+([], [("x1", I 1), ("x2", I 2), ("x3", I 3)], []) "x3" (I 30)
+([],[("x1",I 1),("x2",I 2),("x3",I 30)],[])
+
+([], [("p", B True), ("q", B False), ("r", B True)], []) "p" (B False)
+([],[("p",B False),("q",B False),("r",B True)],[])
+
+([], [("p", B True), ("q", B False), ("r", B True)], []) "q" (B True)
+([],[("p",B True),("q",B True),("r",B True)],[])
+
+([], [("p", B True), ("q", B False), ("r", B True)], []) "r" (B False)
+([],[("p",B True),("q",B False),("r",B False)],[])
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "start" (I 10)
+([],[("start",I 10),("end",I 100),("step",I 1)],[])
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "end" (I 50)
+([],[("start",I 0),("end",I 50),("step",I 1)],[])
+
+([], [("start", I 0), ("end", I 100), ("step", I 1)], []) "step" (I 5)
+([],[("start",I 0),("end",I 100),("step",I 5)],[])
+
+([], [("enabled", B True), ("mode", I 1)], []) "enabled" (B False)
+([],[("enabled",B False),("mode",I 1)],[])
+
+([], [("enabled", B True), ("mode", I 1)], []) "mode" (I 2)
+([],[("enabled",B True),("mode",I 2)],[])
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterA" (I 10)
+([],[("counterA",I 10),("counterB",I 2),("counterC",I 3)],[])
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterB" (I 20)
+([],[("counterA",I 1),("counterB",I 20),("counterC",I 3)],[])
+
+([], [("counterA", I 1), ("counterB", I 2), ("counterC", I 3)], []) "counterC" (I 30)
+([],[("counterA",I 1),("counterB",I 2),("counterC",I 30)],[])
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit0" (B True)
+([],[("bit0",B True),("bit1",B True),("bit2",B False)],[])
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit1" (B False)
+([],[("bit0",B False),("bit1",B False),("bit2",B False)],[])
+
+([], [("bit0", B False), ("bit1", B True), ("bit2", B False)], []) "bit2" (B True)
+([],[("bit0",B False),("bit1",B True),("bit2",B True)],[])
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "total" (I 2000)
+([],[("total",I 2000),("count",I 10),("avg",I 100)],[])
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "count" (I 20)
+([],[("total",I 1000),("count",I 20),("avg",I 100)],[])
+
+([], [("total", I 1000), ("count", I 10), ("avg", I 100)], []) "avg" (I 50)
+([],[("total",I 1000),("count",I 10),("avg",I 50)],[])
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "input1" (I 50)
+([],[("input1",I 50),("input2",I 10),("output",I 0)],[])
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "input2" (I 100)
+([],[("input1",I 5),("input2",I 100),("output",I 0)],[])
+
+([], [("input1", I 5), ("input2", I 10), ("output", I 0)], []) "output" (I 15)
+([],[("input1",I 5),("input2",I 10),("output",I 15)],[])
+
+([], [("prime", B True), ("composite", B False)], []) "prime" (B False)
+([],[("prime",B False),("composite",B False)],[])
+
+([], [("prime", B True), ("composite", B False)], []) "composite" (B True)
+([],[("prime",B True),("composite",B True)],[])
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "odd" (B False)
+([],[("odd",B False),("even",B False),("zero",B False)],[])
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "even" (B True)
+([],[("odd",B True),("even",B True),("zero",B False)],[])
+
+([], [("odd", B True), ("even", B False), ("zero", B False)], []) "zero" (B True)
+([],[("odd",B True),("even",B False),("zero",B True)],[])
+
+([], [("i", I 1), ("j", I 2), ("k", I 3), ("l", I 4)], []) "i" (I 100)
+([],[("i",I 100),("j",I 2),("k",I 3),("l",I 4)],[])
+
+([], [("i", I 1), ("j", I 2), ("k", I 3), ("l", I 4)], []) "j" (I 200)
+([],[("i",I 1),("j",I 200),("k",I 3),("l",I 4)],[])
+
+([], [("i", I 1), ("j", I 2), ("k", I 3), ("l", I 4)], []) "k" (I 300)
+([],[("i",I 1),("j",I 2),("k",I 300),("l",I 4)],[])
+
+([], [("i", I 1), ("j", I 2), ("k", I 3), ("l", I 4)], []) "l" (I 400)
+([],[("i",I 1),("j",I 2),("k",I 3),("l",I 400)],[])

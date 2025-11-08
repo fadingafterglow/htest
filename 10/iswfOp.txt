@@ -1,0 +1,149 @@
+Plus [It, It]
+Just It
+
+Plus [It]
+Nothing
+
+Plus [It, Bt]
+Nothing
+
+Plus [Bt, It]
+Nothing
+
+Plus [Bt, Bt]
+Nothing
+
+Plus []
+Nothing
+
+Minus [It, It]
+Just It
+
+Minus [It, Bt]
+Nothing
+
+Minus [Bt, Bt]
+Nothing
+
+Times [It, It]
+Just It
+
+Times [It]
+Nothing
+
+Times [Bt, It]
+Nothing
+
+Div [It, It]
+Just It
+
+Div [It, Bt]
+Nothing
+
+Div [Bt, Bt]
+Nothing
+
+Div []
+Nothing
+
+Gt [It, It]
+Just Bt
+
+Gt [It]
+Nothing
+
+Gt [It, Bt]
+Nothing
+
+Gt [Bt, It]
+Nothing
+
+Gt [Bt, Bt]
+Nothing
+
+Ge [It, It]
+Just Bt
+
+Ge [It, Bt]
+Nothing
+
+Lt [It, It]
+Just Bt
+
+Lt [Bt, Bt]
+Nothing
+
+Le [It, It]
+Just Bt
+
+Le [It]
+Nothing
+
+Eql [It, It]
+Just Bt
+
+Eql [It, Bt]
+Nothing
+
+Eql [Bt, Bt]
+Nothing
+
+Eql []
+Nothing
+
+And [Bt, Bt]
+Just Bt
+
+And [Bt]
+Nothing
+
+And [Bt, It]
+Nothing
+
+And [It, Bt]
+Nothing
+
+And [It, It]
+Nothing
+
+Or [Bt, Bt]
+Just Bt
+
+Or [Bt, It]
+Nothing
+
+Or [It, It]
+Nothing
+
+Or []
+Nothing
+
+Plus [It, It, It]
+Nothing
+
+And [Bt, Bt, Bt]
+Nothing
+
+Eql [It, It]
+Just Bt
+
+Gt [It, It]
+Just Bt
+
+Div [It, It]
+Just It
+
+Times [It, It]
+Just It
+
+Minus [It, It]
+Just It
+
+Le [It, It]
+Just Bt
+
+Lt [It, It]
+Just Bt
+
+Ge [It, It]
+Just Bt

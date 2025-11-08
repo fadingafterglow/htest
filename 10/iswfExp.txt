@@ -1,0 +1,149 @@
+(Const (I 0)) []
+Just It
+
+(Const (I 5)) []
+Just It
+
+(Const (B True)) []
+Just Bt
+
+(Const (B False)) []
+Just Bt
+
+(Const (I 10)) [("x", It)]
+Just It
+
+(Const (B True)) [("flag", Bt)]
+Just Bt
+
+(Var "x") [("x", It)]
+Just It
+
+(Var "flag") [("flag", Bt)]
+Just Bt
+
+(Var "y") [("x", It), ("y", It), ("z", Bt)]
+Just It
+
+(Var "z") [("x", It), ("y", It), ("z", Bt)]
+Just Bt
+
+(Var "a") []
+Nothing
+
+(Var "b") [("a", It)]
+Nothing
+
+(Var "x") [("y", Bt)]
+Nothing
+
+(Var "flag") [("x", It)]
+Nothing
+
+(Op (Const (I 1)) Plus (Const (I 2))) []
+Just It
+
+(Op (Var "x") Minus (Var "y")) [("x", It), ("y", It)]
+Just It
+
+(Op (Const (I 4)) Times (Const (I 5))) []
+Just It
+
+(Op (Var "a") Div (Var "b")) [("a", It), ("b", It)]
+Just It
+
+(Op (Const (I 1)) Plus (Const (B True))) []
+Nothing
+
+(Op (Var "x") Minus (Var "flag")) [("x", It), ("flag", Bt)]
+Nothing
+
+(Op (Const (B False)) Times (Const (I 2))) []
+Nothing
+
+(Op (Var "bool") Div (Var "int")) [("bool", Bt), ("int", It)]
+Nothing
+
+(Op (Const (I 1)) Gt (Const (I 2))) []
+Just Bt
+
+(Op (Var "x") Ge (Var "y")) [("x", It), ("y", It)]
+Just Bt
+
+(Op (Const (I 3)) Lt (Const (I 4))) []
+Just Bt
+
+(Op (Var "a") Le (Var "b")) [("a", It), ("b", It)]
+Just Bt
+
+(Op (Const (I 5)) Eql (Const (I 5))) []
+Just Bt
+
+(Op (Const (I 1)) Gt (Const (B True))) []
+Nothing
+
+(Op (Var "x") Ge (Var "flag")) [("x", It), ("flag", Bt)]
+Nothing
+
+(Op (Const (B False)) Lt (Const (I 2))) []
+Nothing
+
+(Op (Const (B True)) And (Const (B False))) []
+Just Bt
+
+(Op (Var "p") Or (Var "q")) [("p", Bt), ("q", Bt)]
+Just Bt
+
+(Op (Const (B True)) And (Const (I 1))) []
+Nothing
+
+(Op (Var "flag") Or (Var "x")) [("flag", Bt), ("x", It)]
+Nothing
+
+(Op (Const (I 2)) And (Const (B False))) []
+Nothing
+
+(Op (Op (Const (I 1)) Plus (Const (I 2))) Times (Const (I 3))) []
+Just It
+
+(Op (Const (I 10)) Minus (Op (Const (I 5)) Div (Const (I 2)))) []
+Just It
+
+(Op (Op (Const (I 4)) Times (Const (I 5))) Eql (Const (I 20))) []
+Just Bt
+
+(Op (Const (B True)) And (Op (Const (B False)) Or (Const (B True)))) []
+Just Bt
+
+(Op (Op (Const (I 3)) Gt (Const (I 2))) Or (Op (Const (B True)) And (Const (B False)))) []
+Just Bt
+
+(Op (Var "x") Plus (Op (Var "y") Times (Const (I 2)))) [("x", It), ("y", It)]
+Just It
+
+(Op (Op (Var "a") Div (Var "b")) Eql (Const (I 5))) [("a", It), ("b", It)]
+Just Bt
+
+(Op (Var "flag1") And (Op (Var "flag2") Or (Const (B True)))) [("flag1", Bt), ("flag2", Bt)]
+Just Bt
+
+(Op (Var "m") Minus (Op (Var "n") Plus (Const (B True)))) [("m", It), ("n", It)]
+Nothing
+
+(Op (Op (Var "p") Lt (Var "q")) Or (Const (B False))) [("p", It), ("q", It)]
+Just Bt
+
+(Op (Const (I 1)) Plus (Var "x")) [("x", Bt)]
+Nothing
+
+(Op (Var "flag") And (Const (I 2))) [("flag", Bt)]
+Nothing
+
+(Var "unknown") [("known", It)]
+Nothing
+
+(Const (I 0)) [("x", Bt)]
+Just It
+
+(Op (Const (B True)) Eql (Const (B False))) []
+Nothing
