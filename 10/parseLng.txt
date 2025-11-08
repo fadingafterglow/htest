@@ -476,3 +476,6 @@ Just (Block [("n",It),("result",It)] [Read "n",Assign "result" (Const (I 1)),Whi
 
 " {int n; int temp; read n;\n while (n > 1)\n  {\n     temp := n / 2 * 2;\n     if (n == temp)\n         n := n / 2;\n     if (n > temp)\n         n := 3 * n + 1;\n     write n\n  }\n }"
 Just (Block [("n",It),("temp",It)] [Read "n",While (Op (Var "n") Gt (Const (I 1))) (Block [] [Assign "temp" (Op (Op (Var "n") Div (Const (I 2))) Times (Const (I 2))),If (Op (Var "n") Eql (Var "temp")) (Assign "n" (Op (Var "n") Div (Const (I 2)))),If (Op (Var "n") Gt (Var "temp")) (Assign "n" (Op (Op (Const (I 3)) Times (Var "n")) Plus (Const (I 1)))),Write (Var "n")])])
+
+"b := 5>=4==true"
+Nothing
